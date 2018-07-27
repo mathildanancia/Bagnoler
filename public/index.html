@@ -3,15 +3,17 @@
 
 <head>
   <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 
   <!-- CodeMirror -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
-
-  <script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>
-  <script src="dist/firepad.js"></script>
+<!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
+ -->
+<!--   <script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>-->
+ <script src="dist/firepad.js"></script>
 
 
 <!-- Include example userlist script / CSS.
@@ -21,6 +23,7 @@
 
   <link rel="stylesheet" href="firepad-userlist.css" />
   <link rel="stylesheet" href="dist/firepad.css" />
+  <link rel="stylesheet" href="dist/codemirror.css" />
 
   <style>
     html { height: 100%; }
@@ -31,6 +34,7 @@
       position: absolute; left: 0; top: 0; bottom: 0; height: auto;
       width: 175px;
     }
+
     #firepad {
       position: absolute; left: 175px; top: 0; bottom: 0; right: 0; height: auto;
     }
@@ -63,16 +67,29 @@
 
       //// Create Firepad (with rich text features and our desired userId).
       var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
-          { richTextToolbar: true, richTextShortcuts: true, userId: userId});
+          { richTextToolbar: false, richTextShortcuts: true, userId: userId});
 
       //// Create FirepadUserList (with our desired userId).
       var firepadUserList = FirepadUserList.fromDiv(firepadRef.child('users'),
           document.getElementById('userlist'), userId);
 
-      //// Initialize contents.
-      firepad.on('ready', function() {
-        if (!firepad.isHistoryEmpty()) {
-          firepad.setHtml.style = "font-size: 30px;"
+      //// Disable delete key
+      codeMirror.setOption(
+        "extraKeys", {
+            Backspace: function(cm) {
+              var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
+              cm.replaceSelection(spaces);
+            }
+      });
+
+      //// Disable selection delete
+      codeMirror.on("beforeSelectionChange", function(e, range) {
+        var start = range.ranges[0].anchor.ch;
+        var end = range.ranges[0].head.ch;
+        if (start - end != 0 ) {
+          codeMirror.setOption('readOnly', true);
+        } else {
+          codeMirror.setOption('readOnly', false);
         }
       });
 
