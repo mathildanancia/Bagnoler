@@ -100,12 +100,6 @@
       //     }
       //   });
       // });
-
-      // var fonts = ['Comic Sans MS', 'Times', 'Times New Roman', 'Impact', 'Arial', 'Verdana'];
-      // randomFont = Math.round(Math.random() * 6);
-      // codeMirror.getWrapperElement().setAttribute('style', 'font-family:' + fonts[randomFont]);
-
-
     }
 
 
@@ -116,24 +110,6 @@
     var boldAr = new Array();
     boldAr[0] = "bold";
     boldAr[1] = "normal";
-
-    // var fonts = new Array();
-    // fonts[0] = 'Times';
-    // fonts[1] = 'bas';
-    // fonts[2] = 'beb';
-    // fonts[3] = 'big';
-    // fonts[4] = 'gil';
-    // fonts[5] = 'vec';
-    // fonts[6] = 'tex';
-    // fonts[7] = 'ame';
-    // fonts[8] = 'her';
-    // fonts[9] = 'gill';
-    // fonts[10] = 'din';
-    // fonts[11] = 'pei';
-    // fonts[12] = 'tim';
-    // fonts[13] = 'uni';
-    // fonts[14] = 'akz';
-    // fonts[15] = 'ver';
 
 
     document.body.onclick = function(){
@@ -149,18 +125,18 @@
 
     }
 
-    function getFonts(){
+    // function getFonts(){
 
-      if(randomItalic == 1){
-      document.execCommand("italic", false, null);
-      }
-      if(randomBold == 1){
-      document.execCommand("bold", false, null);
-      }
-      document.execCommand("fontName", false, fonts[randomFont]);
-      console.log(fonts[randomFont]);
+    //   if(randomItalic == 1){
+    //   document.execCommand("italic", false, null);
+    //   }
+    //   if(randomBold == 1){
+    //   document.execCommand("bold", false, null);
+    //   }
+    //   document.execCommand("fontName", false, fonts[randomFont]);
+    //   console.log(fonts[randomFont]);
 
-    }
+    // }
 
     // Helper to get hash from end of URL or generate a random one.
     function getExampleRef() {

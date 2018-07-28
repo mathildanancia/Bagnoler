@@ -70,8 +70,10 @@
 .firepad-f-impact { font-family: Impact, Charcoal, sans-serif; }
 .firepad-f-times-new-roman { font-family: "Times New Roman", Times, serif; }
 .firepad-f-verdana { font-family: Verdana, Geneva, sans-serif; }
-.firepad-f-bask { font-family: bask, sans-serif; }
-.firepad-f-beb { font-family: "beb", sans-serif; }
+.firepad-f-akzi { font-family: 'akzi'; }
+.firepad-f-amer { font-family: 'amer'; }
+.firepad-f-bask { font-family: 'bask'; }
+.firepad-f-bebas { font-family: 'bebas'; }
 
 .firepad-la-left { text-align: left; }
 .firepad-la-center { text-align: center; }
@@ -264,21 +266,10 @@ a.firepad-btn:active {
   in the CSS (to avoid needing to distribute a font file with firepad).
  */
 @font-face {font-family: 'firepad';src:url('firepad.eot');}
-@font-face { font-family: bas; src: url('bask.otf'); }
-@font-face { font-family: beb; font-weight: bold; src: url('fonts/bebas.otf') format("opentype");}
-@font-face { font-family: big; src: url('bigc.otf') format("opentype");}
-@font-face { font-family: gil; src: url('gill.otf') format("opentype");}
-@font-face { font-family: vec; src: url('vecto.otf') format("opentype");}
-@font-face { font-family: tex; src: url('text.otf') format("opentype");}
-@font-face { font-family: ame; src: url('amer.otf') format("opentype");}
-@font-face { font-family: her; src: url('herm.otf') format("opentype");}
-@font-face { font-family: gill; font-weight: bold; src: url('gill2.otf') format("opentype");}
-@font-face { font-family: din; src: url('din.otf') format("opentype");}
-@font-face { font-family: pei; src: url('peig.otf') format("opentype");}
-@font-face { font-family: tim; src: url('times.otf') format("opentype");}
-@font-face { font-family: uni; src: url('univ.otf') format("opentype");}
-@font-face { font-family: akz; src: url('akzi.otf') format("opentype");}
-@font-face { font-family: ver; src: url('vers.otf') format("opentype");}
+/*@font-face { font-family: akzi; src: url('font/akzi.otf') format("opentype");}
+*/@font-face { font-family: amer; src: url('font/amer.otf') format("opentype");}
+@font-face { font-family: bask; src: url('font/bask.otf'); }
+@font-face { font-family: bebas; src: url('font/bebas.otf') format("opentype");}
 
 @font-face {
   font-family: 'firepad';
