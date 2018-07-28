@@ -15,11 +15,9 @@
 <!--   <script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>-->
  <script src="dist/firepad.js"></script>
 
-
 <!-- Include example userlist script / CSS.
    Can be downloaded from: https://github.com/firebase/firepad/tree/master/examples/ -->
   <script src="firepad-userlist.js"></script>
-
 
   <link rel="stylesheet" href="firepad-userlist.css" />
   <link rel="stylesheet" href="dist/firepad.css" />
@@ -32,11 +30,11 @@
        For demo purposes, we make the user list 175px and firepad fill the rest of the page. */
     #userlist {
       position: absolute; left: 0; top: 0; bottom: 0; height: auto;
-      width: 175px;
+      width: 0px;
     }
 
     #firepad {
-      position: absolute; left: 175px; top: 0; bottom: 0; right: 0; height: auto;
+      position: absolute; left: 0; top: 0; bottom: 0; right: 0; height: auto;
     }
   </style>
 </head>
@@ -67,7 +65,7 @@
 
       //// Create Firepad (with rich text features and our desired userId).
       var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
-          { richTextToolbar: false, richTextShortcuts: true, userId: userId});
+          { richTextToolbar: true, richTextShortcuts: true, userId: userId});
 
       //// Create FirepadUserList (with our desired userId).
       var firepadUserList = FirepadUserList.fromDiv(firepadRef.child('users'),
@@ -82,6 +80,7 @@
             }
       });
 
+
       //// Disable selection delete
       codeMirror.on("beforeSelectionChange", function(e, range) {
         var start = range.ranges[0].anchor.ch;
@@ -93,18 +92,75 @@
         }
       });
 
-      firepad.on('synced', function(e) {
-        document.addEventListener("keydown", function(event) {
-          console.log(event.which);
-          if (event.which === 8) {
-          firepad.setUserId(userId);
-          console.log(userId);
-          }
-        });
-      });
+      // firepad.on('synced', function(e) {
+      //   document.addEventListener("keydown", function(event) {
+      //     if (event.which === 8) {
+      //     firepad.setUserId(userId);
+      //     console.log(userId);
+      //     }
+      //   });
+      // });
+
+      // var fonts = ['Comic Sans MS', 'Times', 'Times New Roman', 'Impact', 'Arial', 'Verdana'];
+      // randomFont = Math.round(Math.random() * 6);
+      // codeMirror.getWrapperElement().setAttribute('style', 'font-family:' + fonts[randomFont]);
+
 
     }
 
+
+    var italicAr = new Array();
+    italicAr[0] = "italic";
+    italicAr[1] = "normal";
+
+    var boldAr = new Array();
+    boldAr[0] = "bold";
+    boldAr[1] = "normal";
+
+    // var fonts = new Array();
+    // fonts[0] = 'Times';
+    // fonts[1] = 'bas';
+    // fonts[2] = 'beb';
+    // fonts[3] = 'big';
+    // fonts[4] = 'gil';
+    // fonts[5] = 'vec';
+    // fonts[6] = 'tex';
+    // fonts[7] = 'ame';
+    // fonts[8] = 'her';
+    // fonts[9] = 'gill';
+    // fonts[10] = 'din';
+    // fonts[11] = 'pei';
+    // fonts[12] = 'tim';
+    // fonts[13] = 'uni';
+    // fonts[14] = 'akz';
+    // fonts[15] = 'ver';
+
+
+    document.body.onclick = function(){
+
+      // randomItalic = Math.round(Math.random() * 1);
+      // randomBold = Math.round(Math.random() * 1);
+      // randomFont = Math.round(Math.random() * 15);
+
+      // loadValue();
+      // console.log(randomFont);
+      // getFonts();
+      // setTimeout(function(){getFonts();},500);
+
+    }
+
+    function getFonts(){
+
+      if(randomItalic == 1){
+      document.execCommand("italic", false, null);
+      }
+      if(randomBold == 1){
+      document.execCommand("bold", false, null);
+      }
+      document.execCommand("fontName", false, fonts[randomFont]);
+      console.log(fonts[randomFont]);
+
+    }
 
     // Helper to get hash from end of URL or generate a random one.
     function getExampleRef() {

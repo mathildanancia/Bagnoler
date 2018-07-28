@@ -1747,7 +1747,7 @@ firepad.RichTextToolbar = (function(global) {
     var self = this;
     iconName = iconName || eventName;
     var btn = utils.elt('a', [utils.elt('span', '', { 'class': 'firepad-tb-' + iconName } )], { 'class': 'firepad-btn' });
-    utils.on(btn, 'click', utils.stopEventAnd(function() { self.trigger(eventName); }));
+    utils.on(btn, 'load', utils.stopEventAnd(function() { self.trigger(eventName); }));
     return btn;
   }
 
@@ -1755,69 +1755,70 @@ firepad.RichTextToolbar = (function(global) {
     var self = this;
 
     var font = this.makeFontDropdown_();
-    var fontSize = this.makeFontSizeDropdown_();
-    var color = this.makeColorDropdown_();
+    // var fontSize = this.makeFontSizeDropdown_();
+    // var color = this.makeColorDropdown_();
 
     var toolbarOptions = [
-      utils.elt('div', [font], { 'class': 'firepad-btn-group'}),
-      utils.elt('div', [fontSize], { 'class': 'firepad-btn-group'}),
-      utils.elt('div', [color], { 'class': 'firepad-btn-group'}),
-      utils.elt('div', [self.makeButton_('bold'), self.makeButton_('italic'), self.makeButton_('underline'), self.makeButton_('strike', 'strikethrough')], { 'class': 'firepad-btn-group'}),
-      utils.elt('div', [self.makeButton_('unordered-list', 'list-2'), self.makeButton_('ordered-list', 'numbered-list'), self.makeButton_('todo-list', 'list')], { 'class': 'firepad-btn-group'}),
-      utils.elt('div', [self.makeButton_('indent-decrease'), self.makeButton_('indent-increase')], { 'class': 'firepad-btn-group'}),
-      utils.elt('div', [self.makeButton_('left', 'paragraph-left'), self.makeButton_('center', 'paragraph-center'), self.makeButton_('right', 'paragraph-right')], { 'class': 'firepad-btn-group'}),
-      utils.elt('div', [self.makeButton_('undo'), self.makeButton_('redo')], { 'class': 'firepad-btn-group'})
+      // utils.elt('div', [font], { 'class': 'firepad-btn-group'}),
+      // utils.elt('div', [fontSize], { 'class': 'firepad-btn-group'}),
+      // utils.elt('div', [color], { 'class': 'firepad-btn-group'}),
+      // utils.elt('div', [self.makeButton_('bold'), self.makeButton_('italic'), self.makeButton_('underline'), self.makeButton_('strike', 'strikethrough')], { 'class': 'firepad-btn-group'}),
+      // utils.elt('div', [self.makeButton_('unordered-list', 'list-2'), self.makeButton_('ordered-list', 'numbered-list'), self.makeButton_('todo-list', 'list')], { 'class': 'firepad-btn-group'}),
+      // utils.elt('div', [self.makeButton_('indent-decrease'), self.makeButton_('indent-increase')], { 'class': 'firepad-btn-group'}),
+      // utils.elt('div', [self.makeButton_('left', 'paragraph-left'), self.makeButton_('center', 'paragraph-center'), self.makeButton_('right', 'paragraph-right')], { 'class': 'firepad-btn-group'}),
+      // utils.elt('div', [self.makeButton_('undo'), self.makeButton_('redo')], { 'class': 'firepad-btn-group'})
     ];
 
-    if (self.imageInsertionUI) {
-      toolbarOptions.push(utils.elt('div', [self.makeButton_('insert-image')], { 'class': 'firepad-btn-group' }));
-    }
+    // if (self.imageInsertionUI) {
+    //   toolbarOptions.push(utils.elt('div', [self.makeButton_('insert-image')], { 'class': 'firepad-btn-group' }));
+    // }
 
-    var toolbarWrapper = utils.elt('div', toolbarOptions, { 'class': 'firepad-toolbar-wrapper' });
-    var toolbar = utils.elt('div', null, { 'class': 'firepad-toolbar' });
+    var toolbarWrapper = utils.elt('div', toolbarOptions);
+    var toolbar = utils.elt('div', null);
     toolbar.appendChild(toolbarWrapper)
 
     return toolbar;
   };
 
+
   RichTextToolbar.prototype.makeFontDropdown_ = function() {
     // NOTE: There must be matching .css styles in firepad.css.
-    var fonts = ['Arial', 'Comic Sans MS', 'Courier New', 'Impact', 'Times New Roman', 'Verdana'];
+    var fonts = ['Comic Sans MS', 'Times', 'Times New Roman', 'Impact', 'Arial', 'Verdana'];
+    randomFont = Math.round(Math.random() * 6);
 
     var items = [];
-    for(var i = 0; i < fonts.length; i++) {
-      var content = utils.elt('span', fonts[i]);
-      content.setAttribute('style', 'font-family:' + fonts[i]);
-      items.push({ content: content, value: fonts[i] });
-    }
+    //trigger that
+      var content = utils.elt('span', 'Font');
+      content.setAttribute('style', 'font-family:' + fonts[randomFont]);
+      items.push({ content: content, value: fonts[randomFont]});
     return this.makeDropdown_('Font', 'font', items);
   };
 
-  RichTextToolbar.prototype.makeFontSizeDropdown_ = function() {
-    // NOTE: There must be matching .css styles in firepad.css.
-    var sizes = [9, 10, 12, 14, 18, 24, 32, 42];
+  // RichTextToolbar.prototype.makeFontSizeDropdown_ = function() {
+  //   // NOTE: There must be matching .css styles in firepad.css.
+  //   var sizes = [9, 10, 12, 14, 18, 24, 32, 42];
 
-    var items = [];
-    for(var i = 0; i < sizes.length; i++) {
-      var content = utils.elt('span', sizes[i].toString());
-      content.setAttribute('style', 'font-size:' + sizes[i] + 'px; line-height:' + (sizes[i]-6) + 'px;');
-      items.push({ content: content, value: sizes[i] });
-    }
-    return this.makeDropdown_('Size', 'font-size', items, 'px');
-  };
+  //   var items = [];
+  //   for(var i = 0; i < sizes.length; i++) {
+  //     var content = utils.elt('span', sizes[i].toString());
+  //     content.setAttribute('style', 'font-size:' + sizes[i] + 'px; line-height:' + (sizes[i]-6) + 'px;');
+  //     items.push({ content: content, value: sizes[i] });
+  //   }
+  //   return this.makeDropdown_('Size', 'font-size', items, 'px');
+  // };
 
-  RichTextToolbar.prototype.makeColorDropdown_ = function() {
-    var colors = ['black', 'red', 'green', 'blue', 'yellow', 'cyan', 'magenta', 'grey'];
+  // RichTextToolbar.prototype.makeColorDropdown_ = function() {
+  //   var colors = ['black', 'red', 'green', 'blue', 'yellow', 'cyan', 'magenta', 'grey'];
 
-    var items = [];
-    for(var i = 0; i < colors.length; i++) {
-      var content = utils.elt('div');
-      content.className = 'firepad-color-dropdown-item';
-      content.setAttribute('style', 'background-color:' + colors[i]);
-      items.push({ content: content, value: colors[i] });
-    }
-    return this.makeDropdown_('Color', 'color', items);
-  };
+  //   var items = [];
+  //   for(var i = 0; i < colors.length; i++) {
+  //     var content = utils.elt('div');
+  //     content.className = 'firepad-color-dropdown-item';
+  //     content.setAttribute('style', 'background-color:' + colors[i]);
+  //     items.push({ content: content, value: colors[i] });
+  //   }
+  //   return this.makeDropdown_('Color', 'color', items);
+  // };
 
   RichTextToolbar.prototype.makeDropdown_ = function(title, eventName, items, value_suffix) {
     value_suffix = value_suffix || "";
@@ -1853,6 +1854,21 @@ firepad.RichTextToolbar = (function(global) {
       }
       var element = utils.elt('a', [content]);
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////HACKED : changer de typo onclick sur le document////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      document.body.onclick = function(){
+        self.trigger(eventName, value + value_suffix);
+      }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
       utils.on(element, 'click', utils.stopEventAnd(function() {
         hideDropdown();
         self.trigger(eventName, value + value_suffix);
@@ -1865,6 +1881,7 @@ firepad.RichTextToolbar = (function(global) {
       var content = items[i].content, value = items[i].value;
       addItem(content, value);
     }
+
 
     utils.on(button, 'click', utils.stopEventAnd(function() {
       if (!justDismissed) {
@@ -4050,8 +4067,14 @@ firepad.RichTextCodeMirrorAdapter = (function () {
   var Cursor = firepad.Cursor;
 
   function RichTextCodeMirrorAdapter (rtcm) {
+
     this.rtcm = rtcm;
     this.cm = rtcm.codeMirror;
+
+    // var fonts = ['Comic Sans MS', 'Times', 'Times New Roman', 'Impact', 'Arial', 'Verdana'];
+    // randomFont = Math.round(Math.random() * 6);
+    // this.rtcm.codeMirror.getWrapperElement().setAttribute('style', 'font-family:' + fonts[randomFont]);
+
 
     bind(this, 'onChange');
     bind(this, 'onAttributesChange');
@@ -5535,6 +5558,7 @@ firepad.Firepad = (function(global) {
     this.assertReady_('setText');
     if (this.ace_) {
       return this.ace_.getSession().getDocument().setValue(textPieces);
+
     } else {
       // HACK: Hide CodeMirror during setText to prevent lots of extra renders.
       this.codeMirror_.getWrapperElement().setAttribute('style', 'display: none');
@@ -5652,6 +5676,7 @@ firepad.Firepad = (function(global) {
   Firepad.prototype.font = function(font) {
     this.richTextCodeMirror_.setAttribute(ATTR.FONT, font);
     this.codeMirror_.focus();
+
   };
 
   Firepad.prototype.color = function(color) {
@@ -5783,6 +5808,8 @@ firepad.Firepad = (function(global) {
   Firepad.prototype.addToolbar_ = function() {
     this.toolbar = new RichTextToolbar(this.imageInsertionUI);
 
+
+
     this.toolbar.on('undo', this.undo, this);
     this.toolbar.on('redo', this.redo, this);
     this.toolbar.on('bold', this.bold, this);
@@ -5820,11 +5847,6 @@ firepad.Firepad = (function(global) {
   //   poweredBy.setAttribute('target', '_blank');
   //   this.firepadWrapper_.appendChild(poweredBy)
   // };
-
-
-
-
-
 
 
 

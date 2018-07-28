@@ -1,9 +1,24 @@
 /* BASICS */
 
+@font-face {font-family: 'firepad';src:url('firepad.eot');}
+@font-face { font-family: bas; src: url('bask.otf'); }
+@font-face { font-family: beb; font-weight: bold; src: url('fonts/bebas.otf') format("opentype");}
+@font-face { font-family: big; src: url('bigc.otf') format("opentype");}
+@font-face { font-family: gil; src: url('gill.otf') format("opentype");}
+@font-face { font-family: vec; src: url('vecto.otf') format("opentype");}
+@font-face { font-family: tex; src: url('text.otf') format("opentype");}
+@font-face { font-family: ame; src: url('amer.otf') format("opentype");}
+@font-face { font-family: her; src: url('herm.otf') format("opentype");}
+@font-face { font-family: gill; font-weight: bold; src: url('gill2.otf') format("opentype");}
+@font-face { font-family: din; src: url('din.otf') format("opentype");}
+@font-face { font-family: pei; src: url('peig.otf') format("opentype");}
+@font-face { font-family: tim; src: url('times.otf') format("opentype");}
+@font-face { font-family: uni; src: url('univ.otf') format("opentype");}
+@font-face { font-family: akz; src: url('akzi.otf') format("opentype");}
+@font-face { font-family: ver; src: url('vers.otf') format("opentype");}
+
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
-  font-family: monospace;
-  height: 300px;
   color: black;
   direction: ltr;
 }
@@ -241,13 +256,14 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
   border-width: 0;
   background: transparent;
-  font-family: inherit;
+/*  font-family: beb;
+*/  font-family: inherit;
   font-size: 50px;
   line-height: 52px;
   margin: 0;
   white-space: pre;
   word-wrap: normal;
-  color: inherit;
+  color: black;
   z-index: 2;
   position: relative;
   overflow: visible;

@@ -19,16 +19,16 @@
 }
 
 .firepad-with-toolbar .CodeMirror {
-  top: 83px;
   padding-left: 10px;
 }
 
 .firepad-with-toolbar .CodeMirror-lines {
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .firepad-toolbar {
   height: 82px;
+  margin-top: -90px;
   line-height: 82px;
   padding-left: 10px;
   border-bottom: 1px solid #c9c9c9;
@@ -48,8 +48,8 @@
 }
 
 .firepad-richtext .CodeMirror {
-  font-family: Verdana, sans-serif;
-  font-size: 14px;
+/*  font-family: Verdana, sans-serif;
+*/  /*font-size: 14px;*/
 }
 
 .firepad-spacer {
@@ -70,6 +70,8 @@
 .firepad-f-impact { font-family: Impact, Charcoal, sans-serif; }
 .firepad-f-times-new-roman { font-family: "Times New Roman", Times, serif; }
 .firepad-f-verdana { font-family: Verdana, Geneva, sans-serif; }
+.firepad-f-bask { font-family: bask, sans-serif; }
+.firepad-f-beb { font-family: "beb", sans-serif; }
 
 .firepad-la-left { text-align: left; }
 .firepad-la-center { text-align: center; }
@@ -116,7 +118,7 @@ pre.firepad-lt-o, pre.firepad-lt-u, pre.firepad-lt-t, pre.firepad-lt-tc {
 }
 
 a.firepad-btn, a.firepad-btn:visited, a.firepad-btn:active {
-  font-family: "Arial" sans-serif;
+  font-family: "Times" sans-serif;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
@@ -261,10 +263,23 @@ a.firepad-btn:active {
   Note: When you download the generated font, turn on the "Base 64 Encode ..." option to generate the font inline
   in the CSS (to avoid needing to distribute a font file with firepad).
  */
-@font-face {
-  font-family: 'firepad';
-  src:url('firepad.eot');
-}
+@font-face {font-family: 'firepad';src:url('firepad.eot');}
+@font-face { font-family: bas; src: url('bask.otf'); }
+@font-face { font-family: beb; font-weight: bold; src: url('fonts/bebas.otf') format("opentype");}
+@font-face { font-family: big; src: url('bigc.otf') format("opentype");}
+@font-face { font-family: gil; src: url('gill.otf') format("opentype");}
+@font-face { font-family: vec; src: url('vecto.otf') format("opentype");}
+@font-face { font-family: tex; src: url('text.otf') format("opentype");}
+@font-face { font-family: ame; src: url('amer.otf') format("opentype");}
+@font-face { font-family: her; src: url('herm.otf') format("opentype");}
+@font-face { font-family: gill; font-weight: bold; src: url('gill2.otf') format("opentype");}
+@font-face { font-family: din; src: url('din.otf') format("opentype");}
+@font-face { font-family: pei; src: url('peig.otf') format("opentype");}
+@font-face { font-family: tim; src: url('times.otf') format("opentype");}
+@font-face { font-family: uni; src: url('univ.otf') format("opentype");}
+@font-face { font-family: akz; src: url('akzi.otf') format("opentype");}
+@font-face { font-family: ver; src: url('vers.otf') format("opentype");}
+
 @font-face {
   font-family: 'firepad';
   src: url(data:application/font-woff;charset=utf-8;base64,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) format('woff'),

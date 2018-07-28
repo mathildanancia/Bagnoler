@@ -51,9 +51,9 @@ var FirepadUserList = (function() {
     });
 
     return elt('div', [
-      elt('span', 'ONLINE ('),
-      counterSpan,
-      elt('span', ')')
+      // elt('span', 'ONLINE ('),
+      // counterSpan,
+      // elt('span', ')')
     ], { 'class': 'firepad-userlist-heading' });
   };
 
@@ -71,7 +71,7 @@ var FirepadUserList = (function() {
     var nameInput = elt('input', null, { type: 'text', 'class': 'firepad-userlist-name-input'} );
     nameInput.value = this.displayName_;
 
-    var nameHint = elt('div', 'ENTER YOUR NAME', { 'class': 'firepad-userlist-name-hint'} );
+    var nameHint = elt('div', { 'class': 'firepad-userlist-name-hint'} );
     if (this.hasName_) nameHint.style.display = 'none';
 
     // Update Firebase when name changes.
@@ -88,7 +88,7 @@ var FirepadUserList = (function() {
 
     var nameDiv = elt('div', [nameInput, nameHint]);
 
-    return elt('div', [ colorDiv, nameDiv ], {
+    return elt('div', [ colorDiv ], {
       'class': 'firepad-userlist-user ' + 'firepad-user-' + this.userId_
     });
   };
@@ -119,7 +119,7 @@ var FirepadUserList = (function() {
 
       var nameDiv = elt('div', name || 'Guest', { 'class': 'firepad-userlist-name' });
 
-      var userDiv = elt('div', [ colorDiv, nameDiv ], {
+      var userDiv = elt('div', [ colorDiv ], {
         'class': 'firepad-userlist-user ' + 'firepad-user-' + userId
       });
       userId2Element[userId] = userDiv;

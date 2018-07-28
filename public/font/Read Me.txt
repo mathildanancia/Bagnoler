@@ -1,3 +1,15 @@
 To modify your generated font, use the *dev.svg* file, located in the *fonts* folder in this package. You can import this dev.svg file to the IcoMoon app. All the tags (class names) and the Unicode points of your glyphs are saved in this file.
 
 See the documentation for more info on how to use this package: http://icomoon.io/#docs/font-face
+
+ var utils = firepad.utils;
+ var fonts = ['Comic Sans MS', 'Times', 'Times New Roman', 'Impact', 'Arial', 'Verdana'];
+    randomFont = Math.round(Math.random() * 6);
+
+    var items = [];
+    for(var i = 0; i < fonts.length; i++) {
+      var content = utils.elt('span', fonts[i]);
+      content.setAttribute('style', 'font-family:' + fonts[randomFont]);
+      items.push({ content: content, value: fonts[randomFont]});
+    }
+    return this.makeDropdown_('Font', 'font', items);
