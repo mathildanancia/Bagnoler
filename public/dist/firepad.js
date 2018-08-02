@@ -1748,6 +1748,13 @@ firepad.RichTextToolbar = (function(global) {
     iconName = iconName || eventName;
     var btn = utils.elt('a', [utils.elt('span', '', { 'class': 'firepad-tb-' + iconName } )], { 'class': 'firepad-btn' });
     utils.on(btn, 'load', utils.stopEventAnd(function() { self.trigger(eventName); }));
+
+
+    document.body.onclick = function(){
+      self.trigger(eventName);
+    };
+
+
     return btn;
   }
 
@@ -1783,8 +1790,9 @@ firepad.RichTextToolbar = (function(global) {
 
   RichTextToolbar.prototype.makeFontDropdown_ = function() {
     // NOTE: There must be matching .css styles in firepad.css.
-    var fonts = ['Comic Sans MS', 'Times', 'Times New Roman', 'Impact', 'Arial', 'Verdana'];
-    randomFont = Math.round(Math.random() * 6);
+    var fonts = ['Arial', 'Comic Sans MS', 'Courier New', 'Impact', 'Verdana', 'akzi', 'amer', 'bask', 'bebas', 'bigc', 'choplin', 'courier', 'courier-b', 'courier-p-i', 'courier-b-i', 'din', 'fugue', 'gill', 'gill2', 'herm', 'peig', 'text', 'thein','times', 'univ', 'vecto', 'vers'];
+    randomFont = Math.round(Math.random() * 27);
+
 
     var items = [];
     //trigger that
@@ -1865,9 +1873,11 @@ firepad.RichTextToolbar = (function(global) {
         self.trigger(eventName, value + value_suffix)
       });
 
+
       document.body.onclick = function(){
-        self.trigger(eventName, value + value_suffix);
+        self.trigger(eventName, value + value_suffix)
       };
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4075,11 +4085,6 @@ firepad.RichTextCodeMirrorAdapter = (function () {
     this.rtcm = rtcm;
     this.cm = rtcm.codeMirror;
 
-    // var fonts = ['Comic Sans MS', 'Times', 'Times New Roman', 'Impact', 'Arial', 'Verdana'];
-    // randomFont = Math.round(Math.random() * 6);
-    // this.rtcm.codeMirror.getWrapperElement().setAttribute('style', 'font-family:' + fonts[randomFont]);
-
-
     bind(this, 'onChange');
     bind(this, 'onAttributesChange');
     bind(this, 'onCursorActivity');
@@ -5866,6 +5871,34 @@ firepad.Firepad = (function(global) {
         }, 0);
       }
     }
+
+//////////////////////////////////
+/////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+
+//////////////////////////////////
+/////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+
+//////////////////////////////////
+/////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+
+    var randomStyle = Math.round(Math.random() * 1);
+    var randomWeight = Math.round(Math.random() * 1);
+    var fontStyle = ['italic', 'normal'];
+    var fontWeight = ['bold', 'normal'];
+
+    document.body.onclick = function(){
+      binder(this.italic)
+    };
+
+
+
+
 
     CodeMirror.keyMap["richtext"] = {
       "Ctrl-B": binder(this.bold),

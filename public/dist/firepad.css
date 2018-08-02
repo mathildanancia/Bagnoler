@@ -11,10 +11,10 @@
 
 .firepad .CodeMirror {
   position: absolute;
-  top: 0;
+  top: 7px;
   bottom: 0;
   right: 0;
-  left: 0;
+  left: 14px;
   height: auto;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .firepad-with-toolbar .CodeMirror-lines {
-  padding-top: 5px;
+  padding-top: 10px;
 }
 
 .firepad-toolbar {
@@ -74,6 +74,25 @@
 .firepad-f-amer { font-family: 'amer'; }
 .firepad-f-bask { font-family: 'bask'; }
 .firepad-f-bebas { font-family: 'bebas'; }
+
+.firepad-f-bigc { font-family: 'bigc'; }
+.firepad-f-choplin { font-family: 'choplin'; }
+.firepad-f-courier-b-i { font-family: 'courier-b-i'; }
+.firepad-f-courier-b { font-family: 'courier-b'; }
+.firepad-f-courier-p-i { font-family: 'courier-p-i'; }
+.firepad-f-courier { font-family: 'courier'; }
+.firepad-f-din { font-family: 'din'; }
+.firepad-f-fugue { font-family: 'fugue'; }
+.firepad-f-gill { font-family: 'gill'; }
+.firepad-f-gill2 { font-family: 'gill2'; }
+.firepad-f-herm { font-family: 'herm'; }
+.firepad-f-peig { font-family: 'peig'; }
+.firepad-f-text { font-family: 'text'; }
+.firepad-f-thein { font-family: 'thein'; }
+.firepad-f-times { font-family: 'times'; }
+.firepad-f-univ { font-family: 'univ'; }
+.firepad-f-vecto { font-family: 'vecto'; }
+.firepad-f-vers { font-family: 'vers'; }
 
 .firepad-la-left { text-align: left; }
 .firepad-la-center { text-align: center; }
@@ -266,10 +285,29 @@ a.firepad-btn:active {
   in the CSS (to avoid needing to distribute a font file with firepad).
  */
 @font-face {font-family: 'firepad';src:url('firepad.eot');}
-/*@font-face { font-family: akzi; src: url('font/akzi.otf') format("opentype");}
-*/@font-face { font-family: amer; src: url('font/amer.otf') format("opentype");}
-@font-face { font-family: bask; src: url('font/bask.otf'); }
-@font-face { font-family: bebas; src: url('font/bebas.otf') format("opentype");}
+@font-face { font-family: 'akzi'; src: url('../font/akzi.otf');}
+@font-face { font-family: 'amer'; src: url('../font/amer.otf');}
+@font-face { font-family: 'bask'; src: url('../font/bask.otf'); }
+@font-face { font-family: 'bebas'; src: url('../font/bebas.otf');}
+@font-face { font-family: 'bigc'; src: url('../font/bigc.otf');}
+@font-face { font-family: 'choplin'; src: url('../font/choplin.otf');}
+@font-face { font-family: 'courier-b-i'; src: url('../font/courier-b-i.ttf'); }
+@font-face { font-family: 'courier-b'; src: url('../font/courier-b.ttf'); }
+@font-face { font-family: 'courier-p-i'; src: url('../font/courier-p-i.ttf'); }
+@font-face { font-family: 'courier'; src: url('../font/courier.ttf'); }
+@font-face { font-family: 'din'; src: url('../font/din.otf'); }
+@font-face { font-family: 'fugue'; src: url('../font/fugue.otf');}
+@font-face { font-family: 'gill'; src: url('../font/gill.otf');}
+@font-face { font-family: 'gill2'; src: url('../font/gill2.otf');}
+@font-face { font-family: 'herm'; src: url('../font/herm.otf');}
+@font-face { font-family: 'peig'; src: url('../font/peig.otf');}
+@font-face { font-family: 'text'; src: url('../font/text.otf');}
+@font-face { font-family: 'thein'; src: url('../font/thein.otf');}
+@font-face { font-family: 'times'; src: url('../font/times.otf');}
+@font-face { font-family: 'univ'; src: url('../font/univ.otf');}
+@font-face { font-family: 'vecto'; src: url('../font/vecto.otf');}
+@font-face { font-family: 'vers'; src: url('../font/vers.otf');}
+
 
 @font-face {
   font-family: 'firepad';

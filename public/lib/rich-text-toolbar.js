@@ -53,7 +53,7 @@ firepad.RichTextToolbar = (function(global) {
 
   RichTextToolbar.prototype.makeFontDropdown_ = function() {
     // NOTE: There must be matching .css styles in firepad.css.
-    var fonts = ['Comic Sans MS', 'Times', 'Times New Roman', 'Impact', 'Arial', 'Verdana', 'akzi', 'amer', 'bask', 'bebas'];
+    var fonts = ['akzi', 'amer', 'bask', 'bebas', 'bigc', 'choplin', 'courier', 'courier-b', 'courier-p-i', 'courier-b-i', 'din', 'fugue', 'gill', 'gill2', 'herm', 'peig', 'text', 'thein','times', 'univ', 'vecto', 'vers'];
 
     var items = [];
     for(var i = 0; i < fonts.length; i++) {
