@@ -1,8 +1,17 @@
 <!doctype html>
-<html>
+<html lang="en-US">
 
 <head>
-  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="Description" content="">
+  <meta name="keywords" content="">
+  <meta name="robots" content="index, follow">
+  <meta name="identifier-url" content="http://www.com">
+  <meta name="REVISIT-AFTER" content="1 days">
+  <meta http-equiv="Content-Language" content="en, fr, ar">
+  <meta name="category" content="art">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- Firebase -->
@@ -157,22 +166,7 @@
     };
 
 
-    // // Helper to get hash from end of URL or generate a random one.
-    // function getExampleRef() {
-    //   var ref = firebase.database().ref();
-    //   var hash = window.location.hash.replace(/#/g, '');
-    //   if (hash) {
-    //     ref = ref.child(hash);
-    //   } else {
-    //     ref = ref.push(); // generate unique location.
-    //     window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
-    //   }
-    //   if (typeof console !== 'undefined') {
-    //     console.log('Firebase data: ', ref.toString());
-    //   }
-    //   return ref;
-    // }
-
+    // Helper to get hash from end of URL or generate a random one.
     function getExampleRef() {
       var ref = firebase.database().ref();
       var hash = window.location.hash.replace(/#/g, '');
@@ -180,13 +174,28 @@
         ref = ref.child(hash);
       } else {
         ref = ref.push(); // generate unique location.
-        window.location = window.location + '#' + 'bagnoler'; // add it as a hash to the URL.
+        window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
       }
       if (typeof console !== 'undefined') {
         console.log('Firebase data: ', ref.toString());
       }
       return ref;
     }
+
+    // function getExampleRef() {
+    //   var ref = firebase.database().ref();
+    //   var hash = window.location.hash.replace(/#/g, '');
+    //   if (hash) {
+    //     ref = ref.child(hash);
+    //   } else {
+    //     ref = ref.push(); // generate unique location.
+    //     window.location = window.location + '#' + 'bagnoler'; // add it as a hash to the URL.
+    //   }
+    //   if (typeof console !== 'undefined') {
+    //     console.log('Firebase data: ', ref.toString());
+    //   }
+    //   return ref;
+    // }
   </script>
 </body>
 </html>
