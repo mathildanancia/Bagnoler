@@ -1,17 +1,8 @@
 <!doctype html>
-<html lang="en-US">
+<html>
 
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="Description" content="">
-  <meta name="keywords" content="">
-  <meta name="robots" content="index, follow">
-  <meta name="identifier-url" content="http://www.com">
-  <meta name="REVISIT-AFTER" content="1 days">
-  <meta http-equiv="Content-Language" content="en, fr, ar">
-  <meta name="category" content="art">
-
+  <meta charset="utf-8" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- Firebase -->
@@ -80,7 +71,7 @@
       var firepadUserList = FirepadUserList.fromDiv(firepadRef.child('users'),
           document.getElementById('userlist'), userId);
 
-      // Disable delete key
+      //// Disable delete key
       codeMirror.setOption(
         "extraKeys", {
             Backspace: function(cm) {
@@ -100,73 +91,88 @@
         }
       });
 
-      firepad.on('synced', function(e) {
-            var keys = [],
-            expositions = "69,88,80,79,83,73,84,73,79,78,83"; //this spells expositions
-            benjamin = "66,69,78,74,65,77,73,78";
-            maxime = "77,65,88,73,77,69";
-            manuel = "77,65,78,85,69,76";
-            emilien = "69,77,73,76,73,69,78";
-            grichka = "71,82,73,67,72,75,65";
-            theo = "84,72,69,79";
-            raphael = "82,65,80,72,65,69,76";
-            clement = "67,76,69,77,69,78,84";
-            mathilde = "77,65,84,72,73,76,68,69";
-            document.addEventListener("keydown", function(e){
-              keys.push( e.keyCode );
-              if ( keys.toString().indexOf( expositions ) > 0 ) {
-                console.log("expositions");
-                window.open ('expositions.html','_self',false)
-              }
-              else if ( keys.toString().indexOf( maxime ) > 0 ) {
-                console.log("maxime");
-                window.open ('https://www.maximeduveau.com/','_self',false);
-              }
-              else if ( keys.toString().indexOf( theo ) > 0 ) {
-                console.log("theo");
-                window.open ('https://cargocollective.com/theodoreparizet','_self',false);
-              }
-              else if ( keys.toString().indexOf( manuel ) > 0 ) {
-                console.log("manuel");
-                window.open ('http://www.manuelvieillot.com/','_self',false);
-              }
-              else if ( keys.toString().indexOf( clement ) > 0 ) {
-                console.log("clement");
-                window.open ('http://www.glassbox.fr/2017/le-seul-possible-et-lechec-helene-delean-clement-caignart/','_self',false);
-              }
-              else if ( keys.toString().indexOf( mathilde ) > 0 ) {
-                console.log("mathilde");
-                window.open ('http://www.mathildeganancia.fr/','_self',false);
-              }
-              else if ( keys.toString().indexOf( benjamin ) > 0 ) {
-                console.log("benjamin");
-                window.open ('https://vimeo.com/user7586920','_self',false);
-              }
-              else if ( keys.toString().indexOf( emilien ) > 0 ) {
-                console.log("emilien");
-                window.open ('https://transmediale.de/content/emilien-awada','_self',false);
-              }
-              else if ( keys.toString().indexOf( grichka ) > 0 ) {
-                console.log("grichka");
-                window.open ('http://artviewer.org/grichka-commaret-and-kim-farkas-at-doc/','_self',false);
-              }
-              else if ( keys.toString().indexOf( raphael ) > 0 ) {
-                console.log("raphael");
-                window.open ('https://lapazcollectif.files.wordpress.com/2017/05/raphael-sitbon1-2.pdf','_self',false);
-              }
+ firepad.on('synced', function(e) {
+        var keys = [],
+        expositions = "69,88,80,79,83,73,84,73,79,78,83"; //this spells expositions
+        benjamin = "66,69,78,74,65,77,73,78";
+        maxime = "77,65,88,73,77,69";
+        manuel = "77,65,78,85,69,76";
+        emilien = "69,77,73,76,73,69,78";
+        grichka = "71,82,73,67,72,75,65";
+        theo = "84,72,69,79";
+        raphael = "82,65,80,72,65,69,76";
+        clement = "67,76,69,77,69,78,84";
+        mathilde = "77,65,84,72,73,76,68,69";
+        document.addEventListener("keydown", function(e){
+          keys.push( e.keyCode );
+          if ( keys.toString().indexOf( expositions ) > 0 ) {
+            console.log("expositions");
+            window.open ('expositions.html','_self',false)
+          }
+          else if ( keys.toString().indexOf( maxime ) > 0 ) {
+            console.log("maxime");
+            window.open ('https://www.maximeduveau.com/','_self',false);
+          }
+          else if ( keys.toString().indexOf( theo ) > 0 ) {
+            console.log("theo");
+            window.open ('https://cargocollective.com/theodoreparizet','_self',false);
+          }
+          else if ( keys.toString().indexOf( manuel ) > 0 ) {
+            console.log("manuel");
+            window.open ('http://www.manuelvieillot.com/','_self',false);
+          }
+          else if ( keys.toString().indexOf( clement ) > 0 ) {
+            console.log("clement");
+            window.open ('http://www.glassbox.fr/2017/le-seul-possible-et-lechec-helene-delean-clement-caignart/','_self',false);
+          }
+          else if ( keys.toString().indexOf( mathilde ) > 0 ) {
+            console.log("mathilde");
+            window.open ('http://www.mathildeganancia.fr/','_self',false);
+          }
+          else if ( keys.toString().indexOf( benjamin ) > 0 ) {
+            console.log("benjamin");
+            window.open ('https://vimeo.com/user7586920','_self',false);
+          }
+          else if ( keys.toString().indexOf( emilien ) > 0 ) {
+            console.log("emilien");
+            window.open ('https://transmediale.de/content/emilien-awada','_self',false);
+          }
+          else if ( keys.toString().indexOf( grichka ) > 0 ) {
+            console.log("grichka");
+            window.open ('http://artviewer.org/grichka-commaret-and-kim-farkas-at-doc/','_self',false);
+          }
+          else if ( keys.toString().indexOf( raphael ) > 0 ) {
+            console.log("raphael");
+            window.open ('https://lapazcollectif.files.wordpress.com/2017/05/raphael-sitbon1-2.pdf','_self',false);
+          }
+        })
+      })
+
+       firepad.on('synced', function(e) {
+          document.addEventListener("keydown", function(e){
+            console.log(event.which);
           });
       });
-
-      //  firepad.on('synced', function(e) {
-      //     document.addEventListener("keydown", function(e){
-      //       console.log(event.which);
-      //     });
-      // });
 
     };
 
 
-    Helper to get hash from end of URL or generate a random one.
+    // // Helper to get hash from end of URL or generate a random one.
+    // function getExampleRef() {
+    //   var ref = firebase.database().ref();
+    //   var hash = window.location.hash.replace(/#/g, '');
+    //   if (hash) {
+    //     ref = ref.child(hash);
+    //   } else {
+    //     ref = ref.push(); // generate unique location.
+    //     window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
+    //   }
+    //   if (typeof console !== 'undefined') {
+    //     console.log('Firebase data: ', ref.toString());
+    //   }
+    //   return ref;
+    // }
+
     function getExampleRef() {
       var ref = firebase.database().ref();
       var hash = window.location.hash.replace(/#/g, '');
@@ -174,29 +180,13 @@
         ref = ref.child(hash);
       } else {
         ref = ref.push(); // generate unique location.
-        window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
+        window.location = window.location + '#' + 'bagnoler'; // add it as a hash to the URL.
       }
       if (typeof console !== 'undefined') {
         console.log('Firebase data: ', ref.toString());
       }
       return ref;
     }
-
-    // function getExampleRef() {
-    //   var ref = firebase.database().ref();
-    //   ref = ref.push(); // generate unique location.
-    //   var hash = window.location.hash.replace(/#/g, '');
-    //   if (hash) {
-    //     ref = ref.child(hash);
-    //   } else {
-    //     ref = ref.push(); // generate unique location.
-    //     window.location = window.location + '#' + 'bagnoler'; // add it as a hash to the URL.
-    //   }
-    //   if (typeof console !== 'undefined') {
-    //     console.log('Firebase data: ', ref.toString());
-    //   }
-    //   return ref;
-    // }
   </script>
 </body>
 </html>
