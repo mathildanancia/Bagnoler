@@ -81,24 +81,24 @@
           document.getElementById('userlist'), userId);
 
       //// Disable delete key
-      codeMirror.setOption(
-        "extraKeys", {
-            Backspace: function(cm) {
-              var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
-              cm.replaceSelection(spaces);
-            }
-      });
+      // codeMirror.setOption(
+      //   "extraKeys", {
+      //       Backspace: function(cm) {
+      //         var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
+      //         cm.replaceSelection(spaces);
+      //       }
+      // });
 
-      //// Disable selection delete selectiion
-      codeMirror.on("beforeSelectionChange", function(e, range) {
-        var start = range.ranges[0].anchor.ch;
-        var end = range.ranges[0].head.ch;
-        if (start - end != 0 ) {
-          codeMirror.setOption('readOnly', true);
-        } else {
-          codeMirror.setOption('readOnly', false);
-        }
-      });
+      // //// Disable selection delete selectiion
+      // codeMirror.on("beforeSelectionChange", function(e, range) {
+      //   var start = range.ranges[0].anchor.ch;
+      //   var end = range.ranges[0].head.ch;
+      //   if (start - end != 0 ) {
+      //     codeMirror.setOption('readOnly', true);
+      //   } else {
+      //     codeMirror.setOption('readOnly', false);
+      //   }
+      // });
 
       firepad.on('synced', function(e) {
             var keys = [],
@@ -157,46 +157,46 @@
           });
       });
 
-       firepad.on('synced', function(e) {
-          document.addEventListener("keydown", function(e){
-            console.log(event.which);
-          });
-      });
+      //  firepad.on('synced', function(e) {
+      //     document.addEventListener("keydown", function(e){
+      //       console.log(event.which);
+      //     });
+      // });
 
     };
 
 
     // Helper to get hash from end of URL or generate a random one.
-    function getExampleRef() {
-      var ref = firebase.database().ref();
-      var hash = window.location.hash.replace(/#/g, '');
-      if (hash) {
-        ref = ref.child(hash);
-      } else {
-        ref = ref.push(); // generate unique location.
-        window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
-      }
-      if (typeof console !== 'undefined') {
-        console.log('Firebase data: ', ref.toString());
-      }
-      return ref;
-    }
-
     // function getExampleRef() {
     //   var ref = firebase.database().ref();
-    //   ref = ref.push(); // generate unique location.
     //   var hash = window.location.hash.replace(/#/g, '');
     //   if (hash) {
     //     ref = ref.child(hash);
     //   } else {
     //     ref = ref.push(); // generate unique location.
-    //     window.location = window.location + '#' + 'bagnoler'; // add it as a hash to the URL.
+    //     window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
     //   }
     //   if (typeof console !== 'undefined') {
     //     console.log('Firebase data: ', ref.toString());
     //   }
     //   return ref;
     // }
+
+    function getExampleRef() {
+      var ref = firebase.database().ref();
+      ref = ref.push(); // generate unique location.
+      var hash = window.location.hash.replace(/#/g, '');
+      if (hash) {
+        ref = ref.child(hash);
+      } else {
+        ref = ref.push(); // generate unique location.
+        window.location = window.location + '#' + 'bagnoler'; // add it as a hash to the URL.
+      }
+      if (typeof console !== 'undefined') {
+        console.log('Firebase data: ', ref.toString());
+      }
+      return ref;
+    }
   </script>
 </body>
 </html>
