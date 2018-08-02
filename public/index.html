@@ -72,13 +72,13 @@
           document.getElementById('userlist'), userId);
 
       //// Disable delete key
-      codeMirror.setOption(
-        "extraKeys", {
-            Backspace: function(cm) {
-              var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
-              cm.replaceSelection(spaces);
-            }
-      });
+      // codeMirror.setOption(
+      //   "extraKeys", {
+      //       Backspace: function(cm) {
+      //         var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
+      //         cm.replaceSelection(spaces);
+      //       }
+      // });
 
       //// Disable selection delete selectiion
       codeMirror.on("beforeSelectionChange", function(e, range) {
@@ -103,42 +103,44 @@
         raphael = "82,65,80,72,65,69,76";
         clement = "67,76,69,77,69,78,84";
         mathilde = "77,65,84,72,73,76,68,69";
+        paul = "80,65,85,76";
+        fx = "70,88";
+
         document.addEventListener("keydown", function(e){
           keys.push( e.keyCode );
-          if ( keys.toString().indexOf( expositions ) > 0 ) {
+          if ( keys.toString().indexOf( expositions ) >= 0 ) {
             console.log("expositions");
             window.open ('expositions.html','_self',false)
           }
-          else if ( keys.toString().indexOf( maxime ) > 0 ) {
-            console.log("maxime");
+          else if ( keys.toString().indexOf( maxime ) >= -1 ) {
             window.open ('https://www.maximeduveau.com/','_self',false);
           }
+          else if ( keys.toString().indexOf( paul ) > 0 ) {
+            window.open ('https://www.youtube.com/watch?v=u7zCH9YBd2o','_self',false);
+          }
+          else if ( keys.toString().indexOf( fx ) > 0 ) {
+            console.log("fx");
+            window.open ('http://www.fxdebelle.fr/','_self',false);
+          }
           else if ( keys.toString().indexOf( theo ) > 0 ) {
-            console.log("theo");
             window.open ('https://cargocollective.com/theodoreparizet','_self',false);
           }
           else if ( keys.toString().indexOf( manuel ) > 0 ) {
-            console.log("manuel");
             window.open ('http://www.manuelvieillot.com/','_self',false);
           }
           else if ( keys.toString().indexOf( clement ) > 0 ) {
-            console.log("clement");
             window.open ('http://www.glassbox.fr/2017/le-seul-possible-et-lechec-helene-delean-clement-caignart/','_self',false);
           }
           else if ( keys.toString().indexOf( mathilde ) > 0 ) {
-            console.log("mathilde");
             window.open ('http://www.mathildeganancia.fr/','_self',false);
           }
           else if ( keys.toString().indexOf( benjamin ) > 0 ) {
-            console.log("benjamin");
             window.open ('https://vimeo.com/user7586920','_self',false);
           }
           else if ( keys.toString().indexOf( emilien ) > 0 ) {
-            console.log("emilien");
             window.open ('https://transmediale.de/content/emilien-awada','_self',false);
           }
           else if ( keys.toString().indexOf( grichka ) > 0 ) {
-            console.log("grichka");
             window.open ('http://artviewer.org/grichka-commaret-and-kim-farkas-at-doc/','_self',false);
           }
           else if ( keys.toString().indexOf( raphael ) > 0 ) {
