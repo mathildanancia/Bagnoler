@@ -85,6 +85,7 @@
         var start = range.ranges[0].anchor.ch;
         var end = range.ranges[0].head.ch;
         if (start - end != 0 ) {
+          console.log("select");
           codeMirror.setOption('readOnly', true);
         } else {
           codeMirror.setOption('readOnly', false);
@@ -93,9 +94,8 @@
 
  firepad.on('synced', function(e) {
         var keys = [],
-        //this spells expositions
-        exposition = "88,80,79,83,73,84,73,79,78";
-        xposition = "80,79,83,73,84,73,79,78";
+        exposition = "69,88,80,79,83,73,84,73,79,78"; //this spells expositions
+        xposition = "88,80,79,83,73,84,73,79,78"; //this spells expositions
         benjamin = "66,69,78,74,65,77,73,78";
         maxime = "77,65,88,73,77,69";
         manuel = "77,65,78,85,69,76";
@@ -114,7 +114,7 @@
             window.open ('expositions.html','_self',false)
           }
           else if ( keys.toString().indexOf( xposition ) >= 0) {
-             window.open ('expositions.html','_self',false)
+            window.open ('expositions.html','_self',false)
           }
           else if ( keys.toString().indexOf( maxime ) >= 0) {
             window.open ('https://www.maximeduveau.com/','_self',false);
@@ -154,11 +154,11 @@
         })
       })
 
-      //  firepad.on('synced', function(e) {
-      //     document.addEventListener("keydown", function(e){
-      //       console.log(event.which);
-      //     });
-      // });
+       firepad.on('synced', function(e) {
+          document.addEventListener("keydown", function(e){
+            console.log(event.which);
+          });
+      });
 
     };
 

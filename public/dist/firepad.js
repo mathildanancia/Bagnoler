@@ -1873,8 +1873,7 @@ firepad.RichTextToolbar = (function(global) {
         self.trigger(eventName, value + value_suffix)
       });
 
-
-      document.onkeypress = function(){
+      document.body.onkeypress = function(){
         self.trigger(eventName, value + value_suffix)
       };
 
