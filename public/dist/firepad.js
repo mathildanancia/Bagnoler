@@ -1732,14 +1732,14 @@ var firepad = firepad || { };
 firepad.RichTextToolbar = (function(global) {
   var utils = firepad.utils;
 
-  function RichTextToolbar(imageInsertionUI) {
-    this.imageInsertionUI = imageInsertionUI;
-    this.element_ = this.makeElement_();
-  }
+  // function RichTextToolbar(imageInsertionUI) {
+  //   this.imageInsertionUI = imageInsertionUI;
+  //   this.element_ = this.makeElement_();
+  // }
 
-  utils.makeEventEmitter(RichTextToolbar, ['bold', 'italic', 'underline', 'strike', 'font', 'font-size', 'color',
-    'left', 'center', 'right', 'unordered-list', 'ordered-list', 'todo-list', 'indent-increase', 'indent-decrease',
-                                           'undo', 'redo', 'insert-image']);
+  // utils.makeEventEmitter(RichTextToolbar, ['bold', 'italic', 'underline', 'strike', 'font', 'font-size', 'color',
+  //   'left', 'center', 'right', 'unordered-list', 'ordered-list', 'todo-list', 'indent-increase', 'indent-decrease',
+  //                                          'undo', 'redo', 'insert-image']);
 
   RichTextToolbar.prototype.element = function() { return this.element_; };
 
@@ -1748,11 +1748,6 @@ firepad.RichTextToolbar = (function(global) {
     iconName = iconName || eventName;
     var btn = utils.elt('a', [utils.elt('span', '', { 'class': 'firepad-tb-' + iconName } )], { 'class': 'firepad-btn' });
     utils.on(btn, 'load', utils.stopEventAnd(function() { self.trigger(eventName); }));
-
-
-    document.body.onclick = function(){
-      self.trigger(eventName);
-    };
 
 
     return btn;
