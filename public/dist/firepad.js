@@ -2550,16 +2550,16 @@ firepad.ACEAdapter = (function() {
       start = this.indexFromPos(change.start);
     }
     restLength = this.lastDocLines.join('\n').length - start;
-    // if (change.action === 'remove') {
-    //   restLength -= text.length;
-    // }
+    if (change.action === 'remove') {
+      restLength -= text.length;
+    }
     insert_op = new firepad.TextOperation().retain(start).insert(text).retain(restLength);
-    // delete_op = new firepad.TextOperation().retain(start)["delete"](text).retain(restLength);
-    // if (change.action === 'remove') {
-    //   return [delete_op, insert_op];
-    // } else {
-    //   return [insert_op, delete_op];
-    // }
+    delete_op = new firepad.TextOperation().retain(start)["delete"](text).retain(restLength);
+    if (change.action === 'remove') {
+      return [delete_op, insert_op];
+    } else {
+      return [insert_op, delete_op];
+    }
   };
 
   ACEAdapter.prototype.applyOperationToACE = function(operation) {
