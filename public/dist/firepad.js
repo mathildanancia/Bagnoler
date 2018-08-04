@@ -5709,13 +5709,13 @@ firepad.Firepad = (function(global) {
     this.richTextCodeMirror_.newline();
   };
 
-  // Firepad.prototype.deleteLeft = function() {
-  //   this.richTextCodeMirror_.deleteLeft();
-  // };
+  Firepad.prototype.deleteLeft = function() {
+    console.log("Can't erase sorry!");
+  };
 
-  // Firepad.prototype.deleteRight = function() {
-  //   this.richTextCodeMirror_.deleteRight();
-  // };
+  Firepad.prototype.deleteRight = function() {
+    console.log("No delete!");
+  };
 
   Firepad.prototype.indent = function() {
     this.richTextCodeMirror_.indent();
