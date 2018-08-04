@@ -366,8 +366,8 @@ firepad.TextOperation = (function () {
         clone.retain(this.ops[i].chars, this.ops[i].attributes);
       } else (this.ops[i].isInsert()) {
         clone.insert(this.ops[i].text, this.ops[i].attributes);
-      // } else {
-      //   clone['delete'](this.ops[i].chars);
+      } else {
+        // clone['delete'](this.ops[i].chars);
       }
     }
 
