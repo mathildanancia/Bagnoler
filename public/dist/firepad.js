@@ -3247,7 +3247,7 @@ firepad.RichTextCodeMirror = (function () {
 
     for(var line in linesToReMark) {
       this.dirtyLines_.push(this.codeMirror.getLineHandle(Number(line)));
-      this.queueLineMarking_();
+      // this.queueLineMarking_();
     }
   };
 
