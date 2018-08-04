@@ -5709,15 +5709,13 @@ firepad.Firepad = (function(global) {
     this.richTextCodeMirror_.newline();
   };
 
-  Firepad.prototype.deleteLeft = function(cm) {
-              var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
-              cm.replaceSelection(spaces);
-            };
+  // Firepad.prototype.deleteLeft = function() {
+  //   this.richTextCodeMirror_.deleteLeft();
+  // };
 
-  Firepad.prototype.deleteRight = function(cm) {
-              var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
-              cm.replaceSelection(spaces);
-            };
+  // Firepad.prototype.deleteRight = function() {
+  //   this.richTextCodeMirror_.deleteRight();
+  // };
 
   Firepad.prototype.indent = function() {
     this.richTextCodeMirror_.indent();
