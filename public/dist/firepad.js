@@ -3936,9 +3936,6 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.deleteLeft = function() {
-    // var cm = this.codeMirror;
-    // var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
-    // cm.replaceSelection(spaces);
     var cm = this.codeMirror;
     var cursorPos = cm.getCursor('head');
     var lineAttributes = this.getLineAttributes_(cursorPos.line);
@@ -3962,27 +3959,25 @@ firepad.RichTextCodeMirror = (function () {
 
   RichTextCodeMirror.prototype.deleteRight = function() {
     var cm = this.codeMirror;
-    var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
-    cm.replaceSelection(spaces);
-    // var cursorPos = cm.getCursor('head');
+    var cursorPos = cm.getCursor('head');
 
-    // var text = cm.getLine(cursorPos.line);
-    // var emptyLine = this.areLineSentinelCharacters_(text);
-    // var nextLineText = (cursorPos.line + 1 < cm.lineCount()) ? cm.getLine(cursorPos.line + 1) : "";
-    // if (this.emptySelection_() && emptyLine && nextLineText[0] === LineSentinelCharacter) {
-    //   // Delete the empty line but not the line sentinel character on the next line.
-    //   cm.replaceRange('', { line: cursorPos.line, ch: 0 }, { line: cursorPos.line + 1, ch: 0}, '+input');
+    var text = cm.getLine(cursorPos.line);
+    var emptyLine = this.areLineSentinelCharacters_(text);
+    var nextLineText = (cursorPos.line + 1 < cm.lineCount()) ? cm.getLine(cursorPos.line + 1) : "";
+    if (this.emptySelection_() && emptyLine && nextLineText[0] === LineSentinelCharacter) {
+      // Delete the empty line but not the line sentinel character on the next line.
+      cm.replaceRange('', { line: cursorPos.line, ch: 0 }, { line: cursorPos.line + 1, ch: 0}, '+input');
 
-    //   // HACK: Once we've deleted this line, the cursor will be between the newline on the previous
-    //   // line and the line sentinel character on the next line, which is an invalid position.
-    //   // CodeMirror tends to therefore move it to the end of the previous line, which is undesired.
-    //   // So we explicitly set it to ch: 0 on the current line, which seems to move it after the line
-    //   // sentinel character(s) as desired.
-    //   // (see https://github.com/firebase/firepad/issues/209).
-    //   cm.setCursor({ line: cursorPos.line, ch: 0 });
-    // } else {
-    //   cm.deleteH(1, "char");
-    // }
+      // HACK: Once we've deleted this line, the cursor will be between the newline on the previous
+      // line and the line sentinel character on the next line, which is an invalid position.
+      // CodeMirror tends to therefore move it to the end of the previous line, which is undesired.
+      // So we explicitly set it to ch: 0 on the current line, which seems to move it after the line
+      // sentinel character(s) as desired.
+      // (see https://github.com/firebase/firepad/issues/209).
+      cm.setCursor({ line: cursorPos.line, ch: 0 });
+    } else {
+      cm.deleteH(1, "char");
+    }
   };
 
   RichTextCodeMirror.prototype.indent = function() {
@@ -5714,13 +5709,15 @@ firepad.Firepad = (function(global) {
     this.richTextCodeMirror_.newline();
   };
 
-  // Firepad.prototype.deleteLeft = function() {
-  //   this.richTextCodeMirror_.deleteLeft();
-  // };
+  Firepad.prototype.deleteLeft = function(cm) {
+              var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
+              cm.replaceSelection(spaces);
+            };
 
-  // Firepad.prototype.deleteRight = function() {
-  //   this.richTextCodeMirror_.deleteRight();
-  // };
+  Firepad.prototype.deleteRight = function(cm) {
+              var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
+              cm.replaceSelection(spaces);
+            };
 
   Firepad.prototype.indent = function() {
     this.richTextCodeMirror_.indent();
