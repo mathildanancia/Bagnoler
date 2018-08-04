@@ -5698,37 +5698,37 @@ firepad.Firepad = (function(global) {
     this.codeMirror_.focus();
   };
 
-  Firepad.prototype.highlight = function() {
-    this.richTextCodeMirror_.toggleAttribute(ATTR.BACKGROUND_COLOR, 'rgba(255,255,0,.65)');
-    this.codeMirror_.focus();
-  };
+  // Firepad.prototype.highlight = function() {
+  //   this.richTextCodeMirror_.toggleAttribute(ATTR.BACKGROUND_COLOR, 'rgba(255,255,0,.65)');
+  //   this.codeMirror_.focus();
+  // };
 
-  Firepad.prototype.align = function(alignment) {
-    if (alignment !== 'left' && alignment !== 'center' && alignment !== 'right') {
-      throw new Error('align() must be passed "left", "center", or "right".');
-    }
-    this.richTextCodeMirror_.setLineAttribute(ATTR.LINE_ALIGN, alignment);
-    this.codeMirror_.focus();
-  };
+  // Firepad.prototype.align = function(alignment) {
+  //   if (alignment !== 'left' && alignment !== 'center' && alignment !== 'right') {
+  //     throw new Error('align() must be passed "left", "center", or "right".');
+  //   }
+  //   this.richTextCodeMirror_.setLineAttribute(ATTR.LINE_ALIGN, alignment);
+  //   this.codeMirror_.focus();
+  // };
 
-  Firepad.prototype.orderedList = function() {
-    this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'o');
-    this.codeMirror_.focus();
-  };
+  // Firepad.prototype.orderedList = function() {
+  //   this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'o');
+  //   this.codeMirror_.focus();
+  // };
 
-  Firepad.prototype.unorderedList = function() {
-    this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'u');
-    this.codeMirror_.focus();
-  };
+  // Firepad.prototype.unorderedList = function() {
+  //   this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'u');
+  //   this.codeMirror_.focus();
+  // };
 
-  Firepad.prototype.todo = function() {
-    this.richTextCodeMirror_.toggleTodo();
-    this.codeMirror_.focus();
-  };
+  // Firepad.prototype.todo = function() {
+  //   this.richTextCodeMirror_.toggleTodo();
+  //   this.codeMirror_.focus();
+  // };
 
-  Firepad.prototype.newline = function() {
-    this.richTextCodeMirror_.newline();
-  };
+  // Firepad.prototype.newline = function() {
+  //   this.richTextCodeMirror_.newline();
+  // };
 
   Firepad.prototype.deleteLeft = function() {
     this.richTextCodeMirror_.deleteLeft();

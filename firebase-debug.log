@@ -302,3 +302,77 @@
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5004
 
+[debug] [2018-08-04T09:38:56.361Z] ----------------------------------------------------------------------
+[debug] [2018-08-04T09:38:56.363Z] Command:       /usr/local/Cellar/node/10.3.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-08-04T09:38:56.363Z] CLI Version:   4.0.2
+[debug] [2018-08-04T09:38:56.363Z] Platform:      darwin
+[debug] [2018-08-04T09:38:56.363Z] Node Version:  v10.3.0
+[debug] [2018-08-04T09:38:56.364Z] Time:          Sat Aug 04 2018 10:38:56 GMT+0100 (IST)
+[debug] [2018-08-04T09:38:56.364Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-04T09:38:56.374Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-04T09:38:56.374Z] > authorizing via signed-in user
+[debug] [2018-08-04T09:38:56.376Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/bagnoler-15f88  
+  
+ Sat Aug 04 2018 10:38:56 GMT+0100 (IST)
+[debug] [2018-08-04T09:38:57.099Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-04T09:38:57.100Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/bagnoler-15f88/tokens  
+  
+ Sat Aug 04 2018 10:38:57 GMT+0100 (IST)
+[debug] [2018-08-04T09:38:57.864Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-04T09:38:57.865Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+  
+ Sat Aug 04 2018 10:38:57 GMT+0100 (IST)
+[debug] [2018-08-04T09:38:58.888Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2018-08-04T09:38:58.890Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+  
+ Sat Aug 04 2018 10:38:58 GMT+0100 (IST)
+[debug] [2018-08-04T09:38:59.502Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[debug] [2018-08-04T09:38:59.518Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+  
+ Sat Aug 04 2018 10:38:59 GMT+0100 (IST)
+[debug] [2018-08-04T09:39:00.116Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5004 is not available. Trying another port...
+[debug] [2018-08-04T09:39:00.120Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+  
+ Sat Aug 04 2018 10:39:00 GMT+0100 (IST)
+[debug] [2018-08-04T09:39:00.730Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5008
+
+[debug] [2018-08-04T09:39:13.146Z] ----------------------------------------------------------------------
+[debug] [2018-08-04T09:39:13.148Z] Command:       /usr/local/Cellar/node/10.3.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-08-04T09:39:13.148Z] CLI Version:   4.0.2
+[debug] [2018-08-04T09:39:13.148Z] Platform:      darwin
+[debug] [2018-08-04T09:39:13.148Z] Node Version:  v10.3.0
+[debug] [2018-08-04T09:39:13.148Z] Time:          Sat Aug 04 2018 10:39:13 GMT+0100 (IST)
+[debug] [2018-08-04T09:39:13.148Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-04T09:39:13.158Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-04T09:39:13.159Z] > authorizing via signed-in user
+[debug] [2018-08-04T09:39:13.161Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/bagnoler-15f88  
+  
+ Sat Aug 04 2018 10:39:13 GMT+0100 (IST)
+[debug] [2018-08-04T09:39:13.905Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-04T09:39:13.906Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/bagnoler-15f88/tokens  
+  
+ Sat Aug 04 2018 10:39:13 GMT+0100 (IST)
+[debug] [2018-08-04T09:39:14.864Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-04T09:39:14.866Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+  
+ Sat Aug 04 2018 10:39:14 GMT+0100 (IST)
+[debug] [2018-08-04T09:39:15.886Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2018-08-04T09:39:15.888Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+  
+ Sat Aug 04 2018 10:39:15 GMT+0100 (IST)
+[debug] [2018-08-04T09:39:16.501Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
