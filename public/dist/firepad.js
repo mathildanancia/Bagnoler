@@ -3936,28 +3936,28 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.deleteLeft = function() {
-    var cm = this.codeMirror;
-    var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
-    cm.replaceSelection(spaces);
     // var cm = this.codeMirror;
-    // var cursorPos = cm.getCursor('head');
-    // var lineAttributes = this.getLineAttributes_(cursorPos.line);
-    // var listType = lineAttributes[ATTR.LIST_TYPE];
-    // var indent = lineAttributes[ATTR.LINE_INDENT];
+    // var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
+    // cm.replaceSelection(spaces);
+    var cm = this.codeMirror;
+    var cursorPos = cm.getCursor('head');
+    var lineAttributes = this.getLineAttributes_(cursorPos.line);
+    var listType = lineAttributes[ATTR.LIST_TYPE];
+    var indent = lineAttributes[ATTR.LINE_INDENT];
 
-    // var backspaceAtStartOfLine = this.emptySelection_() && cursorPos.ch === 1;
+    var backspaceAtStartOfLine = this.emptySelection_() && cursorPos.ch === 1;
 
-    // if (backspaceAtStartOfLine && listType) {
-    //   // They hit backspace at the beginning of a line with a list heading.  Just remove the list heading.
-    //   this.updateLineAttributes(cursorPos.line, cursorPos.line, function(attributes) {
-    //     delete attributes[ATTR.LIST_TYPE];
-    //     delete attributes[ATTR.LINE_INDENT];
-    //   });
-    // } else if (backspaceAtStartOfLine && indent && indent > 0) {
-    //   this.unindent();
-    // } else {
-    //   cm.deleteH(-1, "char");
-    // }
+    if (backspaceAtStartOfLine && listType) {
+      // They hit backspace at the beginning of a line with a list heading.  Just remove the list heading.
+      this.updateLineAttributes(cursorPos.line, cursorPos.line, function(attributes) {
+        delete attributes[ATTR.LIST_TYPE];
+        delete attributes[ATTR.LINE_INDENT];
+      });
+    } else if (backspaceAtStartOfLine && indent && indent > 0) {
+      this.unindent();
+    } else {
+      cm.deleteH(-1, "char");
+    }
   };
 
   RichTextCodeMirror.prototype.deleteRight = function() {
@@ -5445,23 +5445,7 @@ firepad.Firepad = (function(global) {
       this.firepadWrapper_.className += ' firepad-richtext firepad-with-toolbar';
     }
 
-
-
-
-
-
-
-
-
-
-
     // this.addPoweredByLogo_();
-
-
-
-
-
-
 
 
 
@@ -5848,13 +5832,6 @@ firepad.Firepad = (function(global) {
 
 
 
-
-
-
-
-
-
-
   // Firepad.prototype.addPoweredByLogo_ = function() {
   //   var poweredBy = utils.elt('a', null, { 'class': 'powered-by-firepad'} );
   //   poweredBy.setAttribute('href', 'http://www.firepad.io/');
@@ -5900,9 +5877,6 @@ firepad.Firepad = (function(global) {
     document.body.onclick = function(){
       binder(this.italic)
     };
-
-
-
 
 
     CodeMirror.keyMap["richtext"] = {
