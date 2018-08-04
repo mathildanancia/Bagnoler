@@ -5915,8 +5915,8 @@ firepad.Firepad = (function(global) {
       "Ctrl-H": binder(this.highlight),
       "Cmd-H": binder(this.highlight),
       "Enter": binder(this.newline),
-      "Delete": binder(this.deleteRight),
-      "Backspace": binder(this.deleteLeft),
+      // "Delete": binder(this.deleteRight),
+      // "Backspace": binder(this.deleteLeft),
       "Tab": binder(this.indent),
       "Shift-Tab": binder(this.unindent),
       fallthrough: ['default']
