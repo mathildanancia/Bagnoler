@@ -137,3 +137,35 @@
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
 
+[debug] [2018-08-04T09:24:25.866Z] ----------------------------------------------------------------------
+[debug] [2018-08-04T09:24:25.869Z] Command:       /usr/local/Cellar/node/10.3.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-08-04T09:24:25.869Z] CLI Version:   4.0.2
+[debug] [2018-08-04T09:24:25.869Z] Platform:      darwin
+[debug] [2018-08-04T09:24:25.869Z] Node Version:  v10.3.0
+[debug] [2018-08-04T09:24:25.869Z] Time:          Sat Aug 04 2018 10:24:25 GMT+0100 (IST)
+[debug] [2018-08-04T09:24:25.869Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-04T09:24:25.879Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-04T09:24:25.879Z] > authorizing via signed-in user
+[debug] [2018-08-04T09:24:25.881Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/bagnoler-15f88  
+  
+ Sat Aug 04 2018 10:24:25 GMT+0100 (IST)
+[debug] [2018-08-04T09:24:26.609Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-04T09:24:26.610Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/bagnoler-15f88/tokens  
+  
+ Sat Aug 04 2018 10:24:26 GMT+0100 (IST)
+[debug] [2018-08-04T09:24:27.412Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-04T09:24:27.413Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+  
+ Sat Aug 04 2018 10:24:27 GMT+0100 (IST)
+[debug] [2018-08-04T09:24:28.497Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2018-08-04T09:24:28.500Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+  
+ Sat Aug 04 2018 10:24:28 GMT+0100 (IST)
+[debug] [2018-08-04T09:24:29.035Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+

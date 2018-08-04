@@ -71,26 +71,26 @@
       var firepadUserList = FirepadUserList.fromDiv(firepadRef.child('users'),
           document.getElementById('userlist'), userId);
 
-      // Disable delete key
-      codeMirror.setOption(
-        "extraKeys", {
-            Backspace: function(cm) {
-              var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
-              cm.replaceSelection(spaces);
-            }
-      });
+      // // Disable delete key
+      // codeMirror.setOption(
+      //   "extraKeys", {
+      //       Backspace: function(cm) {
+      //         var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
+      //         cm.replaceSelection(spaces);
+      //       }
+      // });
 
-      //// Disable selection delete selectiion
-      codeMirror.on("beforeSelectionChange", function(e, range) {
-        var start = range.ranges[0].anchor.ch;
-        var end = range.ranges[0].head.ch;
-        if (start - end != 0 ) {
-          console.log
-          codeMirror.setOption('readOnly', true);
-        } else {
-          codeMirror.setOption('readOnly', false);
-        }
-      });
+      // //// Disable selection delete selectiion
+      // codeMirror.on("beforeSelectionChange", function(e, range) {
+      //   var start = range.ranges[0].anchor.ch;
+      //   var end = range.ranges[0].head.ch;
+      //   if (start - end != 0 ) {
+      //     console.log
+      //     codeMirror.setOption('readOnly', true);
+      //   } else {
+      //     codeMirror.setOption('readOnly', false);
+      //   }
+      // });
 
  firepad.on('synced', function(e) {
         var keys = [],

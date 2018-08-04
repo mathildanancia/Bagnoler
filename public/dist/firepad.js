@@ -571,11 +571,11 @@ firepad.TextOperation = (function () {
         break;
       }
 
-      if (op1 && op1.isDelete()) {
-        operation['delete'](op1.chars);
-        op1 = ops1[i1++];
-        continue;
-      }
+      // if (op1 && op1.isDelete()) {
+      //   operation['delete'](op1.chars);
+      //   op1 = ops1[i1++];
+      //   continue;
+      // }
       if (op2 && op2.isInsert()) {
         operation.insert(op2.text, op2.attributes);
         op2 = ops2[i2++];
