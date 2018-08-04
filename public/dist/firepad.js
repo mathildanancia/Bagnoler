@@ -389,10 +389,10 @@ firepad.TextOperation = (function () {
     return map.call(this.ops, function (op) {
       if (op.isRetain()) {
         return "retain " + op.chars;
-      } else (op.isInsert()) {
+      } else if (op.isInsert()) {
         return "insert '" + op.text + "'";
-      // } else {
-      //   return "delete " + (op.chars);
+      } else {
+        return "delete " + (op.chars);
       }
     }).join(', ');
   };
