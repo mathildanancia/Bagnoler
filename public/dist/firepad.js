@@ -5726,9 +5726,9 @@ firepad.Firepad = (function(global) {
   //   this.codeMirror_.focus();
   // };
 
-  // Firepad.prototype.newline = function() {
-  //   this.richTextCodeMirror_.newline();
-  // };
+  Firepad.prototype.newline = function() {
+    this.richTextCodeMirror_.newline();
+  };
 
   Firepad.prototype.deleteLeft = function() {
     this.richTextCodeMirror_.deleteLeft();
@@ -5743,10 +5743,10 @@ firepad.Firepad = (function(global) {
     this.codeMirror_.focus();
   };
 
-  Firepad.prototype.unindent = function() {
-    this.richTextCodeMirror_.unindent();
-    this.codeMirror_.focus();
-  };
+  // Firepad.prototype.unindent = function() {
+  //   this.richTextCodeMirror_.unindent();
+  //   this.codeMirror_.focus();
+  // };
 
   Firepad.prototype.undo = function() {
     this.codeMirror_.undo();
