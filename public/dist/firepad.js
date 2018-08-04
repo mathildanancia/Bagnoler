@@ -196,9 +196,9 @@ firepad.TextOp = (function() {
       utils.assert(typeof this.text === 'string');
       this.attributes = arguments[2] || { };
       utils.assert (typeof this.attributes === 'object');
-    } else if (type === 'delete') {
-      this.chars = arguments[1];
-      utils.assert(typeof this.chars === 'number');
+    // } else if (type === 'delete') {
+    //   this.chars = arguments[1];
+    //   utils.assert(typeof this.chars === 'number');
     } else if (type === 'retain') {
       this.chars = arguments[1];
       utils.assert(typeof this.chars === 'number');
@@ -208,7 +208,7 @@ firepad.TextOp = (function() {
   }
 
   TextOp.prototype.isInsert = function() { return this.type === 'insert'; };
-  TextOp.prototype.isDelete = function() { return this.type === 'delete'; };
+  // TextOp.prototype.isDelete = function() { return this.type === 'delete'; };
   TextOp.prototype.isRetain = function() { return this.type === 'retain'; };
 
   TextOp.prototype.equals = function(other) {
@@ -337,21 +337,21 @@ firepad.TextOperation = (function () {
   };
 
   // Delete a string at the current position.
-  TextOperation.prototype['delete'] = function (n) {
-    if (typeof n === 'string') { n = n.length; }
-    if (typeof n !== 'number' || n < 0) {
-      throw new Error("delete expects a positive integer or a string");
-    }
-    if (n === 0) { return this; }
-    this.baseLength += n;
-    var prevOp = (this.ops.length > 0) ? this.ops[this.ops.length - 1] : null;
-    if (prevOp && prevOp.isDelete()) {
-      prevOp.chars += n;
-    } else {
-      this.ops.push(new TextOp('delete', n));
-    }
-    return this;
-  };
+  // TextOperation.prototype['delete'] = function (n) {
+  //   if (typeof n === 'string') { n = n.length; }
+  //   if (typeof n !== 'number' || n < 0) {
+  //     throw new Error("delete expects a positive integer or a string");
+  //   }
+  //   if (n === 0) { return this; }
+  //   this.baseLength += n;
+  //   var prevOp = (this.ops.length > 0) ? this.ops[this.ops.length - 1] : null;
+  //   if (prevOp && prevOp.isDelete()) {
+  //     prevOp.chars += n;
+  //   } else {
+  //     this.ops.push(new TextOp('delete', n));
+  //   }
+  //   return this;
+  // };
 
   // Tests whether this operation has no effect.
   TextOperation.prototype.isNoop = function () {
@@ -364,10 +364,10 @@ firepad.TextOperation = (function () {
     for(var i = 0; i < this.ops.length; i++) {
       if (this.ops[i].isRetain()) {
         clone.retain(this.ops[i].chars, this.ops[i].attributes);
-      } else if (this.ops[i].isInsert()) {
+      } else (this.ops[i].isInsert()) {
         clone.insert(this.ops[i].text, this.ops[i].attributes);
-      } else {
-        clone['delete'](this.ops[i].chars);
+      // } else {
+      //   clone['delete'](this.ops[i].chars);
       }
     }
 
@@ -389,10 +389,10 @@ firepad.TextOperation = (function () {
     return map.call(this.ops, function (op) {
       if (op.isRetain()) {
         return "retain " + op.chars;
-      } else if (op.isInsert()) {
+      } else (op.isInsert()) {
         return "insert '" + op.text + "'";
-      } else {
-        return "delete " + (op.chars);
+      // } else {
+      //   return "delete " + (op.chars);
       }
     }).join(', ');
   };
@@ -409,8 +409,8 @@ firepad.TextOperation = (function () {
         ops.push(this.ops[i].chars);
       } else if (this.ops[i].type === 'insert') {
         ops.push(this.ops[i].text);
-      } else if (this.ops[i].type === 'delete') {
-        ops.push(-this.ops[i].chars);
+      // } else if (this.ops[i].type === 'delete') {
+      //   ops.push(-this.ops[i].chars);
       }
     }
     // Return an array with /something/ in it, since an empty array will be treated as null by Firebase.
@@ -434,8 +434,8 @@ firepad.TextOperation = (function () {
       if (typeof op === 'number') {
         if (op > 0) {
           o.retain(op, attributes);
-        } else {
-          o['delete'](-op);
+        // } else {
+        //   o['delete'](-op);
         }
       } else {
         utils.assert(typeof op === 'string');
@@ -524,8 +524,8 @@ firepad.TextOperation = (function () {
       if (op.isRetain()) {
         inverse.retain(op.chars);
         strIndex += op.chars;
-      } else if (op.isInsert()) {
-        inverse['delete'](op.text.length);
+      // } else if (op.isInsert()) {
+      //   inverse['delete'](op.text.length);
       } else { // delete op
         inverse.insert(str.slice(strIndex, strIndex + op.chars));
         strIndex += op.chars;
@@ -551,7 +551,7 @@ firepad.TextOperation = (function () {
       }
       for(attr in second) {
         if (firstOpIsInsert && second[attr] === false) {
-          delete merged[attr];
+          // delete merged[attr];
         } else {
           merged[attr] = second[attr];
         }
@@ -1873,6 +1873,7 @@ firepad.RichTextToolbar = (function(global) {
         self.trigger(eventName, value + value_suffix)
       });
 
+
       document.body.onkeypress = function(){
         self.trigger(eventName, value + value_suffix)
       };
@@ -2533,7 +2534,7 @@ firepad.ACEAdapter = (function() {
   };
 
   ACEAdapter.prototype.operationFromACEChange = function(change) {
-    var action, delete_op, delta, insert_op, restLength, start, text, _ref;
+    var action, delta, insert_op, restLength, start, text, _ref;
     if (change.data) {
       delta = change.data;
       if ((_ref = delta.action) === 'insertLines' || _ref === 'removeLines') {
@@ -2553,11 +2554,11 @@ firepad.ACEAdapter = (function() {
       restLength -= text.length;
     }
     insert_op = new firepad.TextOperation().retain(start).insert(text).retain(restLength);
-    delete_op = new firepad.TextOperation().retain(start)["delete"](text).retain(restLength);
+    // delete_op = new firepad.TextOperation().retain(start)["delete"](text).retain(restLength);
     if (change.action === 'remove') {
-      return [delete_op, insert_op];
+      return [insert_op];
     } else {
-      return [insert_op, delete_op];
+      return [insert_op];
     }
   };
 
@@ -3935,48 +3936,48 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.deleteLeft = function() {
-    var cm = this.codeMirror;
-    var cursorPos = cm.getCursor('head');
-    var lineAttributes = this.getLineAttributes_(cursorPos.line);
-    var listType = lineAttributes[ATTR.LIST_TYPE];
-    var indent = lineAttributes[ATTR.LINE_INDENT];
+    // var cm = this.codeMirror;
+    // var cursorPos = cm.getCursor('head');
+    // var lineAttributes = this.getLineAttributes_(cursorPos.line);
+    // var listType = lineAttributes[ATTR.LIST_TYPE];
+    // var indent = lineAttributes[ATTR.LINE_INDENT];
 
-    var backspaceAtStartOfLine = this.emptySelection_() && cursorPos.ch === 1;
+    // var backspaceAtStartOfLine = this.emptySelection_() && cursorPos.ch === 1;
 
-    if (backspaceAtStartOfLine && listType) {
-      // They hit backspace at the beginning of a line with a list heading.  Just remove the list heading.
-      this.updateLineAttributes(cursorPos.line, cursorPos.line, function(attributes) {
-        delete attributes[ATTR.LIST_TYPE];
-        delete attributes[ATTR.LINE_INDENT];
-      });
-    } else if (backspaceAtStartOfLine && indent && indent > 0) {
-      this.unindent();
-    } else {
-      cm.deleteH(-1, "char");
+    // if (backspaceAtStartOfLine && listType) {
+    //   // They hit backspace at the beginning of a line with a list heading.  Just remove the list heading.
+    //   this.updateLineAttributes(cursorPos.line, cursorPos.line, function(attributes) {
+    //     delete attributes[ATTR.LIST_TYPE];
+    //     delete attributes[ATTR.LINE_INDENT];
+    //   });
+    // } else if (backspaceAtStartOfLine && indent && indent > 0) {
+    //   this.unindent();
+    // } else {
+    //   cm.deleteH(-1, "char");
     }
   };
 
   RichTextCodeMirror.prototype.deleteRight = function() {
-    var cm = this.codeMirror;
-    var cursorPos = cm.getCursor('head');
+    // var cm = this.codeMirror;
+    // var cursorPos = cm.getCursor('head');
 
-    var text = cm.getLine(cursorPos.line);
-    var emptyLine = this.areLineSentinelCharacters_(text);
-    var nextLineText = (cursorPos.line + 1 < cm.lineCount()) ? cm.getLine(cursorPos.line + 1) : "";
-    if (this.emptySelection_() && emptyLine && nextLineText[0] === LineSentinelCharacter) {
-      // Delete the empty line but not the line sentinel character on the next line.
-      cm.replaceRange('', { line: cursorPos.line, ch: 0 }, { line: cursorPos.line + 1, ch: 0}, '+input');
+    // var text = cm.getLine(cursorPos.line);
+    // var emptyLine = this.areLineSentinelCharacters_(text);
+    // var nextLineText = (cursorPos.line + 1 < cm.lineCount()) ? cm.getLine(cursorPos.line + 1) : "";
+    // if (this.emptySelection_() && emptyLine && nextLineText[0] === LineSentinelCharacter) {
+    //   // Delete the empty line but not the line sentinel character on the next line.
+    //   cm.replaceRange('', { line: cursorPos.line, ch: 0 }, { line: cursorPos.line + 1, ch: 0}, '+input');
 
-      // HACK: Once we've deleted this line, the cursor will be between the newline on the previous
-      // line and the line sentinel character on the next line, which is an invalid position.
-      // CodeMirror tends to therefore move it to the end of the previous line, which is undesired.
-      // So we explicitly set it to ch: 0 on the current line, which seems to move it after the line
-      // sentinel character(s) as desired.
-      // (see https://github.com/firebase/firepad/issues/209).
-      cm.setCursor({ line: cursorPos.line, ch: 0 });
-    } else {
-      cm.deleteH(1, "char");
-    }
+    //   // HACK: Once we've deleted this line, the cursor will be between the newline on the previous
+    //   // line and the line sentinel character on the next line, which is an invalid position.
+    //   // CodeMirror tends to therefore move it to the end of the previous line, which is undesired.
+    //   // So we explicitly set it to ch: 0 on the current line, which seems to move it after the line
+    //   // sentinel character(s) as desired.
+    //   // (see https://github.com/firebase/firepad/issues/209).
+    //   cm.setCursor({ line: cursorPos.line, ch: 0 });
+    // } else {
+    //   cm.deleteH(1, "char");
+    // }
   };
 
   RichTextCodeMirror.prototype.indent = function() {
@@ -4147,14 +4148,14 @@ firepad.RichTextCodeMirrorAdapter = (function () {
 
       operation = new TextOperation()
           .retain(fromIndex)
-          ['delete'](change.removed.length)
+          // ['delete'](change.removed.length)
           .insert(change.text, change.attributes)
           .retain(restLength)
           .compose(operation);
 
       inverse = inverse.compose(new TextOperation()
           .retain(fromIndex)
-          ['delete'](change.text.length)
+          // ['delete'](change.text.length)
           .insert(change.removed, change.removedAttributes)
           .retain(restLength)
       );
@@ -4406,7 +4407,7 @@ firepad.RichTextCodeMirrorAdapter = (function () {
           }
         }
       } else if (op.isInsert()) {
-        inverse['delete'](op.text.length);
+        // inverse['delete'](op.text.length);
       } else if (op.isDelete()) {
         var text = cm.getRange(cm.posFromIndex(pos), cm.posFromIndex(pos + op.chars));
 
@@ -5724,13 +5725,13 @@ firepad.Firepad = (function(global) {
     this.richTextCodeMirror_.newline();
   };
 
-  Firepad.prototype.deleteLeft = function() {
-    this.richTextCodeMirror_.deleteLeft();
-  };
+  // Firepad.prototype.deleteLeft = function() {
+  //   this.richTextCodeMirror_.deleteLeft();
+  // };
 
-  Firepad.prototype.deleteRight = function() {
-    this.richTextCodeMirror_.deleteRight();
-  };
+  // Firepad.prototype.deleteRight = function() {
+  //   this.richTextCodeMirror_.deleteRight();
+  // };
 
   Firepad.prototype.indent = function() {
     this.richTextCodeMirror_.indent();
@@ -5909,8 +5910,8 @@ firepad.Firepad = (function(global) {
       "Ctrl-H": binder(this.highlight),
       "Cmd-H": binder(this.highlight),
       "Enter": binder(this.newline),
-      "Delete": binder(this.deleteRight),
-      "Backspace": binder(this.deleteLeft),
+      // "Delete": binder(this.deleteRight),
+      // "Backspace": binder(this.deleteLeft),
       "Tab": binder(this.indent),
       "Shift-Tab": binder(this.unindent),
       fallthrough: ['default']
