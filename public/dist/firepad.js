@@ -1391,7 +1391,7 @@ firepad.FirebaseAdapter = (function (global) {
     if (!this.ready_) {
       // TODO: this completes loading the text even though we're no longer interested in it.
       this.on('ready', function() {
-	self.dispose();
+  self.dispose();
       });
       return;
     }
@@ -3247,7 +3247,7 @@ firepad.RichTextCodeMirror = (function () {
 
     for(var line in linesToReMark) {
       this.dirtyLines_.push(this.codeMirror.getLineHandle(Number(line)));
-      // this.queueLineMarking_();
+      this.queueLineMarking_();
     }
   };
 
@@ -3277,29 +3277,29 @@ firepad.RichTextCodeMirror = (function () {
     }
   };
 
-  // RichTextCodeMirror.prototype.queueLineMarking_ = function() {
-  //   if (this.lineMarkTimeout_ != null) return;
-  //   var self = this;
+  RichTextCodeMirror.prototype.queueLineMarking_ = function() {
+    if (this.lineMarkTimeout_ != null) return;
+    var self = this;
 
-  //   this.lineMarkTimeout_ = setTimeout(function() {
-  //     self.lineMarkTimeout_ = null;
-  //     var dirtyLineNumbers = [];
-  //     for(var i = 0; i < self.dirtyLines_.length; i++) {
-  //       var lineNum = self.codeMirror.getLineNumber(self.dirtyLines_[i]);
-  //       dirtyLineNumbers.push(Number(lineNum));
-  //     }
-  //     self.dirtyLines_ = [];
+    this.lineMarkTimeout_ = setTimeout(function() {
+      self.lineMarkTimeout_ = null;
+      var dirtyLineNumbers = [];
+      for(var i = 0; i < self.dirtyLines_.length; i++) {
+        var lineNum = self.codeMirror.getLineNumber(self.dirtyLines_[i]);
+        dirtyLineNumbers.push(Number(lineNum));
+      }
+      self.dirtyLines_ = [];
 
-  //     dirtyLineNumbers.sort(function(a, b) { return a - b; });
-  //     var lastLineMarked = -1;
-  //     for(i = 0; i < dirtyLineNumbers.length; i++) {
-  //       var lineNumber = dirtyLineNumbers[i];
-  //       if (lineNumber > lastLineMarked) {
-  //         lastLineMarked = self.markLineSentinelCharactersForChangedLines_(lineNumber, lineNumber);
-  //       }
-  //     }
-  //   }, 0);
-  // };
+      dirtyLineNumbers.sort(function(a, b) { return a - b; });
+      var lastLineMarked = -1;
+      for(i = 0; i < dirtyLineNumbers.length; i++) {
+        var lineNumber = dirtyLineNumbers[i];
+        if (lineNumber > lastLineMarked) {
+          lastLineMarked = self.markLineSentinelCharactersForChangedLines_(lineNumber, lineNumber);
+        }
+      }
+    }, 0);
+  };
 
   RichTextCodeMirror.prototype.addStyleWithCSS_ = function(css) {
     var head = document.getElementsByTagName('head')[0],
