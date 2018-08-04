@@ -3935,77 +3935,81 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.deleteLeft = function() {
-    var cm = this.codeMirror;
-    var cursorPos = cm.getCursor('head');
-    var lineAttributes = this.getLineAttributes_(cursorPos.line);
-    var listType = lineAttributes[ATTR.LIST_TYPE];
-    var indent = lineAttributes[ATTR.LINE_INDENT];
+    // var cm = this.codeMirror;
+    // var cursorPos = cm.getCursor('head');
+    // var lineAttributes = this.getLineAttributes_(cursorPos.line);
+    // var listType = lineAttributes[ATTR.LIST_TYPE];
+    // var indent = lineAttributes[ATTR.LINE_INDENT];
 
-    var backspaceAtStartOfLine = this.emptySelection_() && cursorPos.ch === 1;
+    // var backspaceAtStartOfLine = this.emptySelection_() && cursorPos.ch === 1;
 
-    if (backspaceAtStartOfLine && listType) {
-      // They hit backspace at the beginning of a line with a list heading.  Just remove the list heading.
-      this.updateLineAttributes(cursorPos.line, cursorPos.line, function(attributes) {
-        delete attributes[ATTR.LIST_TYPE];
-        delete attributes[ATTR.LINE_INDENT];
-      });
-    } else if (backspaceAtStartOfLine && indent && indent > 0) {
-      this.unindent();
-    } else {
-      cm.deleteH(-1, "char");
-    }
+    // if (backspaceAtStartOfLine && listType) {
+    //   // They hit backspace at the beginning of a line with a list heading.  Just remove the list heading.
+    //   this.updateLineAttributes(cursorPos.line, cursorPos.line, function(attributes) {
+    //     delete attributes[ATTR.LIST_TYPE];
+    //     delete attributes[ATTR.LINE_INDENT];
+    //   });
+    // } else if (backspaceAtStartOfLine && indent && indent > 0) {
+    //   this.unindent();
+    // } else {
+    //   cm.deleteH(-1, "char");
+    // }
+    console.log("cannot delete");
   };
 
   RichTextCodeMirror.prototype.deleteRight = function() {
-    var cm = this.codeMirror;
-    var cursorPos = cm.getCursor('head');
+    // var cm = this.codeMirror;
+    // var cursorPos = cm.getCursor('head');
 
-    var text = cm.getLine(cursorPos.line);
-    var emptyLine = this.areLineSentinelCharacters_(text);
-    var nextLineText = (cursorPos.line + 1 < cm.lineCount()) ? cm.getLine(cursorPos.line + 1) : "";
-    if (this.emptySelection_() && emptyLine && nextLineText[0] === LineSentinelCharacter) {
-      // Delete the empty line but not the line sentinel character on the next line.
-      cm.replaceRange('', { line: cursorPos.line, ch: 0 }, { line: cursorPos.line + 1, ch: 0}, '+input');
+    // var text = cm.getLine(cursorPos.line);
+    // var emptyLine = this.areLineSentinelCharacters_(text);
+    // var nextLineText = (cursorPos.line + 1 < cm.lineCount()) ? cm.getLine(cursorPos.line + 1) : "";
+    // if (this.emptySelection_() && emptyLine && nextLineText[0] === LineSentinelCharacter) {
+    //   // Delete the empty line but not the line sentinel character on the next line.
+    //   cm.replaceRange('', { line: cursorPos.line, ch: 0 }, { line: cursorPos.line + 1, ch: 0}, '+input');
 
-      // HACK: Once we've deleted this line, the cursor will be between the newline on the previous
-      // line and the line sentinel character on the next line, which is an invalid position.
-      // CodeMirror tends to therefore move it to the end of the previous line, which is undesired.
-      // So we explicitly set it to ch: 0 on the current line, which seems to move it after the line
-      // sentinel character(s) as desired.
-      // (see https://github.com/firebase/firepad/issues/209).
-      cm.setCursor({ line: cursorPos.line, ch: 0 });
-    } else {
-      cm.deleteH(1, "char");
-    }
+    //   // HACK: Once we've deleted this line, the cursor will be between the newline on the previous
+    //   // line and the line sentinel character on the next line, which is an invalid position.
+    //   // CodeMirror tends to therefore move it to the end of the previous line, which is undesired.
+    //   // So we explicitly set it to ch: 0 on the current line, which seems to move it after the line
+    //   // sentinel character(s) as desired.
+    //   // (see https://github.com/firebase/firepad/issues/209).
+    //   cm.setCursor({ line: cursorPos.line, ch: 0 });
+    // } else {
+    //   cm.deleteH(1, "char");
+    // }
+    console.log("cannot delete");
   };
 
   RichTextCodeMirror.prototype.indent = function() {
-    this.updateLineAttributesForSelection(function(attributes) {
-      var indent = attributes[ATTR.LINE_INDENT];
-      var listType = attributes[ATTR.LIST_TYPE];
+    // this.updateLineAttributesForSelection(function(attributes) {
+    //   var indent = attributes[ATTR.LINE_INDENT];
+    //   var listType = attributes[ATTR.LIST_TYPE];
 
-      if (indent) {
-        attributes[ATTR.LINE_INDENT]++;
-      } else if (listType) {
-        // lists are implicitly already indented once.
-        attributes[ATTR.LINE_INDENT] = 2;
-      } else {
-        attributes[ATTR.LINE_INDENT] = 1;
-      }
-    });
+    //   if (indent) {
+    //     attributes[ATTR.LINE_INDENT]++;
+    //   } else if (listType) {
+    //     // lists are implicitly already indented once.
+    //     attributes[ATTR.LINE_INDENT] = 2;
+    //   } else {
+    //     attributes[ATTR.LINE_INDENT] = 1;
+    //   }
+    // });
+    console.log("cannot indent");
   };
 
   RichTextCodeMirror.prototype.unindent = function() {
-    this.updateLineAttributesForSelection(function(attributes) {
-      var indent = attributes[ATTR.LINE_INDENT];
+    // this.updateLineAttributesForSelection(function(attributes) {
+    //   var indent = attributes[ATTR.LINE_INDENT];
 
-      if (indent && indent > 1) {
-        attributes[ATTR.LINE_INDENT] = indent - 1;
-      } else {
-        delete attributes[ATTR.LIST_TYPE];
-        delete attributes[ATTR.LINE_INDENT];
-      }
-    });
+    //   if (indent && indent > 1) {
+    //     attributes[ATTR.LINE_INDENT] = indent - 1;
+    //   } else {
+    //     delete attributes[ATTR.LIST_TYPE];
+    //     delete attributes[ATTR.LINE_INDENT];
+    //   }
+    // });
+    console.log("cannot unindent");
   };
 
   RichTextCodeMirror.prototype.getText = function() {
@@ -5693,8 +5697,9 @@ firepad.Firepad = (function(global) {
   };
 
   Firepad.prototype.highlight = function() {
-    this.richTextCodeMirror_.toggleAttribute(ATTR.BACKGROUND_COLOR, 'rgba(255,255,0,.65)');
-    this.codeMirror_.focus();
+    // this.richTextCodeMirror_.toggleAttribute(ATTR.BACKGROUND_COLOR, 'rgba(255,255,0,.65)');
+    // this.codeMirror_.focus();
+    console.log("No highlight sorry");
   };
 
   Firepad.prototype.align = function(alignment) {
@@ -5738,8 +5743,8 @@ firepad.Firepad = (function(global) {
 
 
   Firepad.prototype.deleteLeft = function() {
-    // console.log("Can't delete sorry !")
-    this.richTextCodeMirror_.deleteLeft();
+    // this.richTextCodeMirror_.deleteLeft();
+    console.log("Can't delete sorry!")
   };
 
   Firepad.prototype.deleteRight = function() {

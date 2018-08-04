@@ -92,19 +92,32 @@
       //   }
       // });
 
-      $(document).ready(function () {
-      //Disable cut copy paste
-      $('body').bind('cut copy paste selection', function (e) {
-        console.log("no copy, no paste, BOO");
-        return false;
-          // e.preventDefault();
+      // //Disable cut copy paste
+      // codeMirror.bind('cut copy paste selection', function (e) {
+      //   console.log("no copy, no paste, BOO");
+      //     // e.preventDefault();
+      // });
+
+      codeMirror.setOption(
+        "extraKeys", {
+           'Cmd-V': function (cm) {
+            return false;
+            console.log("no paste");
+          },
+            'Cmd-C': function (cm) {
+            return false;
+            console.log("no copy");
+          },
+            'Cmd-Z': function (cm) {
+            return false;
+            console.log("no copy");
+          }
       });
 
-      // //Disable mouse right click
-      // $("body").on("contextmenu",function(e){
-      //     return false;
-      // });
-  });
+      //Disable mouse right click
+      $("body").on("contextmenu",function(e){
+          return false;
+      });
 
  firepad.on('synced', function(e) {
         var keys = [],
