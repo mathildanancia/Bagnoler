@@ -3954,7 +3954,7 @@ firepad.RichTextCodeMirror = (function () {
     //   this.unindent();
     // } else {
     //   cm.deleteH(-1, "char");
-    }
+    // }
   };
 
   RichTextCodeMirror.prototype.deleteRight = function() {
