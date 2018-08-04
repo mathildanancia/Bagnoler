@@ -1873,8 +1873,7 @@ firepad.RichTextToolbar = (function(global) {
         self.trigger(eventName, value + value_suffix)
       });
 
-
-      document.onkeypress = function(){
+      document.body.onkeypress = function(){
         self.trigger(eventName, value + value_suffix)
       };
 
@@ -3935,50 +3934,50 @@ firepad.RichTextCodeMirror = (function () {
     }
   };
 
-  // RichTextCodeMirror.prototype.deleteLeft = function() {
-  //   var cm = this.codeMirror;
-  //   var cursorPos = cm.getCursor('head');
-  //   var lineAttributes = this.getLineAttributes_(cursorPos.line);
-  //   var listType = lineAttributes[ATTR.LIST_TYPE];
-  //   var indent = lineAttributes[ATTR.LINE_INDENT];
+  RichTextCodeMirror.prototype.deleteLeft = function() {
+    var cm = this.codeMirror;
+    var cursorPos = cm.getCursor('head');
+    var lineAttributes = this.getLineAttributes_(cursorPos.line);
+    var listType = lineAttributes[ATTR.LIST_TYPE];
+    var indent = lineAttributes[ATTR.LINE_INDENT];
 
-  //   var backspaceAtStartOfLine = this.emptySelection_() && cursorPos.ch === 1;
+    var backspaceAtStartOfLine = this.emptySelection_() && cursorPos.ch === 1;
 
-  //   if (backspaceAtStartOfLine && listType) {
-  //     // They hit backspace at the beginning of a line with a list heading.  Just remove the list heading.
-  //     this.updateLineAttributes(cursorPos.line, cursorPos.line, function(attributes) {
-  //       delete attributes[ATTR.LIST_TYPE];
-  //       delete attributes[ATTR.LINE_INDENT];
-  //     });
-  //   } else if (backspaceAtStartOfLine && indent && indent > 0) {
-  //     this.unindent();
-  //   } else {
-  //     cm.deleteH(-1, "char");
-  //   }
-  // };
+    if (backspaceAtStartOfLine && listType) {
+      // They hit backspace at the beginning of a line with a list heading.  Just remove the list heading.
+      this.updateLineAttributes(cursorPos.line, cursorPos.line, function(attributes) {
+        delete attributes[ATTR.LIST_TYPE];
+        delete attributes[ATTR.LINE_INDENT];
+      });
+    } else if (backspaceAtStartOfLine && indent && indent > 0) {
+      this.unindent();
+    } else {
+      cm.deleteH(-1, "char");
+    }
+  };
 
-  // RichTextCodeMirror.prototype.deleteRight = function() {
-  //   var cm = this.codeMirror;
-  //   var cursorPos = cm.getCursor('head');
+  RichTextCodeMirror.prototype.deleteRight = function() {
+    var cm = this.codeMirror;
+    var cursorPos = cm.getCursor('head');
 
-  //   var text = cm.getLine(cursorPos.line);
-  //   var emptyLine = this.areLineSentinelCharacters_(text);
-  //   var nextLineText = (cursorPos.line + 1 < cm.lineCount()) ? cm.getLine(cursorPos.line + 1) : "";
-  //   if (this.emptySelection_() && emptyLine && nextLineText[0] === LineSentinelCharacter) {
-  //     // Delete the empty line but not the line sentinel character on the next line.
-  //     cm.replaceRange('', { line: cursorPos.line, ch: 0 }, { line: cursorPos.line + 1, ch: 0}, '+input');
+    var text = cm.getLine(cursorPos.line);
+    var emptyLine = this.areLineSentinelCharacters_(text);
+    var nextLineText = (cursorPos.line + 1 < cm.lineCount()) ? cm.getLine(cursorPos.line + 1) : "";
+    if (this.emptySelection_() && emptyLine && nextLineText[0] === LineSentinelCharacter) {
+      // Delete the empty line but not the line sentinel character on the next line.
+      cm.replaceRange('', { line: cursorPos.line, ch: 0 }, { line: cursorPos.line + 1, ch: 0}, '+input');
 
-  //     // HACK: Once we've deleted this line, the cursor will be between the newline on the previous
-  //     // line and the line sentinel character on the next line, which is an invalid position.
-  //     // CodeMirror tends to therefore move it to the end of the previous line, which is undesired.
-  //     // So we explicitly set it to ch: 0 on the current line, which seems to move it after the line
-  //     // sentinel character(s) as desired.
-  //     // (see https://github.com/firebase/firepad/issues/209).
-  //     cm.setCursor({ line: cursorPos.line, ch: 0 });
-  //   } else {
-  //     cm.deleteH(1, "char");
-  //   }
-  // };
+      // HACK: Once we've deleted this line, the cursor will be between the newline on the previous
+      // line and the line sentinel character on the next line, which is an invalid position.
+      // CodeMirror tends to therefore move it to the end of the previous line, which is undesired.
+      // So we explicitly set it to ch: 0 on the current line, which seems to move it after the line
+      // sentinel character(s) as desired.
+      // (see https://github.com/firebase/firepad/issues/209).
+      cm.setCursor({ line: cursorPos.line, ch: 0 });
+    } else {
+      cm.deleteH(1, "char");
+    }
+  };
 
   RichTextCodeMirror.prototype.indent = function() {
     this.updateLineAttributesForSelection(function(attributes) {
@@ -5440,7 +5439,23 @@ firepad.Firepad = (function(global) {
       this.firepadWrapper_.className += ' firepad-richtext firepad-with-toolbar';
     }
 
+
+
+
+
+
+
+
+
+
+
     // this.addPoweredByLogo_();
+
+
+
+
+
+
 
 
 
@@ -5677,44 +5692,44 @@ firepad.Firepad = (function(global) {
     this.codeMirror_.focus();
   };
 
-  // Firepad.prototype.highlight = function() {
-  //   this.richTextCodeMirror_.toggleAttribute(ATTR.BACKGROUND_COLOR, 'rgba(255,255,0,.65)');
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.highlight = function() {
+    this.richTextCodeMirror_.toggleAttribute(ATTR.BACKGROUND_COLOR, 'rgba(255,255,0,.65)');
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.align = function(alignment) {
-  //   if (alignment !== 'left' && alignment !== 'center' && alignment !== 'right') {
-  //     throw new Error('align() must be passed "left", "center", or "right".');
-  //   }
-  //   this.richTextCodeMirror_.setLineAttribute(ATTR.LINE_ALIGN, alignment);
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.align = function(alignment) {
+    if (alignment !== 'left' && alignment !== 'center' && alignment !== 'right') {
+      throw new Error('align() must be passed "left", "center", or "right".');
+    }
+    this.richTextCodeMirror_.setLineAttribute(ATTR.LINE_ALIGN, alignment);
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.orderedList = function() {
-  //   this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'o');
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.orderedList = function() {
+    this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'o');
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.unorderedList = function() {
-  //   this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'u');
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.unorderedList = function() {
+    this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'u');
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.todo = function() {
-  //   this.richTextCodeMirror_.toggleTodo();
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.todo = function() {
+    this.richTextCodeMirror_.toggleTodo();
+    this.codeMirror_.focus();
+  };
 
   Firepad.prototype.newline = function() {
     this.richTextCodeMirror_.newline();
   };
 
   Firepad.prototype.deleteLeft = function() {
-    console.log("Can't erase sorry!");
+    this.richTextCodeMirror_.deleteLeft();
   };
 
   Firepad.prototype.deleteRight = function() {
-    console.log("No delete!");
+    this.richTextCodeMirror_.deleteRight();
   };
 
   Firepad.prototype.indent = function() {
@@ -5722,10 +5737,10 @@ firepad.Firepad = (function(global) {
     this.codeMirror_.focus();
   };
 
-  // Firepad.prototype.unindent = function() {
-  //   this.richTextCodeMirror_.unindent();
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.unindent = function() {
+    this.richTextCodeMirror_.unindent();
+    this.codeMirror_.focus();
+  };
 
   Firepad.prototype.undo = function() {
     this.codeMirror_.undo();
@@ -5760,70 +5775,77 @@ firepad.Firepad = (function(global) {
     }
   };
 
-  // Firepad.prototype.makeImageDialog_ = function() {
-  //   this.makeDialog_('img', 'Insert image url');
-  // };
+  Firepad.prototype.makeImageDialog_ = function() {
+    this.makeDialog_('img', 'Insert image url');
+  };
 
-  // Firepad.prototype.makeDialog_ = function(id, placeholder) {
-  //  var self = this;
+  Firepad.prototype.makeDialog_ = function(id, placeholder) {
+   var self = this;
 
-  //  var hideDialog = function() {
-  //    var dialog = document.getElementById('overlay');
-  //    dialog.style.visibility = "hidden";
-  //    self.firepadWrapper_.removeChild(dialog);
-  //  };
+   var hideDialog = function() {
+     var dialog = document.getElementById('overlay');
+     dialog.style.visibility = "hidden";
+     self.firepadWrapper_.removeChild(dialog);
+   };
 
-  //  var cb = function() {
-  //    var dialog = document.getElementById('overlay');
-  //    dialog.style.visibility = "hidden";
-  //    var src = document.getElementById(id).value;
-  //    if (src !== null)
-  //      self.insertEntity(id, { 'src': src });
-  //    self.firepadWrapper_.removeChild(dialog);
-  //  };
+   var cb = function() {
+     var dialog = document.getElementById('overlay');
+     dialog.style.visibility = "hidden";
+     var src = document.getElementById(id).value;
+     if (src !== null)
+       self.insertEntity(id, { 'src': src });
+     self.firepadWrapper_.removeChild(dialog);
+   };
 
-  //  var input = utils.elt('input', null, { 'class':'firepad-dialog-input', 'id':id, 'type':'text', 'placeholder':placeholder, 'autofocus':'autofocus' });
+   var input = utils.elt('input', null, { 'class':'firepad-dialog-input', 'id':id, 'type':'text', 'placeholder':placeholder, 'autofocus':'autofocus' });
 
-  //  var submit = utils.elt('a', 'Submit', { 'class': 'firepad-btn', 'id':'submitbtn' });
-  //  utils.on(submit, 'click', utils.stopEventAnd(cb));
+   var submit = utils.elt('a', 'Submit', { 'class': 'firepad-btn', 'id':'submitbtn' });
+   utils.on(submit, 'click', utils.stopEventAnd(cb));
 
-  //  var cancel = utils.elt('a', 'Cancel', { 'class': 'firepad-btn' });
-  //  utils.on(cancel, 'click', utils.stopEventAnd(hideDialog));
+   var cancel = utils.elt('a', 'Cancel', { 'class': 'firepad-btn' });
+   utils.on(cancel, 'click', utils.stopEventAnd(hideDialog));
 
-  //  var buttonsdiv = utils.elt('div', [submit, cancel], { 'class':'firepad-btn-group' });
+   var buttonsdiv = utils.elt('div', [submit, cancel], { 'class':'firepad-btn-group' });
 
-  //  var div = utils.elt('div', [input, buttonsdiv], { 'class':'firepad-dialog-div' });
-  //  var dialog = utils.elt('div', [div], { 'class': 'firepad-dialog', id:'overlay' });
+   var div = utils.elt('div', [input, buttonsdiv], { 'class':'firepad-dialog-div' });
+   var dialog = utils.elt('div', [div], { 'class': 'firepad-dialog', id:'overlay' });
 
-  //  this.firepadWrapper_.appendChild(dialog);
-  // };
+   this.firepadWrapper_.appendChild(dialog);
+  };
 
   Firepad.prototype.addToolbar_ = function() {
     this.toolbar = new RichTextToolbar(this.imageInsertionUI);
 
 
 
-    // this.toolbar.on('undo', this.undo, this);
-    // this.toolbar.on('redo', this.redo, this);
-    // this.toolbar.on('bold', this.bold, this);
-    // this.toolbar.on('italic', this.italic, this);
-    // this.toolbar.on('underline', this.underline, this);
-    // this.toolbar.on('strike', this.strike, this);
-    // this.toolbar.on('font-size', this.fontSize, this);
-    // this.toolbar.on('font', this.font, this);
-    // this.toolbar.on('color', this.color, this);
-    // this.toolbar.on('left', function() { this.align('left')}, this);
-    // this.toolbar.on('center', function() { this.align('center')}, this);
-    // this.toolbar.on('right', function() { this.align('right')}, this);
-    // this.toolbar.on('ordered-list', this.orderedList, this);
-    // this.toolbar.on('unordered-list', this.unorderedList, this);
-    // this.toolbar.on('todo-list', this.todo, this);
-    // this.toolbar.on('indent-increase', this.indent, this);
-    // this.toolbar.on('indent-decrease', this.unindent, this);
-    // this.toolbar.on('insert-image', this.makeImageDialog_, this);
+    this.toolbar.on('undo', this.undo, this);
+    this.toolbar.on('redo', this.redo, this);
+    this.toolbar.on('bold', this.bold, this);
+    this.toolbar.on('italic', this.italic, this);
+    this.toolbar.on('underline', this.underline, this);
+    this.toolbar.on('strike', this.strike, this);
+    this.toolbar.on('font-size', this.fontSize, this);
+    this.toolbar.on('font', this.font, this);
+    this.toolbar.on('color', this.color, this);
+    this.toolbar.on('left', function() { this.align('left')}, this);
+    this.toolbar.on('center', function() { this.align('center')}, this);
+    this.toolbar.on('right', function() { this.align('right')}, this);
+    this.toolbar.on('ordered-list', this.orderedList, this);
+    this.toolbar.on('unordered-list', this.unorderedList, this);
+    this.toolbar.on('todo-list', this.todo, this);
+    this.toolbar.on('indent-increase', this.indent, this);
+    this.toolbar.on('indent-decrease', this.unindent, this);
+    this.toolbar.on('insert-image', this.makeImageDialog_, this);
 
     this.firepadWrapper_.insertBefore(this.toolbar.element(), this.firepadWrapper_.firstChild);
   };
+
+
+
+
+
+
+
 
 
 
@@ -5872,6 +5894,9 @@ firepad.Firepad = (function(global) {
     document.body.onclick = function(){
       binder(this.italic)
     };
+
+
+
 
 
     CodeMirror.keyMap["richtext"] = {
