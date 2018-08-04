@@ -364,10 +364,10 @@ firepad.TextOperation = (function () {
     for(var i = 0; i < this.ops.length; i++) {
       if (this.ops[i].isRetain()) {
         clone.retain(this.ops[i].chars, this.ops[i].attributes);
-      } else (this.ops[i].isInsert()) {
+      } else if (this.ops[i].isInsert()) {
         clone.insert(this.ops[i].text, this.ops[i].attributes);
       } else {
-        // clone['delete'](this.ops[i].chars);
+        clone['delete'](this.ops[i].chars);
       }
     }
 
