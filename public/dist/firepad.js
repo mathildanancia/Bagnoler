@@ -5730,13 +5730,13 @@ firepad.Firepad = (function(global) {
     this.richTextCodeMirror_.newline();
   };
 
-  Firepad.prototype.deleteLeft = function() {
-    this.richTextCodeMirror_.deleteLeft();
-  };
+  // Firepad.prototype.deleteLeft = function() {
+  //   this.richTextCodeMirror_.deleteLeft();
+  // };
 
-  Firepad.prototype.deleteRight = function() {
-    this.richTextCodeMirror_.deleteRight();
-  };
+  // Firepad.prototype.deleteRight = function() {
+  //   this.richTextCodeMirror_.deleteRight();
+  // };
 
   Firepad.prototype.indent = function() {
     this.richTextCodeMirror_.indent();
