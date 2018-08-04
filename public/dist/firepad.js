@@ -5698,75 +5698,75 @@ firepad.Firepad = (function(global) {
     this.codeMirror_.focus();
   };
 
-  // Firepad.prototype.highlight = function() {
-  //   this.richTextCodeMirror_.toggleAttribute(ATTR.BACKGROUND_COLOR, 'rgba(255,255,0,.65)');
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.highlight = function() {
+    this.richTextCodeMirror_.toggleAttribute(ATTR.BACKGROUND_COLOR, 'rgba(255,255,0,.65)');
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.align = function(alignment) {
-  //   if (alignment !== 'left' && alignment !== 'center' && alignment !== 'right') {
-  //     throw new Error('align() must be passed "left", "center", or "right".');
-  //   }
-  //   this.richTextCodeMirror_.setLineAttribute(ATTR.LINE_ALIGN, alignment);
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.align = function(alignment) {
+    if (alignment !== 'left' && alignment !== 'center' && alignment !== 'right') {
+      throw new Error('align() must be passed "left", "center", or "right".');
+    }
+    this.richTextCodeMirror_.setLineAttribute(ATTR.LINE_ALIGN, alignment);
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.orderedList = function() {
-  //   this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'o');
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.orderedList = function() {
+    this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'o');
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.unorderedList = function() {
-  //   this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'u');
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.unorderedList = function() {
+    this.richTextCodeMirror_.toggleLineAttribute(ATTR.LIST_TYPE, 'u');
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.todo = function() {
-  //   this.richTextCodeMirror_.toggleTodo();
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.todo = function() {
+    this.richTextCodeMirror_.toggleTodo();
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.newline = function() {
-  //   this.richTextCodeMirror_.newline();
-  // };
+  Firepad.prototype.newline = function() {
+    this.richTextCodeMirror_.newline();
+  };
 
-  // Firepad.prototype.deleteLeft = function() {
-  //   this.richTextCodeMirror_.deleteLeft();
-  // };
+  Firepad.prototype.deleteLeft = function() {
+    this.richTextCodeMirror_.deleteLeft();
+  };
 
-  // Firepad.prototype.deleteRight = function() {
-  //   this.richTextCodeMirror_.deleteRight();
-  // };
+  Firepad.prototype.deleteRight = function() {
+    this.richTextCodeMirror_.deleteRight();
+  };
 
-  // Firepad.prototype.indent = function() {
-  //   this.richTextCodeMirror_.indent();
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.indent = function() {
+    this.richTextCodeMirror_.indent();
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.unindent = function() {
-  //   this.richTextCodeMirror_.unindent();
-  //   this.codeMirror_.focus();
-  // };
+  Firepad.prototype.unindent = function() {
+    this.richTextCodeMirror_.unindent();
+    this.codeMirror_.focus();
+  };
 
-  // Firepad.prototype.undo = function() {
-  //   this.codeMirror_.undo();
-  // };
+  Firepad.prototype.undo = function() {
+    this.codeMirror_.undo();
+  };
 
-  // Firepad.prototype.redo = function() {
-  //   this.codeMirror_.redo();
-  // };
+  Firepad.prototype.redo = function() {
+    this.codeMirror_.redo();
+  };
 
-  // Firepad.prototype.insertEntity = function(type, info, origin) {
-  //   this.richTextCodeMirror_.insertEntityAtCursor(type, info, origin);
-  // };
+  Firepad.prototype.insertEntity = function(type, info, origin) {
+    this.richTextCodeMirror_.insertEntityAtCursor(type, info, origin);
+  };
 
-  // Firepad.prototype.insertEntityAt = function(index, type, info, origin) {
-  //   this.richTextCodeMirror_.insertEntityAt(index, type, info, origin);
-  // };
+  Firepad.prototype.insertEntityAt = function(index, type, info, origin) {
+    this.richTextCodeMirror_.insertEntityAt(index, type, info, origin);
+  };
 
-  // Firepad.prototype.registerEntity = function(type, options) {
-  //   this.entityManager_.register(type, options);
-  // };
+  Firepad.prototype.registerEntity = function(type, options) {
+    this.entityManager_.register(type, options);
+  };
 
   Firepad.prototype.getOption = function(option, def) {
     return (option in this.options_) ? this.options_[option] : def;
