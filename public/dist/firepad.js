@@ -5725,11 +5725,13 @@ firepad.Firepad = (function(global) {
   };
 
   Firepad.prototype.deleteLeft = function() {
-    this.richTextCodeMirror_.deleteLeft();
+    console.log("Can't delete sorry!")
+    // this.richTextCodeMirror_.deleteLeft();
   };
 
   Firepad.prototype.deleteRight = function() {
-    this.richTextCodeMirror_.deleteRight();
+    console.log("Can't delete !")
+    // this.richTextCodeMirror_.deleteRight();
   };
 
   Firepad.prototype.indent = function() {
@@ -5839,13 +5841,6 @@ firepad.Firepad = (function(global) {
 
     this.firepadWrapper_.insertBefore(this.toolbar.element(), this.firepadWrapper_.firstChild);
   };
-
-
-
-
-
-
-
 
 
 
