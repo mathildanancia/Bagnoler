@@ -71,7 +71,7 @@
       var firepadUserList = FirepadUserList.fromDiv(firepadRef.child('users'),
           document.getElementById('userlist'), userId);
 
-      // // Disable delete key
+      // // Disable delete key >> now disabled in delte fucntion incide firepad.js
       // codeMirror.setOption(
       //   "extraKeys", {
       //       Backspace: function(cm) {
@@ -91,6 +91,20 @@
       //     codeMirror.setOption('readOnly', false);
       //   }
       // });
+
+      $(document).ready(function () {
+      //Disable cut copy paste
+      $('body').bind('cut copy paste selection', function (e) {
+        console.log("no copy, no paste, BOO");
+        return false;
+          // e.preventDefault();
+      });
+
+      // //Disable mouse right click
+      // $("body").on("contextmenu",function(e){
+      //     return false;
+      // });
+  });
 
  firepad.on('synced', function(e) {
         var keys = [],
