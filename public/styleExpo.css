@@ -1,0 +1,36 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+a {
+/*  text-decoration: none !important;
+*/  color: black !important;
+}
+#contenu {
+  height: 100%;
+  overflow: auto;
+}
+#pave_texte {
+  padding: 20px;
+  font-size: 60px;
+}
+#pave_texte .texte {
+  text-align: justify;
+  text-transform:uppercase;
+}
+#elastique {
+  width: 5px;
+  height: 150px;
+  float: right;
+  overflow: hidden;
+  background-color: blue;
+}
+#image {
+  width: 330px;
+  height: 500px;
+  clear: right;
+  float: right;
+  background-color: red;
+  background: url(../images/frida.jpg) bottom right no-repeat;
+}

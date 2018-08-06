@@ -1,9 +1,92 @@
 <html>
-  <body>
-    <div style="margin: auto 20px;">
-      <h1 style="text-align: center">EXPOSITIONS</h1>
-      <br>
-      <p>Créer une page pour les expositions.</p>
+<head>
+  <link rel="stylesheet" href="styleExpo.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    function hauteur_elastique() {
+      hpage = $("#contenu").height() + $("#contenu").scrollTop() - $("#image").height();
+
+      if (hpage < 1) {
+        $("#elastique").hide();
+      }
+      else {
+        $("#elastique").show();
+        $("#elastique").height(hpage);
+      }
+    }
+
+    $(document).ready(function(){
+      hauteur_elastique();
+
+      $("#contenu").scroll(function() {
+        hauteur_elastique();
+      });
+
+      $(window).resize(function(){
+        hauteur_elastique();
+      });
+    });
+
+  </script>
+</head>
+<body>
+
+<div id="contenu_image">
+  <div id="contenu">
+
+
+    <div id="elastique"></div>
+    <div id="image"></div>
+
+    <div id="pave_texte">
+      <h1>Le titre</h1>
+      <div class="texte">
+        <a href="#">Un lien vers un autre monde</a>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In luctus, sapien vel feugiat hendrerit, ante felis mollis nunc, eget rutrum sapien arcu et turpis. Proin blandit sapien quis ante ullamcorper eget malesuada mi facilisis. Aenean risus velit, eleifend vitae lacinia nec, varius nec lorem. Aenean nisi urna, faucibus et lacinia a, dictum at erat. Maecenas laoreet eros nec felis tempor ac tempus felis lacinia. Vivamus aliquet semper ullamcorper. Donec ligula nisi, pellentesque non aliquet eget, malesuada nec sem. Sed ultricies arcu ut mauris eleifend pretium. Integer mattis, diam quis ultrices faucibus, lectus diam laoreet lectus, eu rutrum nunc lacus eu enim. Suspendisse potenti. Vestibulum hendrerit dolor a eros fermentum nec consectetur massa congue. Proin ornare rutrum arcu non tempor. Aliquam fermentum nulla et justo porttitor sit amet tristique dolor commodo. Fusce turpis sem, suscipit porttitor euismod eleifend, vehicula vestibulum nisl.</p>
+        <a href="#">Ou autre lien vers un autre truc</a>
+        <p>Cras dui erat, vulputate nec dictum vel, commodo id ante. Fusce bibendum varius fermentum. Maecenas lacinia egestas mi vel ultrices. In augue sapien, gravida quis vestibulum porttitor, congue et enim. Aenean condimentum tempus nisi, at vehicula magna luctus non. Nam ultricies urna in purus facilisis non venenatis ligula tincidunt. Quisque porta varius lectus, vitae vestibulum leo commodo nec. Morbi justo neque, ultrices in egestas ut, consectetur sed neque. Maecenas egestas malesuada gravida. Cras eleifend quam accumsan leo sodales viverra. Aliquam erat volutpat. Morbi nec sapien vel orci commodo volutpat nec ut ipsum.</p>
+        <p>Vivamus nec rutrum est. Curabitur lectus turpis, adipiscing et commodo a, blandit eu nisi. Nulla eget mi id mauris interdum accumsan vel et quam. Morbi sed neque felis. Duis sit amet dolor neque, nec tincidunt magna. Duis iaculis elementum lacus, nec elementum metus vehicula eu. Aenean sed tortor at erat blandit consectetur et vel lectus. Sed ligula nisl, posuere et pretium nec, facilisis ut nisl. Vivamus ultrices suscipit feugiat. Pellentesque eleifend varius lectus et iaculis. In gravida nisl id elit facilisis tempor. Sed eros dolor, fermentum quis aliquet id, ornare bibendum enim. Pellentesque fringilla pharetra sem, vitae interdum tellus varius quis. Sed tempor dignissim risus, vitae mattis quam aliquam in. Mauris facilisis magna a urna ultricies suscipit. Integer semper gravida nibh sed luctus. In hac habitasse platea dictumst. Nulla facilisi. Vivamus ac purus accumsan magna hendrerit ornare.</p>
+        <a href="#">Lien vers je ne sais pas trop quoi</a>
+        <p>Praesent porta egestas orci, hendrerit consequat mi posuere non. Donec egestas posuere sapien, nec cursus elit sodales vel. Donec hendrerit mi non tellus luctus ullamcorper. Etiam eget magna et ante convallis pellentesque ut id augue. Curabitur tincidunt, velit a hendrerit aliquam, quam est fringilla purus, non scelerisque velit purus auctor est. Proin elit neque, venenatis quis iaculis et, cursus id dui. Quisque vehicula dignissim egestas. Nam viverra tincidunt eros porta sollicitudin. Cras porta mauris mollis ante bibendum id condimentum leo posuere. Maecenas lacinia pretium vehicula. Nam non metus tortor, quis dictum risus. Vivamus facilisis adipiscing arcu a commodo. Nulla consequat pulvinar risus, eu varius diam gravida sed. In hac habitasse platea dictumst. Etiam eget risus dolor, semper aliquam nisi. In hac habitasse platea dictumst. Aenean elementum hendrerit lacus eu luctus.</p>
+        <p>Suspendisse porttitor condimentum enim vitae aliquam. Fusce ultricies tristique sem, vel pellentesque mi consequat id. Nunc vulputate vehicula lorem, non gravida dui vulputate a. Nulla euismod ligula et sem luctus fermentum. Mauris sodales est id magna rhoncus molestie. Praesent non felis in ipsum dapibus feugiat. Nulla eget sem a urna dictum interdum. Proin eu metus sed nisl pellentesque eleifend at vel lectus. Mauris bibendum eros et nulla pretium lobortis. Aenean blandit lacus non nulla mollis mollis. Maecenas non ultricies ligula.</p>
+      </div>
     </div>
-  </body>
+
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  function hauteur_elastique() {
+    hpage = $("#contenu").height() + $("#contenu").scrollTop() - $("#image").height();
+    $("#elastique").height(hpage);
+    console.log("yes");
+
+    hpage = $("#contenu").height() + $("#contenu").scrollTop() - $("#image").height();
+
+    if (hpage < 1) {
+      $("#elastique").hide();
+      console.log("oups");
+    }
+    else {
+      $("#elastique").show();
+      $("#elastique").height(hpage);
+    }
+  }
+
+  $(document).ready(function(){
+      hauteur_elastique();
+
+      $("#contenu").scroll(function() {
+        hauteur_elastique();
+      });
+
+      $(window).resize(function(){
+        hauteur_elastique();
+      });
+    });
+
+</script>
+
+</body>
 </html>

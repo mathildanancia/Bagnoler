@@ -266,6 +266,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   font-size: 60px;
   line-height: 62px;
   text-transform:uppercase;
+  text-align: justify;
   margin: 0;
   white-space: pre;
   word-wrap: normal;
