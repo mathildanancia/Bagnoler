@@ -80,7 +80,8 @@ module.exports = function (grunt) {
           "lib/headless.js",
           "lib/firepad.js"
         ],
-        "dest": "dist/firepad.js"
+        "dest": "dist/firepad.js",
+        "dest": "dist/firepadImage.js"
       }
     },
     uglify: {

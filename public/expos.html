@@ -17,7 +17,7 @@
 <!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
  -->
 <!--   <script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>-->
- <script src="dist/firepad.js"></script>
+ <script src="dist/firepadImage.js"></script>
 
 <!-- Include example userlist script / CSS.
    Can be downloaded from: https://github.com/firebase/firepad/tree/master/examples/ -->
@@ -68,7 +68,7 @@
       var userId = Math.floor(Math.random() * 9999999999).toString();
 
       //// Create Firepad (with rich text features and our desired userId).
-      var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
+      var firepadImage = Firepad.fromCodeMirror(firepadRef, codeMirror,
           { richTextToolbar: true, richTextShortcuts: true, userId: userId});
 
       //// Create FirepadUserList (with our desired userId).
@@ -217,7 +217,7 @@
         ref = ref.child(hash);
       } else {
         ref = ref.push(); // generate unique location.
-        window.location = window.location + '#' + 'bagnoler'; // add it as a hash to the URL.
+        window.location = window.location + '#' + 'expos'; // add it as a hash to the URL.
       }
       if (typeof console !== 'undefined') {
         console.log('Firebase data: ', ref.toString());
