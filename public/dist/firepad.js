@@ -5583,16 +5583,16 @@ firepad.Firepad = (function(global) {
   };
 
   Firepad.prototype.insertTextAtCursor = function(textPieces) {
-    this.insertText(this.codeMirror_.indexFromPos(this.codeMirror_.getCursor()), textPieces);
+    // this.insertText(this.codeMirror_.indexFromPos(this.codeMirror_.getCursor()), textPieces);
   };
 
   Firepad.prototype.insertText = function(index, textPieces) {
-    utils.assert(!this.ace_, "Not supported for ace yet.");
-    this.assertReady_('insertText');
+    // utils.assert(!this.ace_, "Not supported for ace yet.");
+    // this.assertReady_('insertText');
 
-    // Wrap it in an array if it's not already.
-    if(Object.prototype.toString.call(textPieces) !== '[object Array]') {
-      textPieces = [textPieces];
+    // // Wrap it in an array if it's not already.
+    // if(Object.prototype.toString.call(textPieces) !== '[object Array]') {
+    //   textPieces = [textPieces];
     }
 
     var self = this;
