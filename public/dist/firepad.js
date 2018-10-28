@@ -4232,23 +4232,23 @@ firepad.RichTextCodeMirrorAdapter = (function () {
   };
 
   RichTextCodeMirrorAdapter.prototype.getValue = function () {
-    return this.cm.getValue();
+    // return this.cm.getValue();
   };
 
   RichTextCodeMirrorAdapter.prototype.getCursor = function () {
-    var cm = this.cm;
-    var cursorPos = cm.getCursor();
-    var position = cm.indexFromPos(cursorPos);
-    var selectionEnd;
-    if (cm.somethingSelected()) {
-      var startPos = cm.getCursor(true);
-      var selectionEndPos = posEq(cursorPos, startPos) ? cm.getCursor(false) : startPos;
-      selectionEnd = cm.indexFromPos(selectionEndPos);
-    } else {
-      selectionEnd = position;
-    }
+    // var cm = this.cm;
+    // var cursorPos = cm.getCursor();
+    // var position = cm.indexFromPos(cursorPos);
+    // var selectionEnd;
+    // if (cm.somethingSelected()) {
+    //   var startPos = cm.getCursor(true);
+    //   var selectionEndPos = posEq(cursorPos, startPos) ? cm.getCursor(false) : startPos;
+    //   selectionEnd = cm.indexFromPos(selectionEndPos);
+    // } else {
+    //   selectionEnd = position;
+    // }
 
-    return new Cursor(position, selectionEnd);
+    // return new Cursor(position, selectionEnd);
   };
 
   RichTextCodeMirrorAdapter.prototype.setCursor = function (cursor) {
