@@ -3152,19 +3152,19 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.removeText = function(start, end, origin) {
-    var cm = this.codeMirror;
-    cm.replaceRange("", cm.posFromIndex(start), cm.posFromIndex(end), origin);
+    // var cm = this.codeMirror;
+    // cm.replaceRange("", cm.posFromIndex(start), cm.posFromIndex(end), origin);
   };
 
   RichTextCodeMirror.prototype.insertEntityAtCursor = function(type, info, origin) {
-    var cm = this.codeMirror;
-    var index = cm.indexFromPos(cm.getCursor('head'));
-    this.insertEntityAt(index, type, info, origin);
+    // var cm = this.codeMirror;
+    // var index = cm.indexFromPos(cm.getCursor('head'));
+    // this.insertEntityAt(index, type, info, origin);
   };
 
   RichTextCodeMirror.prototype.insertEntityAt = function(index, type, info, origin) {
-    var cm = this.codeMirror;
-    this.insertEntity_(index, new firepad.Entity(type, info), origin);
+    // var cm = this.codeMirror;
+    // this.insertEntity_(index, new firepad.Entity(type, info), origin);
   };
 
   RichTextCodeMirror.prototype.insertEntity_ = function(index, entity, origin) {

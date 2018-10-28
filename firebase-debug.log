@@ -140,3 +140,27 @@
 [debug] [2018-10-28T09:35:26.621Z] <<< HTTP RESPONSE 200
 [info] i  hosting[bagnoler-15f88]: Serving hosting files from: public
 [info] ✔  hosting[bagnoler-15f88]: Local server: http://localhost:5000
+[debug] [2018-10-28T09:36:40.925Z] ----------------------------------------------------------------------
+[debug] [2018-10-28T09:36:40.928Z] Command:       /usr/local/Cellar/node/10.3.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-10-28T09:36:40.928Z] CLI Version:   4.2.1
+[debug] [2018-10-28T09:36:40.928Z] Platform:      darwin
+[debug] [2018-10-28T09:36:40.928Z] Node Version:  v10.3.0
+[debug] [2018-10-28T09:36:40.928Z] Time:          Sun Oct 28 2018 10:36:40 GMT+0100 (CET)
+[debug] [2018-10-28T09:36:40.928Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-28T09:36:40.939Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-28T09:36:40.939Z] > authorizing via signed-in user
+[debug] [2018-10-28T09:36:40.941Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2018-10-28T09:36:41.669Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-28T09:36:41.670Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2018-10-28T09:36:42.640Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2018-10-28T09:36:42.642Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-28T09:36:43.001Z] <<< HTTP RESPONSE 200
+[info] i  hosting[bagnoler-15f88]: Serving hosting files from: public
+[info] ✔  hosting[bagnoler-15f88]: Local server: http://localhost:5000
