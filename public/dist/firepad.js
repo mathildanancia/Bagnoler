@@ -3440,22 +3440,22 @@ firepad.RichTextCodeMirror = (function () {
      *     attributes to apply.
      */
     function replace(info) {
-      var ATTR = firepad.AttributeConstants;
-      var SENTINEL = ATTR.ENTITY_SENTINEL;
-      var PREFIX = SENTINEL + '_';
+      // var ATTR = firepad.AttributeConstants;
+      // var SENTINEL = ATTR.ENTITY_SENTINEL;
+      // var PREFIX = SENTINEL + '_';
 
-      var at = find();
+      // var at = find();
 
-      self.updateTextAttributes(at, at+1, function(attrs) {
-        for (var member in attrs) {
-          delete attrs[member];
-        }
-        attrs[SENTINEL] = entity.type;
+      // self.updateTextAttributes(at, at+1, function(attrs) {
+      //   for (var member in attrs) {
+      //     delete attrs[member];
+      //   }
+      //   attrs[SENTINEL] = entity.type;
 
-        for(var attr in info) {
-          attrs[PREFIX + attr] = info[attr];
-        }
-      });
+      //   for(var attr in info) {
+      //     attrs[PREFIX + attr] = info[attr];
+      //   }
+      // });
     }
 
     function setMarker(m) {
