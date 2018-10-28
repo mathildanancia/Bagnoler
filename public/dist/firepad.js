@@ -4013,7 +4013,7 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.getText = function() {
-    return this.codeMirror.getValue().replace(new RegExp(LineSentinelCharacter, "g"), '');
+    // return this.codeMirror.getValue().replace(new RegExp(LineSentinelCharacter, "g"), '');
   };
 
   RichTextCodeMirror.prototype.areLineSentinelCharacters_ = function(text) {
