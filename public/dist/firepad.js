@@ -4013,7 +4013,7 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.getText = function() {
-    return this.codeMirror.getValue().replace(new RegExp(LineSentinelCharacter, "g"), '');
+    // return this.codeMirror.getValue().replace(new RegExp(LineSentinelCharacter, "g"), '');
   };
 
   RichTextCodeMirror.prototype.areLineSentinelCharacters_ = function(text) {
@@ -5743,13 +5743,13 @@ firepad.Firepad = (function(global) {
 
 
   Firepad.prototype.deleteLeft = function() {
-    this.richTextCodeMirror_.deleteLeft();
+    // this.richTextCodeMirror_.deleteLeft();
     console.log("Can't delete sorry!")
   };
 
   Firepad.prototype.deleteRight = function() {
     console.log("Can't delete !")
-    this.richTextCodeMirror_.deleteRight();
+    // this.richTextCodeMirror_.deleteRight();
   };
 
   Firepad.prototype.indent = function() {
