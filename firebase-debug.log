@@ -333,3 +333,27 @@
 [warn] ⚠  hosting: Port 5000 is not available. Trying another port...
 [info] i  hosting[bagnoler-15f88]: Serving hosting files from: public
 [info] ✔  hosting[bagnoler-15f88]: Local server: http://localhost:5005
+[debug] [2018-10-28T09:46:44.508Z] ----------------------------------------------------------------------
+[debug] [2018-10-28T09:46:44.510Z] Command:       /usr/local/Cellar/node/10.3.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-10-28T09:46:44.510Z] CLI Version:   4.2.1
+[debug] [2018-10-28T09:46:44.510Z] Platform:      darwin
+[debug] [2018-10-28T09:46:44.510Z] Node Version:  v10.3.0
+[debug] [2018-10-28T09:46:44.510Z] Time:          Sun Oct 28 2018 10:46:44 GMT+0100 (CET)
+[debug] [2018-10-28T09:46:44.511Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-28T09:46:44.521Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-28T09:46:44.521Z] > authorizing via signed-in user
+[debug] [2018-10-28T09:46:44.523Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2018-10-28T09:46:45.196Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-28T09:46:45.197Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2018-10-28T09:46:46.273Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2018-10-28T09:46:46.275Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-28T09:46:46.632Z] <<< HTTP RESPONSE 200
+[info] i  hosting[bagnoler-15f88]: Serving hosting files from: public
+[info] ✔  hosting[bagnoler-15f88]: Local server: http://localhost:5000
