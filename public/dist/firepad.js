@@ -4013,7 +4013,7 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.getText = function() {
-    // return this.codeMirror.getValue().replace(new RegExp(LineSentinelCharacter, "g"), '');
+    return this.codeMirror.getValue().replace(new RegExp(LineSentinelCharacter, "g"), '');
   };
 
   RichTextCodeMirror.prototype.areLineSentinelCharacters_ = function(text) {
@@ -4232,23 +4232,23 @@ firepad.RichTextCodeMirrorAdapter = (function () {
   };
 
   RichTextCodeMirrorAdapter.prototype.getValue = function () {
-    // return this.cm.getValue();
+    return this.cm.getValue();
   };
 
   RichTextCodeMirrorAdapter.prototype.getCursor = function () {
-    // var cm = this.cm;
-    // var cursorPos = cm.getCursor();
-    // var position = cm.indexFromPos(cursorPos);
-    // var selectionEnd;
-    // if (cm.somethingSelected()) {
-    //   var startPos = cm.getCursor(true);
-    //   var selectionEndPos = posEq(cursorPos, startPos) ? cm.getCursor(false) : startPos;
-    //   selectionEnd = cm.indexFromPos(selectionEndPos);
-    // } else {
-    //   selectionEnd = position;
-    // }
+    var cm = this.cm;
+    var cursorPos = cm.getCursor();
+    var position = cm.indexFromPos(cursorPos);
+    var selectionEnd;
+    if (cm.somethingSelected()) {
+      var startPos = cm.getCursor(true);
+      var selectionEndPos = posEq(cursorPos, startPos) ? cm.getCursor(false) : startPos;
+      selectionEnd = cm.indexFromPos(selectionEndPos);
+    } else {
+      selectionEnd = position;
+    }
 
-    // return new Cursor(position, selectionEnd);
+    return new Cursor(position, selectionEnd);
   };
 
   RichTextCodeMirrorAdapter.prototype.setCursor = function (cursor) {
@@ -5628,17 +5628,17 @@ firepad.Firepad = (function(global) {
   };
 
   Firepad.prototype.getHtmlFromSelection = function() {
-    var startPos = this.codeMirror_.getCursor('start'), endPos = this.codeMirror_.getCursor('end');
-    var startIndex = this.codeMirror_.indexFromPos(startPos), endIndex = this.codeMirror_.indexFromPos(endPos);
-    return this.getHtmlFromRange(startIndex, endIndex);
+    // var startPos = this.codeMirror_.getCursor('start'), endPos = this.codeMirror_.getCursor('end');
+    // var startIndex = this.codeMirror_.indexFromPos(startPos), endIndex = this.codeMirror_.indexFromPos(endPos);
+    // return this.getHtmlFromRange(startIndex, endIndex);
   };
 
   Firepad.prototype.getHtmlFromRange = function(start, end) {
-    this.assertReady_('getHtmlFromRange');
-    var doc = (start != null && end != null) ?
-      this.getOperationForSpan(start, end) :
-      this.getOperationForSpan(0, this.codeMirror_.getValue().length);
-    return firepad.SerializeHtml(doc, this.entityManager_);
+    // this.assertReady_('getHtmlFromRange');
+    // var doc = (start != null && end != null) ?
+    //   this.getOperationForSpan(start, end) :
+    //   this.getOperationForSpan(0, this.codeMirror_.getValue().length);
+    // return firepad.SerializeHtml(doc, this.entityManager_);
   };
 
   Firepad.prototype.insertHtml = function (index, html) {
