@@ -38,3 +38,33 @@
 [warn] ⚠  hosting: Port 5000 is not available. Trying another port...
 [info] i  hosting[bagnoler-15f88]: Serving hosting files from: public
 [info] ✔  hosting[bagnoler-15f88]: Local server: http://localhost:5005
+[debug] [2018-10-28T09:23:51.306Z] ----------------------------------------------------------------------
+[debug] [2018-10-28T09:23:51.308Z] Command:       /usr/local/Cellar/node/10.3.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-10-28T09:23:51.308Z] CLI Version:   4.2.1
+[debug] [2018-10-28T09:23:51.309Z] Platform:      darwin
+[debug] [2018-10-28T09:23:51.309Z] Node Version:  v10.3.0
+[debug] [2018-10-28T09:23:51.309Z] Time:          Sun Oct 28 2018 10:23:51 GMT+0100 (CET)
+[debug] [2018-10-28T09:23:51.309Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-28T09:23:51.323Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-28T09:23:51.323Z] > authorizing via signed-in user
+[debug] [2018-10-28T09:23:51.325Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-10-28T09:23:51.325Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-10-28T09:23:51.613Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-28T09:23:51.623Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2018-10-28T09:23:52.508Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-28T09:23:52.510Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2018-10-28T09:23:53.656Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2018-10-28T09:23:53.659Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-28T09:23:54.121Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[info] i  hosting[bagnoler-15f88]: Serving hosting files from: public
+[info] ✔  hosting[bagnoler-15f88]: Local server: http://localhost:5010
