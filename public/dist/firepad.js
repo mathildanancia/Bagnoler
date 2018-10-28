@@ -3144,11 +3144,11 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.insertText = function(index, text, attributes, origin) {
-    var cm = this.codeMirror;
-    var cursor = cm.getCursor();
-    var resetCursor = origin == 'RTCMADAPTER' && !cm.somethingSelected() && index == cm.indexFromPos(cursor);
-    this.replaceText(index, null, text, attributes, origin);
-    if (resetCursor) cm.setCursor(cursor);
+    // var cm = this.codeMirror;
+    // var cursor = cm.getCursor();
+    // var resetCursor = origin == 'RTCMADAPTER' && !cm.somethingSelected() && index == cm.indexFromPos(cursor);
+    // this.replaceText(index, null, text, attributes, origin);
+    // if (resetCursor) cm.setCursor(cursor);
   };
 
   RichTextCodeMirror.prototype.removeText = function(start, end, origin) {
@@ -4241,10 +4241,10 @@ firepad.RichTextCodeMirrorAdapter = (function () {
     var position = cm.indexFromPos(cursorPos);
     var selectionEnd;
     if (cm.somethingSelected()) {
-    //   var startPos = cm.getCursor(true);
-    //   var selectionEndPos = posEq(cursorPos, startPos) ? cm.getCursor(false) : startPos;
-    //   selectionEnd = cm.indexFromPos(selectionEndPos);
-    // } else {
+      var startPos = cm.getCursor(true);
+      var selectionEndPos = posEq(cursorPos, startPos) ? cm.getCursor(false) : startPos;
+      selectionEnd = cm.indexFromPos(selectionEndPos);
+    } else {
       selectionEnd = position;
     }
 
