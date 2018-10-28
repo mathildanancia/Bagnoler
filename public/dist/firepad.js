@@ -5753,37 +5753,37 @@ firepad.Firepad = (function(global) {
   };
 
   Firepad.prototype.indent = function() {
-    this.richTextCodeMirror_.indent();
-    this.codeMirror_.focus();
+    // this.richTextCodeMirror_.indent();
+    // this.codeMirror_.focus();
   };
 
   Firepad.prototype.unindent = function() {
-    this.richTextCodeMirror_.unindent();
-    this.codeMirror_.focus();
+    // this.richTextCodeMirror_.unindent();
+    // this.codeMirror_.focus();
   };
 
   Firepad.prototype.undo = function() {
-    this.codeMirror_.undo();
+    // this.codeMirror_.undo();
   };
 
   Firepad.prototype.redo = function() {
-    this.codeMirror_.redo();
+    // this.codeMirror_.redo();
   };
 
   Firepad.prototype.insertEntity = function(type, info, origin) {
-    this.richTextCodeMirror_.insertEntityAtCursor(type, info, origin);
+    // this.richTextCodeMirror_.insertEntityAtCursor(type, info, origin);
   };
 
   Firepad.prototype.insertEntityAt = function(index, type, info, origin) {
-    this.richTextCodeMirror_.insertEntityAt(index, type, info, origin);
+    // this.richTextCodeMirror_.insertEntityAt(index, type, info, origin);
   };
 
   Firepad.prototype.registerEntity = function(type, options) {
-    this.entityManager_.register(type, options);
+    // this.entityManager_.register(type, options);
   };
 
   Firepad.prototype.getOption = function(option, def) {
-    return (option in this.options_) ? this.options_[option] : def;
+    // return (option in this.options_) ? this.options_[option] : def;
   };
 
   Firepad.prototype.assertReady_ = function(funcName) {
