@@ -4241,10 +4241,10 @@ firepad.RichTextCodeMirrorAdapter = (function () {
     var position = cm.indexFromPos(cursorPos);
     var selectionEnd;
     if (cm.somethingSelected()) {
-      var startPos = cm.getCursor(true);
-      var selectionEndPos = posEq(cursorPos, startPos) ? cm.getCursor(false) : startPos;
-      selectionEnd = cm.indexFromPos(selectionEndPos);
-    } else {
+    //   var startPos = cm.getCursor(true);
+    //   var selectionEndPos = posEq(cursorPos, startPos) ? cm.getCursor(false) : startPos;
+    //   selectionEnd = cm.indexFromPos(selectionEndPos);
+    // } else {
       selectionEnd = position;
     }
 
@@ -5628,11 +5628,9 @@ firepad.Firepad = (function(global) {
   };
 
   Firepad.prototype.getHtmlFromSelection = function() {
-    // var startPos = this.codeMirror_.getCursor('start'), endPos = this.codeMirror_.getCursor('end');
-    // var startIndex = this.codeMirror_.indexFromPos(startPos), endIndex = this.codeMirror_.indexFromPos(endPos);
-    // return this.getHtmlFromRange(startIndex, endIndex);
-        console.log("Can't select sorry");
-
+    var startPos = this.codeMirror_.getCursor('start'), endPos = this.codeMirror_.getCursor('end');
+    var startIndex = this.codeMirror_.indexFromPos(startPos), endIndex = this.codeMirror_.indexFromPos(endPos);
+    return this.getHtmlFromRange(startIndex, endIndex);
   };
 
   Firepad.prototype.getHtmlFromRange = function(start, end) {
