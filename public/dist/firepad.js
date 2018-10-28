@@ -5628,9 +5628,11 @@ firepad.Firepad = (function(global) {
   };
 
   Firepad.prototype.getHtmlFromSelection = function() {
-    var startPos = this.codeMirror_.getCursor('start'), endPos = this.codeMirror_.getCursor('end');
-    var startIndex = this.codeMirror_.indexFromPos(startPos), endIndex = this.codeMirror_.indexFromPos(endPos);
-    return this.getHtmlFromRange(startIndex, endIndex);
+    // var startPos = this.codeMirror_.getCursor('start'), endPos = this.codeMirror_.getCursor('end');
+    // var startIndex = this.codeMirror_.indexFromPos(startPos), endIndex = this.codeMirror_.indexFromPos(endPos);
+    // return this.getHtmlFromRange(startIndex, endIndex);
+        console.log("Can't select sorry");
+
   };
 
   Firepad.prototype.getHtmlFromRange = function(start, end) {
