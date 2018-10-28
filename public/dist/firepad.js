@@ -3168,17 +3168,17 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.insertEntity_ = function(index, entity, origin) {
-    this.replaceText(index, null, EntitySentinelCharacter, entity.toAttributes(), origin);
+    // this.replaceText(index, null, EntitySentinelCharacter, entity.toAttributes(), origin);
   };
 
   RichTextCodeMirror.prototype.getAttributeSpans = function(start, end) {
-    var spans = [];
-    var annotatedSpans = this.annotationList_.getAnnotatedSpansForSpan(new Span(start, end - start));
-    for(var i  = 0; i < annotatedSpans.length; i++) {
-      spans.push({ length: annotatedSpans[i].length, attributes: annotatedSpans[i].annotation.attributes });
-    }
+    // var spans = [];
+    // var annotatedSpans = this.annotationList_.getAnnotatedSpansForSpan(new Span(start, end - start));
+    // for(var i  = 0; i < annotatedSpans.length; i++) {
+    //   spans.push({ length: annotatedSpans[i].length, attributes: annotatedSpans[i].annotation.attributes });
+    // }
 
-    return spans;
+    // return spans;
   };
 
   RichTextCodeMirror.prototype.end = function() {
