@@ -4013,7 +4013,7 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.getText = function() {
-    return this.codeMirror.getValue().replace(new RegExp(LineSentinelCharacter, "g"), '');
+    // return this.codeMirror.getValue().replace(new RegExp(LineSentinelCharacter, "g"), '');
   };
 
   RichTextCodeMirror.prototype.areLineSentinelCharacters_ = function(text) {
@@ -4064,10 +4064,10 @@ firepad.RichTextCodeMirror = (function () {
   // object.method() directly or pass object.method as a reference to another
   // function.
   function bind (obj, method) {
-    var fn = obj[method];
-    obj[method] = function () {
-      fn.apply(obj, arguments);
-    };
+    // var fn = obj[method];
+    // obj[method] = function () {
+    //   fn.apply(obj, arguments);
+    // };
   }
 
   return RichTextCodeMirror;
