@@ -51,3 +51,55 @@
 [warn] ⚠  hosting: Port 5000 is not available. Trying another port...
 [info] i  hosting[bagnoler-15f88]: Serving hosting files from: public
 [info] ✔  hosting[bagnoler-15f88]: Local server: http://localhost:5005
+[debug] [2018-10-29T09:30:55.405Z] ----------------------------------------------------------------------
+[debug] [2018-10-29T09:30:55.408Z] Command:       /usr/local/Cellar/node/10.3.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-10-29T09:30:55.408Z] CLI Version:   4.2.1
+[debug] [2018-10-29T09:30:55.408Z] Platform:      darwin
+[debug] [2018-10-29T09:30:55.408Z] Node Version:  v10.3.0
+[debug] [2018-10-29T09:30:55.408Z] Time:          Mon Oct 29 2018 10:30:55 GMT+0100 (CET)
+[debug] [2018-10-29T09:30:55.408Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-29T09:30:55.420Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-29T09:30:55.420Z] > authorizing via signed-in user
+[debug] [2018-10-29T09:30:55.423Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2018-10-29T09:30:56.218Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-29T09:30:56.219Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2018-10-29T09:30:57.198Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2018-10-29T09:30:57.201Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-29T09:30:57.733Z] <<< HTTP RESPONSE 200
+[info] i  hosting[bagnoler-15f88]: Serving hosting files from: public
+[info] ✔  hosting[bagnoler-15f88]: Local server: http://localhost:5000
+[debug] [2019-01-02T13:45:43.309Z] ----------------------------------------------------------------------
+[debug] [2019-01-02T13:45:43.312Z] Command:       /usr/local/Cellar/node/11.6.0/bin/node /usr/local/bin/firebase serve
+[debug] [2019-01-02T13:45:43.312Z] CLI Version:   4.2.1
+[debug] [2019-01-02T13:45:43.312Z] Platform:      darwin
+[debug] [2019-01-02T13:45:43.312Z] Node Version:  v11.6.0
+[debug] [2019-01-02T13:45:43.320Z] Time:          Wed Jan 02 2019 14:45:43 GMT+0100 (Central European Standard Time)
+[debug] [2019-01-02T13:45:43.320Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-02T13:45:43.337Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-02T13:45:43.337Z] > authorizing via signed-in user
+[debug] [2019-01-02T13:45:43.340Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-01-02T13:45:43.340Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2019-01-02T13:45:43.630Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-02T13:45:43.641Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2019-01-02T13:45:44.409Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-02T13:45:44.410Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2019-01-02T13:45:45.347Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2019-01-02T13:45:45.351Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2019-01-02T13:45:46.070Z] <<< HTTP RESPONSE 200
+[info] i  hosting[bagnoler-15f88]: Serving hosting files from: public
+[info] ✔  hosting[bagnoler-15f88]: Local server: http://localhost:5000
