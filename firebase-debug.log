@@ -122,3 +122,28 @@
 [warn] ⚠  hosting: Port 5000 is not available. Trying another port...
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5005
+[debug] [2019-01-02T16:19:54.201Z] ----------------------------------------------------------------------
+[debug] [2019-01-02T16:19:54.204Z] Command:       /usr/local/Cellar/node/11.6.0/bin/node /usr/local/bin/firebase serve
+[debug] [2019-01-02T16:19:54.204Z] CLI Version:   6.2.2
+[debug] [2019-01-02T16:19:54.205Z] Platform:      darwin
+[debug] [2019-01-02T16:19:54.205Z] Node Version:  v11.6.0
+[debug] [2019-01-02T16:19:54.206Z] Time:          Wed Jan 02 2019 17:19:54 GMT+0100 (Central European Standard Time)
+[debug] [2019-01-02T16:19:54.206Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-02T16:19:54.220Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-02T16:19:54.220Z] > authorizing via signed-in user
+[debug] [2019-01-02T16:19:54.220Z] [iam] checking project bagnoler-15f88 for permissions ["firebase.projects.get"]
+[debug] [2019-01-02T16:19:54.222Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88:testIamPermissions  
+
+[debug] [2019-01-02T16:19:55.130Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-02T16:19:55.132Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2019-01-02T16:19:55.945Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2019-01-02T16:19:55.951Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2019-01-02T16:19:56.315Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
