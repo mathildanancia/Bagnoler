@@ -127,3 +127,28 @@
 [debug] [2019-01-02T14:09:53.997Z] <<< HTTP RESPONSE 200
 [info] i  hosting[bagnoler-15f88]: Serving hosting files from: public
 [info] ✔  hosting[bagnoler-15f88]: Local server: http://localhost:5000
+[debug] [2019-01-02T14:15:06.907Z] ----------------------------------------------------------------------
+[debug] [2019-01-02T14:15:06.909Z] Command:       /usr/local/Cellar/node/11.6.0/bin/node /usr/local/bin/firebase serve
+[debug] [2019-01-02T14:15:06.910Z] CLI Version:   6.2.2
+[debug] [2019-01-02T14:15:06.910Z] Platform:      darwin
+[debug] [2019-01-02T14:15:06.910Z] Node Version:  v11.6.0
+[debug] [2019-01-02T14:15:06.910Z] Time:          Wed Jan 02 2019 15:15:06 GMT+0100 (Central European Standard Time)
+[debug] [2019-01-02T14:15:06.911Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-02T14:15:06.925Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-02T14:15:06.925Z] > authorizing via signed-in user
+[debug] [2019-01-02T14:15:06.925Z] [iam] checking project bagnoler-15f88 for permissions ["firebase.projects.get"]
+[debug] [2019-01-02T14:15:06.928Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88:testIamPermissions  
+
+[debug] [2019-01-02T14:15:07.872Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-02T14:15:07.876Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2019-01-02T14:15:08.684Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2019-01-02T14:15:08.686Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2019-01-02T14:15:09.074Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
