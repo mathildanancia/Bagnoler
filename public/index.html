@@ -43,7 +43,7 @@
   </style>
 </head>
 
-<body onload="init()" onmousedown = 'return false' onselectstart = 'return false'>
+<body onload="init()" >
   <div id="userlist"></div>
   <div id="firepad"></div>
 
@@ -122,6 +122,14 @@
 
       //Disable mouse right click
       $("body").on("contextmenu",function(e){
+          return false;
+      });
+
+      $("body").on("onselectstart",function(e){
+          return false;
+      });
+
+      $("body").on("onmousedown",function(e){
           return false;
       });
 
