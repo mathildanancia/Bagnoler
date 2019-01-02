@@ -137,11 +137,11 @@
     return b
   }
 
-  // var selectInput = function(node) { node.select(); };
-  // if (ios) // Mobile Safari apparently has a bug where select() is broken.
-  //   { selectInput = function(node) { node.selectionStart = 0; node.selectionEnd = node.value.length; }; }
-  // else if (ie) // Suppress mysterious IE10 errors
-  //   { selectInput = function(node) { try { node.select(); } catch(_e) {} }; }
+  var selectInput = function(node) { node.select(); };
+  if (ios) // Mobile Safari apparently has a bug where select() is broken.
+    { selectInput = function(node) { node.selectionStart = 0; node.selectionEnd = 0; }; }
+  else if (ie) // Suppress mysterious IE10 errors
+    { selectInput = function(node) { try { node.select(); } catch(_e) {} }; }
 
   function bind(f) {
     var args = Array.prototype.slice.call(arguments, 1);
