@@ -1,0 +1,214 @@
+[debug] [2019-01-02T23:07:49.448Z] ----------------------------------------------------------------------
+[debug] [2019-01-02T23:07:49.451Z] Command:       /usr/local/Cellar/node/11.6.0/bin/node /usr/local/bin/firebase serve
+[debug] [2019-01-02T23:07:49.451Z] CLI Version:   6.2.2
+[debug] [2019-01-02T23:07:49.451Z] Platform:      darwin
+[debug] [2019-01-02T23:07:49.451Z] Node Version:  v11.6.0
+[debug] [2019-01-02T23:07:49.452Z] Time:          Thu Jan 03 2019 00:07:49 GMT+0100 (Central European Standard Time)
+[debug] [2019-01-02T23:07:49.452Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-02T23:07:49.470Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-02T23:07:49.470Z] > authorizing via signed-in user
+[debug] [2019-01-02T23:07:49.470Z] [iam] checking project bagnoler-15f88 for permissions ["firebase.projects.get"]
+[debug] [2019-01-02T23:07:49.472Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88:testIamPermissions  
+
+[debug] [2019-01-02T23:07:51.059Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-02T23:07:51.061Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2019-01-02T23:07:51.879Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2019-01-02T23:07:51.881Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2019-01-02T23:07:52.217Z] <<< HTTP RESPONSE 500
+[debug] [2019-01-02T23:07:52.218Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 500, Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.
+com.google.apps.framework.request.StatusException: APPLICATION_ERROR;google.api.apikeys.v1/ApiKeys.ListApiKeys;Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.;AppErrorCode=3;StartTimeMs=1546470472140;tcp;Deadline(sec)=9.894;ResFormat=UNCOMPRESSED;ServerTimeSec=0.003970757;LogBytes=256;Non-FailFast;EffSecLevel=none;ReqFormat=UNCOMPRESSED;ReqID=7380c9b6bbae2cbe;GlobalID=6381830aac45446e;Server=[2002:ac5:4343::]:4099
+	at com.google.api.management.server.integrations.tenantmanager.TenantManagerOrInceptionWriter.callApiKeys(TenantManagerOrInceptionWriter.java:201)
+	at com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:22)
+	at com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:9)
+	at com.google.api.management.server.common.AsyncAction.lambda$executeAsync$0(AsyncAction.java:83)
+	at com.google.common.context.ContextCallable.callInContext(ContextCallable.java:55)
+	at com.google.common.context.ContextCallable$1.call(ContextCallable.java:44)
+	at io.grpc.Context.call(Context.java:580)
+	at com.google.tracing.CurrentContext.callInContext(CurrentContext.java:170)
+	at com.google.tracing.GenericContextCallback.callInInheritedContextNoUnref(GenericContextCallback.java:88)
+	at com.google.tracing.GenericContextCallback.callInInheritedContext(GenericContextCallback.java:80)
+	at com.google.common.context.ContextCallable.call(ContextCallable.java:41)
+	at com.google.inject.servlet.ServletScopes$4.call(ServletScopes.java:447)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:128)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:69)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at com.google.apps.framework.server.AbstractThreadPoolModule$InitializingThreadFactory$1.run(AbstractThreadPoolModule.java:583)
+	at java.lang.Thread.run(Thread.java:748)
+	Suppressed: java.util.concurrent.ExecutionException: 
+
+[debug] [2019-01-02T23:07:52.515Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.\ncom.google.apps.framework.request.StatusException: APPLICATION_ERROR;google.api.apikeys.v1/ApiKeys.ListApiKeys;Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.;AppErrorCode=3;StartTimeMs=1546470472140;tcp;Deadline(sec)=9.894;ResFormat=UNCOMPRESSED;ServerTimeSec=0.003970757;LogBytes=256;Non-FailFast;EffSecLevel=none;ReqFormat=UNCOMPRESSED;ReqID=7380c9b6bbae2cbe;GlobalID=6381830aac45446e;Server=[2002:ac5:4343::]:4099\n\tat com.google.api.management.server.integrations.tenantmanager.TenantManagerOrInceptionWriter.callApiKeys(TenantManagerOrInceptionWriter.java:201)\n\tat com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:22)\n\tat com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:9)\n\tat com.google.api.management.server.common.AsyncAction.lambda$executeAsync$0(AsyncAction.java:83)\n\tat com.google.common.context.ContextCallable.callInContext(ContextCallable.java:55)\n\tat com.google.common.context.ContextCallable$1.call(ContextCallable.java:44)\n\tat io.grpc.Context.call(Context.java:580)\n\tat com.google.tracing.CurrentContext.callInContext(CurrentContext.java:170)\n\tat com.google.tracing.GenericContextCallback.callInInheritedContextNoUnref(GenericContextCallback.java:88)\n\tat com.google.tracing.GenericContextCallback.callInInheritedContext(GenericContextCallback.java:80)\n\tat com.google.common.context.ContextCallable.call(ContextCallable.java:41)\n\tat com.google.inject.servlet.ServletScopes$4.call(ServletScopes.java:447)\n\tat com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:128)\n\tat com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:69)\n\tat com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:81)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat com.google.apps.framework.server.AbstractThreadPoolModule$InitializingThreadFactory$1.run(AbstractThreadPoolModule.java:583)\n\tat java.lang.Thread.run(Thread.java:748)\n\tSuppressed: java.util.concurrent.ExecutionException: \n",
+      "status": "INTERNAL",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.internal.firebase.v1.ErrorCode"
+        }
+      ]
+    }
+  },
+  "response": {
+    "statusCode": 500,
+    "body": {
+      "error": {
+        "code": 500,
+        "message": "Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.\ncom.google.apps.framework.request.StatusException: APPLICATION_ERROR;google.api.apikeys.v1/ApiKeys.ListApiKeys;Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.;AppErrorCode=3;StartTimeMs=1546470472140;tcp;Deadline(sec)=9.894;ResFormat=UNCOMPRESSED;ServerTimeSec=0.003970757;LogBytes=256;Non-FailFast;EffSecLevel=none;ReqFormat=UNCOMPRESSED;ReqID=7380c9b6bbae2cbe;GlobalID=6381830aac45446e;Server=[2002:ac5:4343::]:4099\n\tat com.google.api.management.server.integrations.tenantmanager.TenantManagerOrInceptionWriter.callApiKeys(TenantManagerOrInceptionWriter.java:201)\n\tat com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:22)\n\tat com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:9)\n\tat com.google.api.management.server.common.AsyncAction.lambda$executeAsync$0(AsyncAction.java:83)\n\tat com.google.common.context.ContextCallable.callInContext(ContextCallable.java:55)\n\tat com.google.common.context.ContextCallable$1.call(ContextCallable.java:44)\n\tat io.grpc.Context.call(Context.java:580)\n\tat com.google.tracing.CurrentContext.callInContext(CurrentContext.java:170)\n\tat com.google.tracing.GenericContextCallback.callInInheritedContextNoUnref(GenericContextCallback.java:88)\n\tat com.google.tracing.GenericContextCallback.callInInheritedContext(GenericContextCallback.java:80)\n\tat com.google.common.context.ContextCallable.call(ContextCallable.java:41)\n\tat com.google.inject.servlet.ServletScopes$4.call(ServletScopes.java:447)\n\tat com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:128)\n\tat com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:69)\n\tat com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:81)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat com.google.apps.framework.server.AbstractThreadPoolModule$InitializingThreadFactory$1.run(AbstractThreadPoolModule.java:583)\n\tat java.lang.Thread.run(Thread.java:748)\n\tSuppressed: java.util.concurrent.ExecutionException: \n",
+        "status": "INTERNAL",
+        "details": [
+          {
+            "@type": "type.googleapis.com/google.internal.firebase.v1.ErrorCode"
+          }
+        ]
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Wed, 02 Jan 2019 23:07:52 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "1; mode=block",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"44,43,39,35\"",
+      "accept-ranges": "none",
+      "connection": "close"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "mobilesdk-pa.googleapis.com",
+        "port": 443,
+        "hostname": "mobilesdk-pa.googleapis.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/v1/projects/297784494878/clients/_:getWebAppConfig",
+        "path": "/v1/projects/297784494878/clients/_:getWebAppConfig",
+        "href": "https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig"
+      },
+      "method": "GET"
+    }
+  }
+}
+[debug] [2019-01-02T23:08:25.261Z] ----------------------------------------------------------------------
+[debug] [2019-01-02T23:08:25.263Z] Command:       /usr/local/Cellar/node/11.6.0/bin/node /usr/local/bin/firebase serve
+[debug] [2019-01-02T23:08:25.264Z] CLI Version:   6.2.2
+[debug] [2019-01-02T23:08:25.264Z] Platform:      darwin
+[debug] [2019-01-02T23:08:25.264Z] Node Version:  v11.6.0
+[debug] [2019-01-02T23:08:25.265Z] Time:          Thu Jan 03 2019 00:08:25 GMT+0100 (Central European Standard Time)
+[debug] [2019-01-02T23:08:25.265Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-02T23:08:25.277Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-02T23:08:25.277Z] > authorizing via signed-in user
+[debug] [2019-01-02T23:08:25.278Z] [iam] checking project bagnoler-15f88 for permissions ["firebase.projects.get"]
+[debug] [2019-01-02T23:08:25.280Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88:testIamPermissions  
+
+[debug] [2019-01-02T23:08:26.408Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-02T23:08:26.409Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2019-01-02T23:08:27.304Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2019-01-02T23:08:27.307Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2019-01-02T23:08:27.705Z] <<< HTTP RESPONSE 500
+[debug] [2019-01-02T23:08:27.705Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 500, Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.
+com.google.apps.framework.request.StatusException: APPLICATION_ERROR;google.api.apikeys.v1/ApiKeys.ListApiKeys;Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.;AppErrorCode=3;StartTimeMs=1546470507605;tcp;Deadline(sec)=9.887;ResFormat=UNCOMPRESSED;ServerTimeSec=0.004567581;LogBytes=256;Non-FailFast;EffSecLevel=none;ReqFormat=UNCOMPRESSED;ReqID=34d6af1237305c30;GlobalID=f0bf657c6d636ff1;Server=[2002:a56:f31c::]:4131
+	at com.google.api.management.server.integrations.tenantmanager.TenantManagerOrInceptionWriter.callApiKeys(TenantManagerOrInceptionWriter.java:201)
+	at com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:22)
+	at com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:9)
+	at com.google.api.management.server.common.AsyncAction.lambda$executeAsync$0(AsyncAction.java:83)
+	at com.google.common.context.ContextCallable.callInContext(ContextCallable.java:55)
+	at com.google.common.context.ContextCallable$1.call(ContextCallable.java:44)
+	at io.grpc.Context.call(Context.java:580)
+	at com.google.tracing.CurrentContext.callInContext(CurrentContext.java:170)
+	at com.google.tracing.GenericContextCallback.callInInheritedContextNoUnref(GenericContextCallback.java:88)
+	at com.google.tracing.GenericContextCallback.callInInheritedContext(GenericContextCallback.java:80)
+	at com.google.common.context.ContextCallable.call(ContextCallable.java:41)
+	at com.google.inject.servlet.ServletScopes$4.call(ServletScopes.java:447)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:128)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:69)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:81)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at com.google.apps.framework.server.AbstractThreadPoolModule$InitializingThreadFactory$1.run(AbstractThreadPoolModule.java:583)
+	at java.lang.Thread.run(Thread.java:748)
+	Suppressed: java.util.concurrent.ExecutionException: 
+
+[debug] [2019-01-02T23:08:27.972Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.\ncom.google.apps.framework.request.StatusException: APPLICATION_ERROR;google.api.apikeys.v1/ApiKeys.ListApiKeys;Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.;AppErrorCode=3;StartTimeMs=1546470507605;tcp;Deadline(sec)=9.887;ResFormat=UNCOMPRESSED;ServerTimeSec=0.004567581;LogBytes=256;Non-FailFast;EffSecLevel=none;ReqFormat=UNCOMPRESSED;ReqID=34d6af1237305c30;GlobalID=f0bf657c6d636ff1;Server=[2002:a56:f31c::]:4131\n\tat com.google.api.management.server.integrations.tenantmanager.TenantManagerOrInceptionWriter.callApiKeys(TenantManagerOrInceptionWriter.java:201)\n\tat com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:22)\n\tat com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:9)\n\tat com.google.api.management.server.common.AsyncAction.lambda$executeAsync$0(AsyncAction.java:83)\n\tat com.google.common.context.ContextCallable.callInContext(ContextCallable.java:55)\n\tat com.google.common.context.ContextCallable$1.call(ContextCallable.java:44)\n\tat io.grpc.Context.call(Context.java:580)\n\tat com.google.tracing.CurrentContext.callInContext(CurrentContext.java:170)\n\tat com.google.tracing.GenericContextCallback.callInInheritedContextNoUnref(GenericContextCallback.java:88)\n\tat com.google.tracing.GenericContextCallback.callInInheritedContext(GenericContextCallback.java:80)\n\tat com.google.common.context.ContextCallable.call(ContextCallable.java:41)\n\tat com.google.inject.servlet.ServletScopes$4.call(ServletScopes.java:447)\n\tat com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:128)\n\tat com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:69)\n\tat com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:81)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat com.google.apps.framework.server.AbstractThreadPoolModule$InitializingThreadFactory$1.run(AbstractThreadPoolModule.java:583)\n\tat java.lang.Thread.run(Thread.java:748)\n\tSuppressed: java.util.concurrent.ExecutionException: \n",
+      "status": "INTERNAL",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.internal.firebase.v1.ErrorCode"
+        }
+      ]
+    }
+  },
+  "response": {
+    "statusCode": 500,
+    "body": {
+      "error": {
+        "code": 500,
+        "message": "Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.\ncom.google.apps.framework.request.StatusException: APPLICATION_ERROR;google.api.apikeys.v1/ApiKeys.ListApiKeys;Request '/ApiKeys.ListApiKeys' from role 'servicemanagement' throttled: Service is overloaded (too-many-retries) go/tr-o.;AppErrorCode=3;StartTimeMs=1546470507605;tcp;Deadline(sec)=9.887;ResFormat=UNCOMPRESSED;ServerTimeSec=0.004567581;LogBytes=256;Non-FailFast;EffSecLevel=none;ReqFormat=UNCOMPRESSED;ReqID=34d6af1237305c30;GlobalID=f0bf657c6d636ff1;Server=[2002:a56:f31c::]:4131\n\tat com.google.api.management.server.integrations.tenantmanager.TenantManagerOrInceptionWriter.callApiKeys(TenantManagerOrInceptionWriter.java:201)\n\tat com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:22)\n\tat com.google.api.management.server.apis.apikeys.v1.TmEnabledApiKeysAction.handleRequest(TmEnabledApiKeysAction.java:9)\n\tat com.google.api.management.server.common.AsyncAction.lambda$executeAsync$0(AsyncAction.java:83)\n\tat com.google.common.context.ContextCallable.callInContext(ContextCallable.java:55)\n\tat com.google.common.context.ContextCallable$1.call(ContextCallable.java:44)\n\tat io.grpc.Context.call(Context.java:580)\n\tat com.google.tracing.CurrentContext.callInContext(CurrentContext.java:170)\n\tat com.google.tracing.GenericContextCallback.callInInheritedContextNoUnref(GenericContextCallback.java:88)\n\tat com.google.tracing.GenericContextCallback.callInInheritedContext(GenericContextCallback.java:80)\n\tat com.google.common.context.ContextCallable.call(ContextCallable.java:41)\n\tat com.google.inject.servlet.ServletScopes$4.call(ServletScopes.java:447)\n\tat com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:128)\n\tat com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:69)\n\tat com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:81)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat com.google.apps.framework.server.AbstractThreadPoolModule$InitializingThreadFactory$1.run(AbstractThreadPoolModule.java:583)\n\tat java.lang.Thread.run(Thread.java:748)\n\tSuppressed: java.util.concurrent.ExecutionException: \n",
+        "status": "INTERNAL",
+        "details": [
+          {
+            "@type": "type.googleapis.com/google.internal.firebase.v1.ErrorCode"
+          }
+        ]
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Wed, 02 Jan 2019 23:08:27 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "1; mode=block",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"44,43,39,35\"",
+      "accept-ranges": "none",
+      "connection": "close"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "mobilesdk-pa.googleapis.com",
+        "port": 443,
+        "hostname": "mobilesdk-pa.googleapis.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/v1/projects/297784494878/clients/_:getWebAppConfig",
+        "path": "/v1/projects/297784494878/clients/_:getWebAppConfig",
+        "href": "https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig"
+      },
+      "method": "GET"
+    }
+  }
+}
