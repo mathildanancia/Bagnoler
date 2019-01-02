@@ -2507,7 +2507,7 @@
           var selectedArea = getSelectedAreaRange(cm, vim);
           var selectionStart = null;
           var selectionEnd = null;
-          var selectedText = cm.getSelection();
+          var selectedText = null;
           var selections = cm.listSelections();
           var emptyStrings = new Array(selections.length).join('1').split('1');
           // save the curEnd marker before it get cleared due to cm.replaceRange.
