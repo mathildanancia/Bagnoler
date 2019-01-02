@@ -124,7 +124,8 @@
       $("body").on("contextmenu",function(e){
           return false;
       });
-      $("body").on("onmousedown",noselection(e){
+
+      $("body").on("onmousedown",noselection(){
       });
 
       function noselection(target){
@@ -153,8 +154,6 @@
         // mathilde = "77,65,84,72,73,76,68,69";
         // paul = "80,65,85,76";
         // fx = "70,88";
-
-        noselection(document.getElementById('firepad'));
 
 
         document.addEventListener("keydown", function(e){
