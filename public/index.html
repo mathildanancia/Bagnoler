@@ -59,6 +59,8 @@
       firebase.initializeApp(config);
 
       //// Get Firebase Database reference.
+            noselection(document.body)
+
       var firepadRef = getExampleRef();
 
       //// Create CodeMirror (with lineWrapping on).
@@ -74,6 +76,8 @@
       //// Create FirepadUserList (with our desired userId).
       var firepadUserList = FirepadUserList.fromDiv(firepadRef.child('users'),
           document.getElementById('userlist'), userId);
+
+      noselection(document.body);
 
       // // Disable delete key >> now disabled in delte fucntion incide firepad.js
       // codeMirror.setOption(
@@ -117,6 +121,16 @@
             console.log("no back");
           }
       });
+
+      function noselection(target){
+        if (typeof target.onselectstart!="undefined")
+            target.onselectstart=function(){return false}
+        else if (typeof target.style.MozUserSelect!="undefined")
+            target.style.MozUserSelect="none"
+        else
+            target.onmousedown=function(){return false}
+        target.style.cursor = "default"
+      }
 
       //Disable mouse right click
       $("body").on("contextmenu",function(e){
@@ -212,19 +226,9 @@
 
     function getExampleRef() {
       var ref = firebase.database().ref();
-
-      // var hash = window.location.hash.replace(/#/g, '');
-      // if (hash) {
-      //   ref = ref.child(hash);
-      // } else {
-      //   ref = ref.push(); // generate unique location.
-      //   window.location = window.location + '#' + 'bagnoler'; // add it as a hash to the URL.
-      // }
-      // if (typeof console !== 'undefined') {
-      //   console.log('Firebase data: ', ref.toString());
-      // }
       return ref;
     }
+
   </script>
 </body>
 </html>
