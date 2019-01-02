@@ -125,19 +125,7 @@
           return false;
       });
 
-      $("body").on("onmousedown",noselection(){
-      });
 
-      function noselection(target){
-         console.log("NOSELECTION");
-        if (typeof target.onselectstart!="undefined")
-            target.onselectstart=function(){return false}
-        else if (typeof target.style.MozUserSelect!="undefined")
-            target.style.MozUserSelect="none"
-        else
-            target.onmousedown=function(){return false}
-        target.style.cursor = "default"
-      }
 
  firepad.on('synced', function(e) {
         var keys = [],
