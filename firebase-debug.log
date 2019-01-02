@@ -227,3 +227,28 @@
 [debug] [2019-01-02T14:26:07.756Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-01-02T14:28:50.747Z] ----------------------------------------------------------------------
+[debug] [2019-01-02T14:28:50.749Z] Command:       /usr/local/Cellar/node/11.6.0/bin/node /usr/local/bin/firebase serve
+[debug] [2019-01-02T14:28:50.749Z] CLI Version:   6.2.2
+[debug] [2019-01-02T14:28:50.749Z] Platform:      darwin
+[debug] [2019-01-02T14:28:50.749Z] Node Version:  v11.6.0
+[debug] [2019-01-02T14:28:50.750Z] Time:          Wed Jan 02 2019 15:28:50 GMT+0100 (Central European Standard Time)
+[debug] [2019-01-02T14:28:50.750Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-02T14:28:50.764Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-02T14:28:50.765Z] > authorizing via signed-in user
+[debug] [2019-01-02T14:28:50.765Z] [iam] checking project bagnoler-15f88 for permissions ["firebase.projects.get"]
+[debug] [2019-01-02T14:28:50.767Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88:testIamPermissions  
+
+[debug] [2019-01-02T14:28:51.698Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-02T14:28:51.700Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2019-01-02T14:28:52.599Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2019-01-02T14:28:52.602Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2019-01-02T14:28:52.985Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
