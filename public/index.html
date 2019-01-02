@@ -59,7 +59,6 @@
       firebase.initializeApp(config);
 
       //// Get Firebase Database reference.
-            noselection(document.body)
 
       var firepadRef = getExampleRef();
 
@@ -122,15 +121,6 @@
           }
       });
 
-      function noselection(target){
-        if (typeof target.onselectstart!="undefined")
-            target.onselectstart=function(){return false}
-        else if (typeof target.style.MozUserSelect!="undefined")
-            target.style.MozUserSelect="none"
-        else
-            target.onmousedown=function(){return false}
-        target.style.cursor = "default"
-      }
 
       //Disable mouse right click
       $("body").on("contextmenu",function(e){
@@ -204,6 +194,17 @@
       //       console.log(event.which);
       //     });
       // });
+
+      function noselection(target){
+         console.log("NOSELECTION");
+        if (typeof target.onselectstart!="undefined")
+            target.onselectstart=function(){return false}
+        else if (typeof target.style.MozUserSelect!="undefined")
+            target.style.MozUserSelect="none"
+        else
+            target.onmousedown=function(){return false}
+        target.style.cursor = "default"
+      }
 
     };
 
