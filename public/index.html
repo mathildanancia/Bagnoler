@@ -126,11 +126,11 @@
       });
 
       $("body").on("onselectstart",function(e){
-          return false;
+          e.preventDefault();
       });
 
       $("body").on("onmousedown",function(e){
-          return false;
+          e.preventDefault();
       });
 
 
