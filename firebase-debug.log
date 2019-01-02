@@ -252,3 +252,32 @@
 [debug] [2019-01-02T14:28:52.985Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-01-02T14:36:49.018Z] ----------------------------------------------------------------------
+[debug] [2019-01-02T14:36:49.022Z] Command:       /usr/local/Cellar/node/11.6.0/bin/node /usr/local/bin/firebase serve
+[debug] [2019-01-02T14:36:49.022Z] CLI Version:   6.2.2
+[debug] [2019-01-02T14:36:49.022Z] Platform:      darwin
+[debug] [2019-01-02T14:36:49.022Z] Node Version:  v11.6.0
+[debug] [2019-01-02T14:36:49.030Z] Time:          Wed Jan 02 2019 15:36:49 GMT+0100 (Central European Standard Time)
+[debug] [2019-01-02T14:36:49.030Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-02T14:36:49.044Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-02T14:36:49.045Z] > authorizing via signed-in user
+[debug] [2019-01-02T14:36:49.045Z] [iam] checking project bagnoler-15f88 for permissions ["firebase.projects.get"]
+[debug] [2019-01-02T14:36:49.047Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-01-02T14:36:49.047Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-01-02T14:36:49.297Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-02T14:36:49.306Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88:testIamPermissions  
+
+[debug] [2019-01-02T14:36:49.635Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-02T14:36:49.637Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2019-01-02T14:36:50.505Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2019-01-02T14:36:50.508Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2019-01-02T14:36:50.881Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
