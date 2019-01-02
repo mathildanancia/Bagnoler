@@ -49,3 +49,28 @@
 [warn] ⚠  hosting: Port 5000 is not available. Trying another port...
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5005
+[debug] [2019-01-02T16:32:41.166Z] ----------------------------------------------------------------------
+[debug] [2019-01-02T16:32:41.168Z] Command:       /usr/local/Cellar/node/11.6.0/bin/node /usr/local/bin/firebase serve
+[debug] [2019-01-02T16:32:41.168Z] CLI Version:   6.2.2
+[debug] [2019-01-02T16:32:41.169Z] Platform:      darwin
+[debug] [2019-01-02T16:32:41.169Z] Node Version:  v11.6.0
+[debug] [2019-01-02T16:32:41.169Z] Time:          Wed Jan 02 2019 17:32:41 GMT+0100 (Central European Standard Time)
+[debug] [2019-01-02T16:32:41.169Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-02T16:32:41.184Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-02T16:32:41.184Z] > authorizing via signed-in user
+[debug] [2019-01-02T16:32:41.184Z] [iam] checking project bagnoler-15f88 for permissions ["firebase.projects.get"]
+[debug] [2019-01-02T16:32:41.186Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88:testIamPermissions  
+
+[debug] [2019-01-02T16:32:42.124Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-02T16:32:42.125Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bagnoler-15f88  
+ 
+[debug] [2019-01-02T16:32:43.034Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/mathildeganancia/code/mathildanancia/myfirepad'...
+[info] 
+[debug] [2019-01-02T16:32:43.036Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297784494878/clients/_:getWebAppConfig  
+ 
+[debug] [2019-01-02T16:32:43.406Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000

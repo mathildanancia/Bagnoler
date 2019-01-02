@@ -2505,7 +2505,7 @@
           vim.lastPastedText = text;
           var lastSelectionCurEnd;
           var selectedArea = getSelectedAreaRange(cm, vim);
-          var selectionStart = selectedArea[0];
+          var selectionStart = selectedArea[1];
           var selectionEnd = selectedArea[1];
           var selectedText = cm.getSelection();
           var selections = cm.listSelections();
