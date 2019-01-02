@@ -137,11 +137,11 @@
     return b
   }
 
-  // var selectInput = function(node) { node.select(); };
-  // if (ios) // Mobile Safari apparently has a bug where select() is broken.
-  //   { selectInput = function(node) { node.selectionStart = 0; node.selectionEnd = 0; }; }
-  // else if (ie) // Suppress mysterious IE10 errors
-  //   { selectInput = function(node) { try { node.select(); } catch(_e) {} }; }
+  var selectInput = function(node) { node.select(); };
+  if (ios) // Mobile Safari apparently has a bug where select() is broken.
+    { selectInput = function(node) { node.selectionStart = 0; node.selectionEnd = node.value.length; }; }
+  else if (ie) // Suppress mysterious IE10 errors
+    { selectInput = function(node) { try { node.select(); } catch(_e) {} }; }
 
   function bind(f) {
     var args = Array.prototype.slice.call(arguments, 1);
@@ -8790,7 +8790,7 @@
       cm.display.lineSpace.insertBefore(kludge, cm.display.lineSpace.firstChild);
       te.value = lastCopied.text.join("\n");
       var hadFocus = document.activeElement;
-      // selectInput(te);
+      selectInput(te);
       setTimeout(function () {
         cm.display.lineSpace.removeChild(kludge);
         hadFocus.focus();
@@ -9289,7 +9289,7 @@
         } else {
           input.prevInput = "";
           te.value = ranges.text.join("\n");
-          // selectInput(te);
+          selectInput(te);
         }
       }
       if (e.type == "cut") { cm.state.cutIncoming = true; }
@@ -9370,7 +9370,7 @@
       this.prevInput = "";
       var content = cm.getSelection();
       this.textarea.value = content;
-      // if (cm.state.focused) { selectInput(this.textarea); }
+      if (cm.state.focused) { selectInput(this.textarea); }
       if (ie && ie_version >= 9) { this.hasSelection = content; }
     } else if (!typing) {
       this.prevInput = this.textarea.value = "";
