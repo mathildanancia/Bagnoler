@@ -4013,7 +4013,7 @@ firepad.RichTextCodeMirror = (function () {
   };
 
   RichTextCodeMirror.prototype.getText = function() {
-    // return this.codeMirror.getValue().replace(new RegExp(LineSentinelCharacter, "g"), '');
+    return this.codeMirror.getValue().replace(new RegExp(LineSentinelCharacter, "g"), '');
   };
 
   RichTextCodeMirror.prototype.areLineSentinelCharacters_ = function(text) {
@@ -4064,10 +4064,10 @@ firepad.RichTextCodeMirror = (function () {
   // object.method() directly or pass object.method as a reference to another
   // function.
   function bind (obj, method) {
-    // var fn = obj[method];
-    // obj[method] = function () {
-    //   fn.apply(obj, arguments);
-    // };
+    var fn = obj[method];
+    obj[method] = function () {
+      fn.apply(obj, arguments);
+    };
   }
 
   return RichTextCodeMirror;
@@ -5628,17 +5628,17 @@ firepad.Firepad = (function(global) {
   };
 
   Firepad.prototype.getHtmlFromSelection = function() {
-    // var startPos = this.codeMirror_.getCursor('start'), endPos = this.codeMirror_.getCursor('end');
-    // var startIndex = this.codeMirror_.indexFromPos(startPos), endIndex = this.codeMirror_.indexFromPos(endPos);
-    // return this.getHtmlFromRange(startIndex, endIndex);
+    var startPos = this.codeMirror_.getCursor('start'), endPos = this.codeMirror_.getCursor('end');
+    var startIndex = this.codeMirror_.indexFromPos(startPos), endIndex = this.codeMirror_.indexFromPos(endPos);
+    return this.getHtmlFromRange(startIndex, endIndex);
   };
 
   Firepad.prototype.getHtmlFromRange = function(start, end) {
-    // this.assertReady_('getHtmlFromRange');
-    // var doc = (start != null && end != null) ?
-    //   this.getOperationForSpan(start, end) :
-    //   this.getOperationForSpan(0, this.codeMirror_.getValue().length);
-    // return firepad.SerializeHtml(doc, this.entityManager_);
+    this.assertReady_('getHtmlFromRange');
+    var doc = (start != null && end != null) ?
+      this.getOperationForSpan(start, end) :
+      this.getOperationForSpan(0, this.codeMirror_.getValue().length);
+    return firepad.SerializeHtml(doc, this.entityManager_);
   };
 
   Firepad.prototype.insertHtml = function (index, html) {
