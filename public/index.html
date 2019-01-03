@@ -46,7 +46,7 @@
   </style>
 </head>
 
-<body onload="init()">
+<body onload="init()" class="notSelectable">
   <div id="userlist"></div>
   <div id="firepad"></div>
 
@@ -127,6 +127,7 @@
           return false;
       });
 
+      //Disable select text on ios
       $.fn.extend({
         disableSelection : function() {
           this.each(function() {
@@ -140,9 +141,8 @@
         }
       });
 
-
-      $(function() {
-        $(this).disableSelection();
+      $(document).ready(function(){
+         $('.notSelectable').disableSelection();
       });
 
 
