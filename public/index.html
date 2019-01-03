@@ -62,7 +62,6 @@
       firebase.initializeApp(config);
 
       //// Get Firebase Database reference.
-
       var firepadRef = getExampleRef();
 
       //// Create CodeMirror (with lineWrapping on).
@@ -127,6 +126,25 @@
       $("body").on("contextmenu",function(e){
           return false;
       });
+
+      $.fn.extend({
+        disableSelection : function() {
+          this.each(function() {
+            this.onselectstart = function() {
+              return false;
+            };
+            this.unselectable = "on";
+            $(this).css('-moz-user-select', 'none');
+            $(this).css('-webkit-user-select', 'none');
+          });
+        }
+      });
+
+
+      $(function() {
+        $(this).disableSelection();
+      });
+
 
 
  firepad.on('synced', function(e) {
