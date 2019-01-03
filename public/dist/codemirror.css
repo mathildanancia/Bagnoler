@@ -377,7 +377,7 @@ span.CodeMirror-selectedtext { background: none; }
 }
 
 /* Smartphones (portrait and landscape)*/
-@media only screen and (max-device-width:980px) {
+@media only screen and (min-width : 1224px){
   .CodeMirror pre {
     font-size: 60px;
     line-height: 65px;
