@@ -268,6 +268,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   padding-right: 20px;
   text-transform:uppercase;
   margin: 0;
+      font-size: 60px;
+    line-height: 62px;
   white-space: pre;
   word-wrap: normal;
   color: black;
@@ -370,37 +372,37 @@ span.CodeMirror-selectedtext { background: none; }
 
 
 /* Smartphones (portrait and landscape)*/
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/*@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
   .CodeMirror pre {
     font-size: 35px;
     line-height: 40px;
   }
-}
+}*/
 
 /*iPads (portrait and landscape)*/
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/*@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .CodeMirror pre {
     font-size: 50px;
     line-height: 55px;
   }
-}
+}*/
 
 /*Desktops and laptops*/
 
-@media only screen and (min-width : 1224px){
+/*@media only screen and (min-width : 1224px){
   .CodeMirror pre {
     font-size: 60px;
     line-height: 62px;
   }
-}
+}*/
 
 /*Large screens*/
-@media only screen and (min-width : 1824px) {
+/*@media only screen and (min-width : 1824px) {
   .CodeMirror pre {
     font-size: 70px;
     line-height: 76px;
   }
-}
+}*/
 
 
