@@ -259,27 +259,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   cursor: text;
   min-height: 1px; /* prevents collapsing before first draw */
 }
-.CodeMirror pre {
-  /* Reset some styles that the rest of the page might have set */
-  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
-  border-width: 0;
-  background: transparent;
-  font-family: inherit;
-  padding-right: 20px;
-  text-transform:uppercase;
-  margin: 0;
-  font-size: 60px;
-  line-height: 62px;
-  white-space: pre;
-  word-wrap: normal;
-  color: black;
-  z-index: 2;
-  position: relative;
-  overflow: visible;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-font-variant-ligatures: contextual;
-  font-variant-ligatures: contextual;
-}
+
 .CodeMirror-wrap pre {
   word-wrap: break-word;
   white-space: pre-wrap;
@@ -376,6 +356,48 @@ span.CodeMirror-selectedtext { background: none; }
   .CodeMirror pre {
     font-size: 35px;
     line-height: 40px;
+    -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
+    border-width: 0;
+    background: transparent;
+    font-family: inherit;
+    padding-right: 20px;
+    text-transform:uppercase;
+    margin: 0;
+
+    white-space: pre;
+    word-wrap: normal;
+    color: black;
+    z-index: 2;
+    position: relative;
+    overflow: visible;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-variant-ligatures: contextual;
+    font-variant-ligatures: contextual;
+  }
+}
+
+/* Smartphones (portrait and landscape)*/
+@media only screen and (max-device-width:980px) {
+  .CodeMirror pre {
+    font-size: 60px;
+    line-height: 65px;
+    -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
+    border-width: 0;
+    background: transparent;
+    font-family: inherit;
+    padding-right: 20px;
+    text-transform:uppercase;
+    margin: 0;
+
+    white-space: pre;
+    word-wrap: normal;
+    color: black;
+    z-index: 2;
+    position: relative;
+    overflow: visible;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-variant-ligatures: contextual;
+    font-variant-ligatures: contextual;
   }
 }
 
