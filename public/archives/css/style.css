@@ -50,7 +50,9 @@ Main Components
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  will-change: width; }
+  will-change: width;
+
+}
   @media only screen and (min-width: 1024px) {
     .cd-slider-wrapper {
       width:50%;
