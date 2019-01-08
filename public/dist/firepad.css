@@ -10,14 +10,12 @@
 
 .firepad .CodeMirror {
   position: absolute;
-  top: 7px;
-  bottom: 0;
-  right: 0;
-  left: 16px;/*  show or hide dots fur uers connections*/
+  top: 17px;
+  bottom: 17px;
+  right: 20px;
+  left: 20px; /*  show or hide dots fur uers connections*/
   height: auto;
   text-align: justify;
-
-
 }
 
 .firepad-with-toolbar .CodeMirror {
@@ -25,7 +23,7 @@
 }
 
 .firepad-with-toolbar .CodeMirror-lines {
-  padding-top: 10px;
+/*  padding-top: 10px;*/
 }
 
 .firepad-toolbar {

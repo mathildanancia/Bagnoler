@@ -43,12 +43,31 @@
     #firepad {
       position: absolute; left: 0; top: 0; bottom: 0; right: 0; height: auto;
     }
+/*    .link-archive{
+      position: absolute;
+      font-size: 60px;
+      top: 10px;
+      right: 30px;
+          z-index: 1;*/
+      .marquee{
+        padding: 0 ;
+        font-size: 0.8rem;
+        font-family: "PT Sans", sans-serif;
+      }
+
+    }
   </style>
 </head>
 
 <body onload="init()" class="notSelectable">
-  <div id="userlist"></div>
-  <div id="firepad"></div>
+<!--   <marquee class="marquee">Right click to see Bagnoler's archives</marquee>
+ -->
+<!--   <div class="link-archive" ><a href="archives.html"></a>/</div>
+ -->
+    <div id="userlist"></div>
+    <div id="firepad"></div>
+
+  </div>
 
   <script>
     function init() {
@@ -78,33 +97,6 @@
       var firepadUserList = FirepadUserList.fromDiv(firepadRef.child('users'),
           document.getElementById('userlist'), userId);
 
-      // // Disable delete key >> now disabled in delte fucntion incide firepad.js
-      // codeMirror.setOption(
-      //   "extraKeys", {
-      //       Backspace: function(cm) {
-      //         var spaces = Array(cm.getOption("indentUnit") - 1).join(" ");
-      //         cm.replaceSelection(spaces);
-      //       }
-      // });
-
-      // //// Disable selection delete selectiion
-      // codeMirror.on("beforeSelectionChange", function(e, range) {
-      //   var start = range.ranges[0].anchor.ch;
-      //   var end = range.ranges[0].head.ch;
-      //   if (start - end != 0 ) {
-      //     console.log
-      //     codeMirror.setOption('readOnly', true);
-      //   } else {
-      //     codeMirror.setOption('readOnly', false);
-      //   }
-      // });
-
-      // //Disable cut copy paste
-      // codeMirror.bind('cut copy paste selection', function (e) {
-      //   console.log("no copy, no paste, BOO");
-      //     // e.preventDefault();
-      // });
-
       codeMirror.setOption(
         "extraKeys", {
            'Cmd-V': function (cm) {
@@ -122,9 +114,10 @@
       });
 
 
-      //Disable mouse right click
+      //Disable mouse right click > link to archives instead
       $("body").on("contextmenu",function(e){
-          return false;
+        window.open ('archives.html','_self',false)
+        return false;
       });
 
       //Disable select text on ios
@@ -132,9 +125,6 @@
         disableSelection : function() {
           this.each(function() {
             this.onselectstart = function() {
-              return false;
-            };
-            this.onselectend = function() {
               return false;
             };
             this.unselectable = "on";
@@ -150,76 +140,28 @@
 
 
 
+
+
  firepad.on('synced', function(e) {
-        var keys = [],
-        exposition = "69,88,80,79,83,73,84,73,79,78"; //this spells expositions
-        xposition = "88,80,79,83,73,84,73,79,78"; //this spells expositions
-        // benjamin = "66,69,78,74,65,77,73,78";
-        // maxime = "77,65,88,73,77,69";
-        // manuel = "77,65,78,85,69,76";
-        // emilien = "69,77,73,76,73,69,78";
-        // grichka = "71,82,73,67,72,75,65";
-        // theo = "84,72,69,79";
-        // raphael = "82,65,80,72,65,69,76";
-        // clement = "67,76,69,77,69,78,84";
-        // mathilde = "77,65,84,72,73,76,68,69";
-        // paul = "80,65,85,76";
-        // fx = "70,88";
+    var keys = [],
+    exposition = "69,88,80,79,83,73,84,73,79,78"; //this spells expositions
+    xposition = "88,80,79,83,73,84,73,79,78"; //this spells expositions
 
 
-        document.addEventListener("keydown", function(e){
-          keys.push( e.keyCode );
-          if ( keys.toString().indexOf( exposition ) >= 0 ) {
-            window.open ('expositions.html','_self',false)
-          }
-          else if ( keys.toString().indexOf( xposition ) >= 0) {
-            window.open ('expositions.html','_self',false)
-          }
-          // else if ( keys.toString().indexOf( maxime ) >= 0) {
-          //   window.open ('https://www.maximeduveau.com/','_self',false);
-          // }
-          // else if ( keys.toString().indexOf( paul ) >= 0 ) {
-          //   window.open ('https://www.youtube.com/watch?v=u7zCH9YBd2o','_self',false);
-          // }
-          // else if ( keys.toString().indexOf( fx ) >= 0 ) {
-          //   console.log("fx");
-          //   window.open ('http://www.fxdebelle.fr/','_self',false);
-          // }
-          // else if ( keys.toString().indexOf( theo ) >= 0 ) {
-          //   window.open ('https://cargocollective.com/theodoreparizet','_self',false);
-          // }
-          // else if ( keys.toString().indexOf( manuel ) >= 0 ) {
-          //   window.open ('http://www.manuelvieillot.com/','_self',false);
-          // }
-          // else if ( keys.toString().indexOf( clement ) >= 0 ) {
-          //   window.open ('http://www.glassbox.fr/2017/le-seul-possible-et-lechec-helene-delean-clement-caignart/','_self',false);
-          // }
-          // else if ( keys.toString().indexOf( mathilde ) >= 0 ) {
-          //   window.open ('http://www.mathildeganancia.fr/','_self',false);
-          // }
-          // else if ( keys.toString().indexOf( benjamin ) >= 0 ) {
-          //   window.open ('https://vimeo.com/user7586920','_self',false);
-          // }
-          // else if ( keys.toString().indexOf( emilien ) >= 0 ) {
-          //   window.open ('https://transmediale.de/content/emilien-awada','_self',false);
-          // }
-          // else if ( keys.toString().indexOf( grichka ) >= 0 ) {
-          //   window.open ('http://artviewer.org/grichka-commaret-and-kim-farkas-at-doc/','_self',false);
-          // }
-          // else if ( keys.toString().indexOf( raphael ) >= 0 ) {
-          //   console.log("raphael");
-          //   window.open ('https://lapazcollectif.files.wordpress.com/2017/05/raphael-sitbon1-2.pdf','_self',false);
-          // }
-        })
-      })
+    document.addEventListener("keydown", function(e){
+      keys.push( e.keyCode );
+      if ( keys.toString().indexOf( exposition ) >= 0 ) {
+        window.open ('expositions.html','_self',false)
+      }
+      else if ( keys.toString().indexOf( xposition ) >= 0) {
+        window.open ('expositions.html','_self',false)
+      }
+    })
+  })
 
-      //  firepad.on('synced', function(e) {
-      //     document.addEventListener("keydown", function(e){
-      //       console.log(event.which);
-      //     });
-      // });
 
-    };
+  };
+
 
 
     // // Helper to get hash from end of URL or generate a random one.
@@ -242,6 +184,7 @@
       var ref = firebase.database().ref();
       return ref;
     }
+
 
   </script>
 </body>
