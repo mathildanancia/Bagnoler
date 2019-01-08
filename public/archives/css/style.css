@@ -278,6 +278,7 @@ Main Components
 
 .collapsible {
   color: black;
+  background-color: white;
   cursor: pointer;
   width: 100%;
   text-align: left;
