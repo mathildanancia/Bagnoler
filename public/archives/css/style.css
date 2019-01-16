@@ -87,13 +87,6 @@ Main Components
   flex-direction: row;
 }
 
-.date {
-  width: 130px;
-  font-family: 'courier';
-  display: flex;
-  flex-direction: column;
-}
-
 @media only screen and (max-width: 1024px) {
   .long-titre {
     width: 180px;
@@ -101,9 +94,16 @@ Main Components
 }
 
 
+.date {
+  width: 35vw;
+  font-family: 'courier';
+  display: flex;
+  flex-direction: column;
+}
+
 @media only screen and (min-width: 1024px) {
   .date {
-    width: width: 12vw;
+    width: 12vw;
     font-size: 14px;
   }
 }
@@ -124,12 +124,12 @@ Main Components
   position: relative;
 /*  color: #ff6100;
   background-color: #226931;*/
-  margin-left: 130px;
+  margin-left: 35vw;
 }
 
 @media only screen and (min-width: 1024px) {
   .cd-single-item {
-    margin-left: width: 12vw;
+    margin-left: 12vw;
 }
 
   .cd-info {
