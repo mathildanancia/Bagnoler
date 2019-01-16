@@ -51,7 +51,7 @@
           z-index: 1;*/
       .marquee{
         padding: 0 ;
-        font-size: 0.8rem;
+        font-size: 15px;
         font-family: "PT Sans", sans-serif;
       }
 
@@ -60,8 +60,8 @@
 </head>
 
 <body onload="init()" class="notSelectable">
-<!--   <marquee class="marquee">Right click to see Bagnoler's archives</marquee>
- -->
+  <marquee class="marquee">Right click to see Bagnoler's archives</marquee>
+
 <!--   <div class="link-archive" ><a href="archives.html"></a>/</div>
  -->
     <div id="userlist"></div>
@@ -116,7 +116,7 @@
 
       //Disable mouse right click > link to archives instead
       $("body").on("contextmenu",function(e){
-        // window.open ('archives.html','_self',false)
+        window.open ('archives.html','_self',false)
         return false;
       });
 
