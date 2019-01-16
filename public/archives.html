@@ -369,6 +369,11 @@
 
   }
 
+  element.addEventListener("touchmove", touchMove, false);
+  function touchStart(event) {
+      window.open ('index.html','_self',false);
+  }
+
   var coll = document.getElementsByClassName("collapsible");
   var i;
 
