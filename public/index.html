@@ -77,8 +77,8 @@
 
 <body onload="init()" class="notSelectable">
   <marquee class="marquee">Right click to see Bagnoler's archives</marquee>
-  <marquee class="marquee-iphone">Swap to see Bagnoler's archives</marquee>
-
+<!--   <marquee class="marquee-iphone">Swap to see Bagnoler's archives</marquee>
+ -->
 <!--   <div class="link-archive" ><a href="archives.html"></a>/</div>
  -->
     <div id="userlist"></div>
@@ -137,9 +137,9 @@
         return false;
       });
       //iphone
-      $("body").on("touchmove",function(e){
-        window.open ('archives.html','_self',false);
-      });
+      // $("body").on("touchmove",function(e){
+      //   window.open ('archives.html','_self',false);
+      // });
 
 
       //Disable select text on ios

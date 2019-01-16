@@ -174,13 +174,14 @@ font-size: 9px;*/
   width:100%;
 }
 
+.marquee-iphone{
+  display: block;
+}
+
 .marquee{
   display: none;
 }
 
-.marquee-iphone{
-  display: block;
-}
 @media only screen and (min-width: 1024px) {
   .marquee-iphone{
     display: none;
