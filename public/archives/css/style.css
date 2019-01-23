@@ -110,7 +110,7 @@ Main Components
 
 @media only screen and (min-width: 1024px) {
   .title {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
@@ -161,8 +161,17 @@ font-size: 9px;*/
   font-size: 10px;
 }
 
+.about{
+  font-size: 10px;
+  margin-top: 10px;
+  max-width: 70%;
+}
+
 @media only screen and (min-width: 1024px) {
   .adresse {
+    font-size: 14px;
+  }
+  .about{
     font-size: 14px;
   }
 }
